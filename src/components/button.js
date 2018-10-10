@@ -1,12 +1,13 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.13em;
+  max-width: 40vw;
 
   background: none;
-  color: #6900ff;
+  color: white;
 
   border: 2px solid #6900ff;
   box-sizing: border-box; /* Button Shadow 1 */
@@ -33,10 +34,14 @@ const Button = styled.button`
   ${props =>
     props.primary &&
     css`
-      font-size: 26px;
+      font-size: 1.5rem;
       text-transform: uppercase;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 15px;
+
+      @media (max-width: 640px) {
+        font-size: 1rem;
+      }
     `};
 
   ${props =>
@@ -45,5 +50,5 @@ const Button = styled.button`
       border-color: white;
       color: white;
     `};
-`
-export default Button
+`;
+export default Button;
