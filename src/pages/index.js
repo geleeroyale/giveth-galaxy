@@ -184,10 +184,6 @@ const NewDiv = styled.div`
   max-width: 60vw;
 `;
 
-//
-// SECTION3 - Functions
-//
-
 class IndexPage extends React.Component {
   //
   // SECTION4 - Main Website Composition
