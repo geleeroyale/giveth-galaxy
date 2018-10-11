@@ -6,7 +6,6 @@ import HeroBackground from "../images/m82.jpg";
 import Button from "../components/button";
 import Layout from "../components/layout";
 import Cell from "../components/Cell";
-import Leaderboard from "../components/Leaderboard/Leaderboard";
 
 import staticdata from "../data/galaxy.json";
 
@@ -186,44 +185,10 @@ const NewDiv = styled.div`
 `;
 
 //
-// SECTION2 - Values for Leaderboard component, set to Giveth's donation address
-//
-
-const donationAddress = "0x5adf43dd006c6c36506e2b2dfa352e60002d22dc"; //replace with the address to watch
-const deploymentBlock = "4448139"; // Passing a deployment block significantly speeds up the loading process
-const leaderboardType = "leaderboard"; // can be a "leaderboard" or "multisig"
-
-function LeaderboardDisplay(props) {
-  if (!props.show) {
-    return null;
-  }
-
-  return (
-    <Leaderboard
-      address={donationAddress}
-      deploymentBlock={deploymentBlock}
-      type={leaderboardType}
-    />
-  );
-}
-
-//
 // SECTION3 - Functions
 //
 
 class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleLeaderboardToggle = this.handleLeaderboardToggle.bind(this);
-    this.state = { LeaderboardToggle: false };
-  }
-
-  handleLeaderboardToggle() {
-    this.setState(prevState => ({
-      LeaderboardToggle: !prevState.LeaderboardToggle
-    }));
-  }
-
   //
   // SECTION4 - Main Website Composition
   //
@@ -325,8 +290,9 @@ class IndexPage extends React.Component {
             </ul>
           </TextBlock>
           <Block>
-            {staticdata.cells.map(cell => (
+            {staticdata.cells.map((cell, index) => (
               <Cell
+                key={index}
                 title={cell.title}
                 link={cell.link}
                 description={cell.description}
@@ -372,14 +338,6 @@ class IndexPage extends React.Component {
             PageMaker including versions of Lorem Ipsum.
           </p>
         </NewDiv>
-        <Block>
-          <Button onClick={this.handleLeaderboardToggle}>
-            {this.state.LeaderboardToggle
-              ? "Hide Leaderboard"
-              : "Show Donation Leaderboard"}
-          </Button>
-        </Block>
-        <LeaderboardDisplay show={this.state.LeaderboardToggle} />
       </Layout>
     );
   }
