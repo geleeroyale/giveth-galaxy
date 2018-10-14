@@ -3,8 +3,11 @@
 # dependencies
 /node_modules
 package-lock.json
-/.cache
 yarn.lock
 
 # production
 /public
+/.cache
+
+#editors
+.vscode
