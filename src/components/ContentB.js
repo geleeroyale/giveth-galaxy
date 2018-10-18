@@ -43,7 +43,7 @@ const Headline2 = styled.h2`
     justify-self: center;
   }
 `;
-const MainText1 = styled.p`
+const MainText1 = styled.div`
   max-width: 500px;
   justify-self: end;
   margin: 0;
@@ -56,7 +56,7 @@ const MainText1 = styled.p`
     justify-self: center;
   }
 `;
-const MainText2 = styled.p`
+const MainText2 = styled.div`
   max-width: 500px;
   justify-self: start;
   margin: 0;

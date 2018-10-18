@@ -23,7 +23,7 @@ const Headline1 = styled.h1`
 const Headline2 = styled.h2`
   align-self: start;
 `;
-const MainText = styled.p`
+const MainText = styled.div`
   max-width: 500px;
   margin: 0;
 
@@ -41,7 +41,7 @@ const ContentA = ({ data }) => (
       <Headline2>{data.node.headline2}</Headline2>
       <MainText
         dangerouslySetInnerHTML={{
-          __html: data.node.contentText.contentText
+          __html: data.node.contentText.childMarkdownRemark.html
         }}
       />
       <DetailsLink href={data.node.readMoreLink}>... read more</DetailsLink>
