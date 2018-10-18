@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 
 import Header from "./header";
+import Footer from "./footer";
 import "./layout.css";
 
 const Layout = ({ children }) => (
@@ -14,6 +15,7 @@ const Layout = ({ children }) => (
           siteMetadata {
             title
             description
+            keywords
           }
         }
       }
@@ -29,8 +31,7 @@ const Layout = ({ children }) => (
             },
             {
               name: "keywords",
-              content:
-                "Donation, DApp, Ethereum, open-source, blockchain for good"
+              content: data.site.siteMetadata.keywords
             }
           ]}
         >
@@ -46,6 +47,7 @@ const Layout = ({ children }) => (
           }}
         >
           {children}
+          <Footer />
         </div>
       </>
     )}
