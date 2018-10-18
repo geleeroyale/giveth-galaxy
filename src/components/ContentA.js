@@ -11,20 +11,39 @@ const ContentItem = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(4, auto);
   grid-gap: 0 3rem;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 `;
 const ContentImage = styled.img`
   max-width: 400px;
   grid-row: span 4;
   justify-self: end;
+  @media (max-width: 800px) {
+    justify-self: center;
+    padding-bottom: 3rem;
+    max-width: 280px;
+  }
 `;
 const Headline1 = styled.h1`
   align-self: end;
+
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 `;
 const Headline2 = styled.h2`
   align-self: start;
+
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 `;
 const MainText = styled.div`
-  max-width: 500px;
+  max-width: 300px;
   margin: 0;
 
   p {

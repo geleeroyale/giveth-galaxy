@@ -14,10 +14,10 @@ const ContentHeader = styled.div`
   grid-gap: 0rem 1rem;
   padding-bottom: 3rem;
 
-  @media (max-width: 800px) {
-    grid-template-rows: repeat(4, 1fr);
+  @media (max-width: 990px) {
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: 1fr;
     grid-gap: 0.5rem;
-    width: 100%;
     justify-items: center;
   }
 `;
@@ -26,10 +26,11 @@ const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  @media (max-width: 800px) {
-    grid-row: 1;
-    width: 100%;
+  @media (max-width: 990px) {
     justify-self: center;
+  }
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
   }
 `;
 const Headline2 = styled.h2`
@@ -37,10 +38,11 @@ const Headline2 = styled.h2`
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
-  @media (max-width: 800px) {
-    grid-row: 2;
-    width: 100%;
+  @media (max-width: 990px) {
     justify-self: center;
+  }
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
   }
 `;
 const MainText1 = styled.div`
@@ -50,9 +52,8 @@ const MainText1 = styled.div`
   p {
     margin: 0;
   }
-  @media (max-width: 800px) {
-    grid-row: 3;
-    width: 100%;
+  @media (max-width: 990px) {
+    width: 1fr;
     justify-self: center;
   }
 `;
@@ -63,9 +64,9 @@ const MainText2 = styled.div`
   p {
     margin: 0;
   }
-  @media (max-width: 800px) {
+  @media (max-width: 980px) {
     grid-row: 4;
-    width: 100%;
+    width: 1fr;
     justify-self: center;
   }
 `;
@@ -75,14 +76,14 @@ const ItemContainer = styled.div`
   grid-gap: 2rem 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: repeat(6, auto);
+  justify-items: center;
 `;
 
 const ContentItem = styled.div`
   padding: 0.5rem;
   display: grid;
-  justify-items: start;
-  align-items: center;
-  max-width: 320px;
+  justify-self: stretch;
+  align-self: center;
   background: #222;
   border-radius: 10px;
   background-image: linear-gradient(black, white);
@@ -93,8 +94,8 @@ const ContentItem = styled.div`
 `;
 
 const ContentImage = styled.img`
-  margin: 0;
-  max-height: 80px;
+  padding: 0.5rem;
+  height: 60px;
   width: auto;
   grid-row: 1;
   justify-self: center;
@@ -104,7 +105,7 @@ const ContentImage = styled.img`
 
 const ProjectTitle = styled.a`
   justify-self: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 100;
   grid-row: 2;
   background-color: black;

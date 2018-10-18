@@ -319,5 +319,22 @@ export const query = graphql`
         }
       }
     }
+    file(relativePath: { eq: "m82.jpg" }) {
+      id
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          base64
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          originalImg
+          originalName
+        }
+      }
+    }
   }
 `;
