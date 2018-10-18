@@ -23,7 +23,7 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^3.2.1",
     "react-scrollable-anchor": "^0.6.1",
-    "styled-components": "^4.0.0-beta.9-macro2",
+    "styled-components": "^4.0.1",
     "web3": "^1.0.0-beta.36"
   },
   "keywords": [
