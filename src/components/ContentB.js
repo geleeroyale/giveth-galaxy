@@ -13,18 +13,35 @@ const ContentHeader = styled.div`
   grid-template-rows: repeat(3, minmax(320px 1fr));
   grid-gap: 0rem 1rem;
   padding-bottom: 3rem;
+
+  @media (max-width: 800px) {
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 0.5rem;
+    width: 100%;
+    justify-items: center;
+  }
 `;
 
 const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
+  @media (max-width: 800px) {
+    grid-row: 1;
+    width: 100%;
+    justify-self: center;
+  }
 `;
 const Headline2 = styled.h2`
   grid-column: span 2;
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
+  @media (max-width: 800px) {
+    grid-row: 2;
+    width: 100%;
+    justify-self: center;
+  }
 `;
 const MainText1 = styled.p`
   max-width: 500px;
@@ -33,6 +50,11 @@ const MainText1 = styled.p`
   p {
     margin: 0;
   }
+  @media (max-width: 800px) {
+    grid-row: 3;
+    width: 100%;
+    justify-self: center;
+  }
 `;
 const MainText2 = styled.p`
   max-width: 500px;
@@ -40,6 +62,11 @@ const MainText2 = styled.p`
   margin: 0;
   p {
     margin: 0;
+  }
+  @media (max-width: 800px) {
+    grid-row: 4;
+    width: 100%;
+    justify-self: center;
   }
 `;
 
@@ -55,11 +82,11 @@ const ContentItem = styled.div`
   display: grid;
   justify-items: start;
   align-items: center;
-  min-width: 320px;
+  max-width: 320px;
   background: #222;
   border-radius: 10px;
   background-image: linear-gradient(black, white);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-attachment: fixed;
   color: black;
@@ -67,7 +94,7 @@ const ContentItem = styled.div`
 
 const ContentImage = styled.img`
   margin: 0;
-  height: 100px;
+  max-height: 80px;
   width: auto;
   grid-row: 1;
   justify-self: center;
