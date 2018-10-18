@@ -8,6 +8,7 @@ yarn.lock
 
 #development
 .env
+/SNIPPETS
 
 # production
 /public

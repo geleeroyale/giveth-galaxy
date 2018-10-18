@@ -1,18 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import { StaticQuery, graphql } from "gatsby";
-
 import HeroBackground from "../images/m82.jpg";
 
 import ContentA from "../components/ContentA";
 import ContentB from "../components/ContentB";
 import Button from "../components/button";
 import Layout from "../components/layout";
-
-import Cell from "../components/Cell";
-
-import staticdata from "../data/galaxy.json";
 
 //
 // SECTION1 - Styling
@@ -35,6 +29,7 @@ const Hero = styled.div`
   min-height: 100vh;
   align-content: center;
   justify-content: center;
+  display: grid;
 `;
 
 const HeroGroup = styled.div`
