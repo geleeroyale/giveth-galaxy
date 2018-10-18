@@ -29,7 +29,7 @@ const Hero = styled.div`
       #000000 100%
     ),
     url(${HeroBackground});
-
+  padding-top: 10vh;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -38,7 +38,7 @@ const Hero = styled.div`
 `;
 
 const HeroGroup = styled.div`
-  margin: 0 10vw;
+  margin: 0 15vw;
   padding: 200px 50px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -61,6 +61,7 @@ const HeroGroup = styled.div`
     grid-column: 2;
     grid-row: 1;
     max-width: 500px;
+    justify-self: center;
   }
 
   .hero-item-2 {
@@ -104,7 +105,7 @@ const HeroNav = styled.div`
   h2 {
     text-align: center;
     font-size: 1.2rem;
-    margin 0;
+    margin: 0;
     font-weight: 800;
   }
 
@@ -197,7 +198,7 @@ const IndexPage = ({ data }) => (
       <HeroGroup>
         <img
           src={require("../images/logo/givethio-white.svg")}
-          alt=""
+          alt="giveth.io"
           className="hero-item-1"
         />
         <p className="hero-item-2">a community of developers</p>
