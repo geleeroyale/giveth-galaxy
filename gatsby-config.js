@@ -1,7 +1,11 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: "Giveth",
-    description: "Building the future of Giving"
+    description:
+      "A community of developers - Building the future of Giving - #blockchainforgood",
+    keywords: "donation, ethereum, blockchain, crypto, dapp, donate, eth"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -19,10 +23,10 @@ module.exports = {
     },
     "gatsby-plugin-offline",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`
+        spaceId: process.env.CONTENTFUL_SPACE_ID || "",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || ""
       }
     },
     {
@@ -33,12 +37,36 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`
+      }
+    },
+    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
       }
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590
+            }
+          }
+        ]
+      }
+    }
   ]
 };
