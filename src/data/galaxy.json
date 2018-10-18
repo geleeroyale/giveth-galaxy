@@ -1,0 +1,36 @@
+{
+    "cells": [
+        {
+            "title":       "Aragon DAC",
+            "link":        "https://aragon.one",
+            "description": "DAO community building",
+            "image":       "https://i.imgur.com/vZuS1yM.png"
+        },
+        {
+            "title":       "Tennagraph",
+            "link":        "https://tennagraph.io",
+            "description": "Ethereum Signal Aggregator",
+            "image":       "http://i59.tinypic.com/34rskfp.png"
+        },{
+            "title":       "...NOW",
+            "link":        "https://aragon.one",
+            "description": "discussion and action",
+            "image":       "https://i.imgur.com/74MRqW9.png"
+        },{
+            "title":       "Bright ID",
+            "link":        "https://aragon.one",
+            "description": "verification via trust circles",
+            "image":       "https://i.imgur.com/87rbBtP.png"
+        },{
+            "title":       "Space Decentral",
+            "link":        "https://aragon.one",
+            "description": "open source space agency",
+            "image":       "https://i.imgur.com/pL96QS4.png"
+        },{
+            "title":       "Decentral",
+            "link":        "https://aragon.one",
+            "description": "Hacker-space and camp",
+            "image":       "https://i.imgur.com/Eg0aBkh.png"
+        }
+    ]
+}
