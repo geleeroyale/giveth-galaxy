@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
 
-import HeroBackground from "../images/m82.jpg";
+// import HeroBackground from "../images/m82.jpg";
 
 import ContentA from "../components/ContentA";
 import ContentB from "../components/ContentB";
@@ -18,19 +19,18 @@ import Layout from "../components/layout";
 
 const Hero = styled.div`
   background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      #000000 100%,
-      #000000 100%
-    ),
-    url(${HeroBackground});
-  padding-top: 10vh;
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    #000000 100%,
+    #000000 100%
+  );
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  height: 100vh;
   align-content: center;
   justify-content: center;
   display: grid;
+  z-index: -1;
 `;
 
 const HeroGroup = styled.div`
@@ -190,6 +190,17 @@ const NewDiv = styled.div`
 
 const IndexPage = ({ data }) => (
   <Layout>
+    <Img
+      sizes={data.file.childImageSharp.fluid}
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 0,
+        width: "100%",
+        height: "100vh",
+        "z-index": "-2"
+      }}
+    />
     <Hero>
       <HeroGroup>
         <img
@@ -244,6 +255,17 @@ const IndexPage = ({ data }) => (
     />
     <ContentA data={data.allContentfulContentA.edges[0]} />
     <ContentA data={data.allContentfulContentA.edges[1]} />
+    <Img
+      sizes={data.file.childImageSharp.fluid}
+      style={{
+        position: "relative",
+        left: 0,
+        top: 0,
+        width: "100%",
+        height: "100vh",
+        "z-index": "-2"
+      }}
+    />
   </Layout>
 );
 
@@ -320,19 +342,9 @@ export const query = graphql`
       }
     }
     file(relativePath: { eq: "m82.jpg" }) {
-      id
       childImageSharp {
-        fluid(maxWidth: 1000) {
-          base64
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-          originalImg
-          originalName
+        fluid(maxWidth: 1920, quality: 75) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
