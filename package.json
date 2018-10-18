@@ -8,6 +8,7 @@
     "gatsby": "^2.0.0",
     "gatsby-image": "^2.0.13",
     "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-netlify": "^2.0.1",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.6",
@@ -24,7 +25,6 @@
     "react-icons": "^3.2.1",
     "react-scrollable-anchor": "^0.6.1",
     "styled-components": "^4.0.1",
-    "web3": "^1.0.0-beta.36"
   },
   "keywords": [
     "gatsby"
