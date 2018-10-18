@@ -274,6 +274,7 @@ export const query = graphql`
           headline2
           contentText {
             id
+            contentText
             childMarkdownRemark {
               html
             }

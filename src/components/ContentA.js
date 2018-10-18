@@ -41,7 +41,7 @@ const ContentA = ({ data }) => (
       <Headline2>{data.node.headline2}</Headline2>
       <MainText
         dangerouslySetInnerHTML={{
-          __html: data.node.contentText.childMarkdownRemark.html
+          __html: data.node.contentText.contentText
         }}
       />
       <DetailsLink href={data.node.readMoreLink}>... read more</DetailsLink>
