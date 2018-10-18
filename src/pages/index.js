@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { graphql } from "gatsby";
 
 import HeroBackground from "../images/m82.jpg";
 
