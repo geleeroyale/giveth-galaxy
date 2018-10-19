@@ -9,7 +9,7 @@ const Button = styled.button`
   background: none;
   color: white;
 
-  border: 2px solid #6900ff;
+  border: 2px solid #e01c6b;
   box-sizing: border-box; /* Button Shadow 1 */
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
   border-radius: 30px;
@@ -26,7 +26,7 @@ const Button = styled.button`
   }
 
   :hover {
-    background-color: #6900ff;
+    background-color: #e01c6b;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
     transform: translateY(-3px);
   }

@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
-// import HeroBackground from "../images/m82.jpg";
-
 import ContentA from "../components/ContentA";
 import ContentB from "../components/ContentB";
+import ContentC from "../components/ContentC";
+import Friendlogos from "../components/Friends";
+
 import Button from "../components/button";
 import Layout from "../components/layout";
 
@@ -18,6 +19,7 @@ import Layout from "../components/layout";
 //
 
 const Hero = styled.div`
+  padding-top: 10vh;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
@@ -26,11 +28,15 @@ const Hero = styled.div`
   );
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  align-content: center;
+  height: 90vh;
+  align-content: start;
   justify-content: center;
   display: grid;
   z-index: -1;
+
+  @media (max-width: 960) {
+    padding: 0;
+  }
 `;
 
 const HeroGroup = styled.div`
@@ -79,6 +85,7 @@ const HeroGroup = styled.div`
   }
 
   @media (max-width: 640px) {
+    margin: 0;
     h1 {
       font-size: 1.2rem;
     }
@@ -86,7 +93,6 @@ const HeroGroup = styled.div`
     p {
       font-size: 1.2rem;
     }
-    padding: 150px 20px;
   }
 `;
 
@@ -112,93 +118,73 @@ const HeroNav = styled.div`
   }
 
   @media (max-width: 640px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 3rem 0;
-    justify-content: stretch;
-    align-items: stretch;
+    display: none;
   }
 `;
 
 const Block = styled.div`
   display: block;
   text-align: center;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  :hover {
+    transform: skew(0deg, -10deg);
+  }
 `;
 
-const SectionCircles = styled.div`
-  margin: 5vh auto;
-  min-height: 60vh;
-  max-width: 1024px;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 10vw;
-  justify-content: space-between;
-  align-items: center;
+const Container = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+  justify-content: center;
+`;
 
-  .circlesDiagram {
-    width: 20vw;
-    @media (max-width: 640px) {
-      width: 90%;
-      margin-top: 10vh;
-      margin-bottom: 3rem;
-    }
+const Headline1 = styled.h1`
+  grid-column: span 2;
+  justify-self: start;
+  align-self: end;
+  @media (max-width: 990px) {
+    justify-self: center;
   }
-
   @media (max-width: 640px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 0.5rem;
-    width: 100%;
-    justify-items: center;
+    font-size: 1.5rem;
   }
 `;
-
-const TextBlock = styled.div`
-  display: block;
-  max-width: 90%;
-
+const Headline2 = styled.h2`
+  grid-column: span 2;
+  justify-self: start;
+  align-self: start;
+  padding-bottom: 2rem;
+  @media (max-width: 990px) {
+    justify-self: center;
+  }
   @media (max-width: 640px) {
-    h1 {
-      font-size: 2rem;
-    }
-    h2 {
-      font-size: 2rem;
-    }
+    font-size: 1.5rem;
   }
 `;
 
-const SectionGalaxy = styled.div`
-  margin: 5vh auto;
-  min-height: 100vh;
-  max-width: 1024px;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 10vw;
-  justify-content: space-between;
-  align-items: center;
-
-  @media (max-width: 640px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 0.5rem;
-    width: 100%;
-    justify-items: center;
-  }
+const Gradient1 = styled.div`
+  padding: 10vh 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
+  height: 100%;
 `;
 
-const NewDiv = styled.div`
-  margin: auto;
-  max-width: 60vw;
+const Gradient2 = styled.div`
+  padding: 10vh 0;
+  background: linear-gradient(180deg, #2c0b3f 0%, #c2449f 100%);
+  z-index: -1;
 `;
 
 const IndexPage = ({ data }) => (
   <Layout>
     <Img
-      sizes={data.file.childImageSharp.fluid}
+      fluid={data.backgroundImage.childImageSharp.fluid}
       style={{
         position: "absolute",
         left: 0,
         top: 0,
         width: "100%",
         height: "100vh",
-        "z-index": "-2"
+        zIndex: "-2"
       }}
     />
     <Hero>
@@ -250,37 +236,40 @@ const IndexPage = ({ data }) => (
     </Hero>
 
     <ContentB
-      headerdata={data.allContentfulContentB.edges[0]}
-      data={data.allContentfulContentBCards.edges}
+      headerdata={data.contentB.edges[0]}
+      data={data.contentBcards.edges}
     />
-    <ContentA data={data.allContentfulContentA.edges[0]} />
-    <ContentA data={data.allContentfulContentA.edges[1]} />
-    <Img
-      sizes={data.file.childImageSharp.fluid}
-      style={{
-        position: "relative",
-        left: 0,
-        top: 0,
-        width: "100%",
-        height: "100vh",
-        "z-index": "-2"
-      }}
-    />
+    <Gradient1 id="dapp">
+      <Img
+        fluid={data.imageEarth.childImageSharp.fluid}
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "auto",
+          zIndex: "-2",
+          opacity: "0.1"
+        }}
+      />
+      <Container>
+        <Headline1>Blockchain powered,</Headline1>
+        <Headline2>decentralized applications</Headline2>
+        <ContentC data={data.contentDapps.edges} />
+      </Container>
+    </Gradient1>
+    <Gradient2>
+      <ContentA data={data.contentA.edges[0]} />
+      <ContentA data={data.contentA.edges[1]} />
+    </Gradient2>
+
+    <Friendlogos data={data.friends.edges} />
   </Layout>
 );
 
 export default IndexPage;
 
 export const query = graphql`
-  query PageQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        keywords
-      }
-    }
-    allContentfulContentA {
+  query NewQuery {
+    contentA: allContentfulContentA {
       edges {
         node {
           id
@@ -305,7 +294,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulContentB {
+    contentB: allContentfulContentB {
       edges {
         node {
           headline1
@@ -325,7 +314,9 @@ export const query = graphql`
         }
       }
     }
-    allContentfulContentBCards(sort: { fields: [createdAt], order: ASC }) {
+    contentBcards: allContentfulContentBCards(
+      sort: { fields: [createdAt], order: ASC }
+    ) {
       edges {
         node {
           id
@@ -341,10 +332,55 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "m82.jpg" }) {
+    contentDapps: allContentfulContentDapps {
+      edges {
+        node {
+          id
+          projectTitle
+          projectUrl
+          projectShortDescription
+          contentText {
+            childMarkdownRemark {
+              html
+            }
+          }
+          logo {
+            file {
+              url
+            }
+          }
+          screenshot {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    backgroundImage: file(relativePath: { eq: "m82.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    imageEarth: file(relativePath: { eq: "earth.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 75) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    friends: allContentfulFriendslogos {
+      edges {
+        node {
+          id
+          link
+          logo {
+            file {
+              url
+            }
+          }
         }
       }
     }

@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const ContentContainer = styled.div`
+  padding: 20vh 0;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
-  padding: 20vh 0;
 `;
 const ContentHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, minmax(320px 1fr));
   grid-gap: 0rem 1rem;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
 
   @media (max-width: 990px) {
     grid-template-rows: repeat(4, auto);
@@ -84,13 +84,27 @@ const ContentItem = styled.div`
   display: grid;
   justify-self: stretch;
   align-self: center;
-  background: #222;
   border-radius: 10px;
-  background-image: linear-gradient(black, white);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(20, 20, 20, 0.5) 100%
+  );
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
-  color: black;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  :hover {
+    transform: scale(1.2) translateY(-3px);
+    background-color: #2c0b3f;
+  }
+`;
+
+const UpperCard = styled.div`
+  background-color: black;
+  display: grid;
+  color: white;
 `;
 
 const ContentImage = styled.img`
@@ -108,10 +122,14 @@ const ProjectTitle = styled.a`
   font-size: 1.5rem;
   font-weight: 100;
   grid-row: 2;
-  background-color: black;
-  border-radius: 30px;
   margin: 1rem;
   padding: 0 1rem;
+
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  :hover {
+    transform: scale(1.2) translateY(-3px);
+  }
 `;
 
 const ProjectDescription = styled.p`
@@ -138,10 +156,12 @@ const ContentB = ({ headerdata, data }) => (
     <ItemContainer>
       {data.map(edges => (
         <ContentItem key={edges.node.id}>
-          <ContentImage src={edges.node.logo.file.url} />
-          <ProjectTitle href={edges.node.projectUrl}>
-            {edges.node.projectTitle}
-          </ProjectTitle>
+          <UpperCard>
+            <ContentImage src={edges.node.logo.file.url} />
+            <ProjectTitle href={edges.node.projectUrl}>
+              {edges.node.projectTitle}
+            </ProjectTitle>
+          </UpperCard>
           <ProjectDescription>
             {edges.node.projectShortDescription}
           </ProjectDescription>
