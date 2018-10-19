@@ -90,7 +90,7 @@ const Screenshot = styled.img`
 `;
 
 const LongDescription = styled.div`
-  max-width: 400px;
+  max-width: 500px;
   justify-self: center;
   margin: 0;
   padding: 2rem;
@@ -98,7 +98,7 @@ const LongDescription = styled.div`
     margin: 0;
   }
   @media (max-width: 990px) {
-    width: 1fr;
+    max-width: 1fr;
   }
 `;
 

@@ -16,6 +16,9 @@ const LinkContainer = styled.div`
   padding-bottom: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   justify-content: center;
+  @media (max-width: 640px) {
+    grid-template-rows: auto auto;
+  }
 `;
 
 const Description = styled.p`

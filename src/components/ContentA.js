@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ContentContainer = styled.div`
-  padding: 20vh 0;
+  padding: 10vh 0;
   display: grid;
   grid-template-columns: 1fr;
 `;
@@ -11,7 +11,7 @@ const ContentItem = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(4, auto);
   grid-gap: 0 3rem;
-  @media (max-width: 800px) {
+  @media (max-width: 990px) {
     grid-template-columns: 1fr;
     justify-items: center;
   }
@@ -20,6 +20,7 @@ const ContentImage = styled.img`
   max-width: 400px;
   grid-row: span 4;
   justify-self: end;
+  align-self: center;
   @media (max-width: 800px) {
     justify-self: center;
     padding-bottom: 3rem;
@@ -32,6 +33,7 @@ const Headline1 = styled.h1`
   @media (max-width: 640px) {
     font-size: 1.5rem;
     text-align: center;
+    word-wrap: break-word;
   }
 `;
 const Headline2 = styled.h2`
@@ -40,14 +42,18 @@ const Headline2 = styled.h2`
   @media (max-width: 640px) {
     font-size: 1.5rem;
     text-align: center;
+    word-wrap: break-word;
   }
 `;
 const MainText = styled.div`
-  max-width: 300px;
+  max-width: 500px;
   margin: 0;
 
   p {
     margin: 0;
+  }
+  @media (max-width: 640px) {
+    max-width: 1fr;
   }
 `;
 const DetailsLink = styled.a``;

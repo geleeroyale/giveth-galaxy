@@ -5,6 +5,11 @@ import { FaHeart } from "react-icons/fa";
 const OuterContainer = styled.div`
   margin: 0 auto;
   color: #333;
+  width: 100%;
+  transform: skew(0deg, -5deg);
+  @media (max-width: 640px) {
+    transform: skew(0deg, 0deg);
+  }
 `;
 
 const Container = styled.div`
@@ -22,6 +27,11 @@ const Description = styled.h2`
   font-size: 1rem;
   text-align: center;
   color: #c1439e;
+  transform: skew(0deg, 5deg);
+  @media (max-width: 640px) {
+    font-size: 0.8rem;
+    transform: skew(0deg, 0deg);
+  }
 `;
 
 const Icon = styled.p`
@@ -69,8 +79,12 @@ const Logo = styled.img`
   filter: saturate(0.1);
 
   :hover {
-    transform: scale(1.2) translateY(-3px);
+    transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
     filter: saturate(1);
+  }
+
+  @media (max-width: 640px) {
+    transform: skew(0deg, 0deg);
   }
 `;
 

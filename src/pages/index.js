@@ -6,6 +6,7 @@ import Img from "gatsby-image";
 import ContentA from "../components/ContentA";
 import ContentB from "../components/ContentB";
 import ContentC from "../components/ContentC";
+import ContentD from "../components/ContentD";
 import Friendlogos from "../components/Friends";
 
 import Button from "../components/button";
@@ -28,7 +29,7 @@ const Hero = styled.div`
   );
   background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 100vh;
   align-content: start;
   justify-content: center;
   display: grid;
@@ -173,6 +174,12 @@ const Gradient2 = styled.div`
   background: linear-gradient(180deg, #2c0b3f 0%, #c2449f 100%);
   z-index: -1;
 `;
+const Black = styled.div`
+  padding: 10vh 0;
+  background: black;
+  height: 120%;
+  z-index: 0;
+`;
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -240,16 +247,6 @@ const IndexPage = ({ data }) => (
       data={data.contentBcards.edges}
     />
     <Gradient1 id="dapp">
-      <Img
-        fluid={data.imageEarth.childImageSharp.fluid}
-        style={{
-          position: "absolute",
-          width: "100%",
-          height: "auto",
-          zIndex: "-2",
-          opacity: "0.1"
-        }}
-      />
       <Container>
         <Headline1>Blockchain powered,</Headline1>
         <Headline2>decentralized applications</Headline2>
@@ -257,11 +254,17 @@ const IndexPage = ({ data }) => (
       </Container>
     </Gradient1>
     <Gradient2>
+      <Container>
+        <Headline1>Our Community</Headline1>
+        <Headline2>of digitally soverain Unicorns</Headline2>
+      </Container>
       <ContentA data={data.contentA.edges[0]} />
       <ContentA data={data.contentA.edges[1]} />
     </Gradient2>
-
-    <Friendlogos data={data.friends.edges} />
+    <Black>
+      <ContentD headerdata={data.contentTools.edges[0]} />
+      <Friendlogos data={data.friends.edges} />
+    </Black>
   </Layout>
 );
 
@@ -332,7 +335,9 @@ export const query = graphql`
         }
       }
     }
-    contentDapps: allContentfulContentDapps {
+    contentDapps: allContentfulContentDapps(
+      sort: { fields: [createdAt], order: ASC }
+    ) {
       edges {
         node {
           id
@@ -352,6 +357,26 @@ export const query = graphql`
           screenshot {
             file {
               url
+            }
+          }
+        }
+      }
+    }
+    contentTools: allContentfulContentTools {
+      edges {
+        node {
+          headline1
+          headline2
+          contentText {
+            id
+            childMarkdownRemark {
+              html
+            }
+          }
+          contentText2 {
+            id
+            childMarkdownRemark {
+              html
             }
           }
         }
