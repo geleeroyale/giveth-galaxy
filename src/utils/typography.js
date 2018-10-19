@@ -1,9 +1,14 @@
-import { TypographyStyle, GoogleFont } from "react-typography";
 import Typography from "typography";
 
 const typography = new Typography({
   baseFontSize: "18px",
   baseLineHeight: 1.666,
+  googleFonts: [
+    {
+      name: "Raleway",
+      styles: ["400", "400i", "700", "700i"]
+    }
+  ],
   headerFontFamily: [
     "Raleway",
     "Avenir Next",
@@ -13,7 +18,7 @@ const typography = new Typography({
     "Arial",
     "sans-serif"
   ],
-  bodyFontFamily: ["Raleway", "Georgia", "serif"]
+  bodyFontFamily: ["Raleway", "Helvetica Neue", "serif"]
 });
 
 export default typography;

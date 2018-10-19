@@ -2,10 +2,40 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import { createGlobalStyle, styled } from "styled-components";
+
+import { TypographyStyle, GoogleFont } from "react-typography";
+import typography from "../utils/typography";
 
 import Header from "./header";
 import Footer from "./footer";
-import "./layout.css";
+
+const GlobalStyle = createGlobalStyle`
+  html {
+    color: red;
+  }
+  body {
+  margin: 0;
+  background-color: #000000;
+  color: #DFDAE8;
+}
+  a {
+    color: #E01C6B;
+    text-decoration: none;
+    font-weight: 600;
+}
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2rem; 
+  font-weight: 300;
+}
+`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -36,7 +66,10 @@ const Layout = ({ children }) => (
           ]}
         >
           <html lang="en" />
+          <TypographyStyle typography={typography} />
+          <GoogleFont typography={typography} />
         </Helmet>
+        <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
