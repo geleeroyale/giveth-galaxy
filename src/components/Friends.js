@@ -21,12 +21,14 @@ const Gradient3 = styled.div`
 const Description = styled.h2`
   font-size: 1rem;
   text-align: center;
+  color: #c1439e;
 `;
 
 const Icon = styled.p`
   font-size: 4rem;
   line-height: 0;
   margin: 1rem;
+  color: #333;
 
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
@@ -64,9 +66,11 @@ const ContentItem = styled.div`
 const Logo = styled.img`
   max-width: 150px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: saturate(0.1);
 
   :hover {
     transform: scale(1.2) translateY(-3px);
+    filter: saturate(1);
   }
 `;
 
