@@ -256,7 +256,7 @@ const IndexPage = ({ data }) => (
     <Gradient2>
       <Container>
         <Headline1>Our Community</Headline1>
-        <Headline2>of digitally soverain Unicorns</Headline2>
+        <Headline2>of digitally sovereign Unicorns</Headline2>
       </Container>
       <ContentA data={data.contentA.edges[0]} />
       <ContentA data={data.contentA.edges[1]} />
