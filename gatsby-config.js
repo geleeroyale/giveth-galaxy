@@ -8,7 +8,8 @@ module.exports = {
     keywords: "donation, ethereum, blockchain, crypto, dapp, donate, eth"
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-twitter`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -21,7 +22,7 @@ module.exports = {
         icon: "src/images/giveth-favicon.png" // This path is relative to the root of the site.
       }
     },
-    "gatsby-plugin-offline",
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
