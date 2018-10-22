@@ -12,7 +12,7 @@ const Gradient1 = styled.div`
 `;
 
 const JoinPage = ({ data }) => (
-  <Layout>
+  <Layout id="join">
     <Gradient1>
       <ContentD headerdata={data.contentJoin.edges[0]} />
     </Gradient1>
