@@ -61,8 +61,16 @@ const MainText2 = styled.div`
   max-width: 500px;
   justify-self: start;
   margin: 0;
-  p {
-    margin: 0;
+  h1 {
+    padding: 0.2rem;
+    text-align: center;
+    color: black;
+    margin-bottom: 1rem;
+    background-color: #e01c6b;
+  }
+
+  h3 {
+    margin: 0.1rem 0;
   }
   @media (max-width: 980px) {
     grid-row: 4;
