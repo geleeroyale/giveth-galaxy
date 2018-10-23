@@ -133,6 +133,7 @@ const ProjectTitle = styled.a`
 `;
 
 const ProjectDescription = styled.p`
+  padding-top: 1rem;
   justify-self: center;
   grid-row: 3;
 `;
