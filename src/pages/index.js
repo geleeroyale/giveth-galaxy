@@ -104,6 +104,7 @@ const HeroNav = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding-top: 3rem;
 
   h2 {
     text-align: center;
@@ -207,40 +208,39 @@ const IndexPage = ({ data }) => (
           <a href="#join">Join our chat</a>
         </Button>
       </HeroGroup>
-
-      <HeroNav>
-        <Block>
-          <img
-            width="80px"
-            height="80px"
-            src={require("../images/icons/distributed-org.svg")}
-            alt=""
-          />
-          <p>Distributed organization</p>
-          <h2>adopted from Holacracy</h2>
-        </Block>
-        <Block>
-          <img
-            width="80px"
-            height="80px"
-            src={require("../images/icons/cooperative-dev.svg")}
-            alt=""
-          />
-          <p>Cooperative development</p>
-          <h2>with a need-filling attitude</h2>
-        </Block>
-        <Block>
-          <img
-            width="80px"
-            height="80px"
-            src={require("../images/icons/blockchain.svg")}
-            alt=""
-          />
-          <p>Decentralized applications</p>
-          <h2>powered by Blockchain</h2>
-        </Block>
-      </HeroNav>
     </Hero>
+    <HeroNav>
+      <Block>
+        <img
+          width="80px"
+          height="80px"
+          src={require("../images/icons/distributed-org.svg")}
+          alt=""
+        />
+        <p>Distributed organization</p>
+        <h2>adopted from Holacracy</h2>
+      </Block>
+      <Block>
+        <img
+          width="80px"
+          height="80px"
+          src={require("../images/icons/cooperative-dev.svg")}
+          alt=""
+        />
+        <p>Cooperative development</p>
+        <h2>with a need-filling attitude</h2>
+      </Block>
+      <Block>
+        <img
+          width="80px"
+          height="80px"
+          src={require("../images/icons/blockchain.svg")}
+          alt=""
+        />
+        <p>Decentralized applications</p>
+        <h2>powered by Blockchain</h2>
+      </Block>
+    </HeroNav>
 
     <ContentB
       headerdata={data.contentB.edges[0]}
