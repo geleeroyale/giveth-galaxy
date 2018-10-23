@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import ContentD from "../components/ContentD";
+import ContentDonate from "../components/ContentDonate";
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
@@ -14,7 +14,10 @@ const Gradient1 = styled.div`
 const DonationPage = ({ data }) => (
   <Layout>
     <Gradient1>
-      <ContentD headerdata={data.contentDonate.edges[0]} />
+      <ContentDonate
+        headerdata={data.contentDonate.edges[0]}
+        data={data.contentDonateFaq.edges}
+      />
     </Gradient1>
   </Layout>
 );
@@ -34,7 +37,15 @@ export const query = graphql`
               html
             }
           }
-          contentText2 {
+        }
+      }
+    }
+    contentDonateFaq: allContentfulContentDonateFaq {
+      edges {
+        node {
+          id
+          headline
+          contentText {
             id
             childMarkdownRemark {
               html
