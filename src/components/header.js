@@ -52,8 +52,8 @@ const NavGroup = styled.div`
     color: white;
   }
 
-  &.navlogo {
-    margin: 0;
+  img {
+    margin: auto;
   }
 
   @media (max-width: 640px) {
