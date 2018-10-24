@@ -47,15 +47,6 @@ const Headline2 = styled.h2`
   }
 `;
 
-const Headline3 = styled.h3`
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
-  @media (max-width: 640px) {
-    font-size: 1.5rem;
-  }
-`;
-
 const HeadlineFaq = styled.h1`
   color: black;
   text-align: center;
