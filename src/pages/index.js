@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
 import ContentA from "../components/ContentA";
@@ -211,41 +211,49 @@ const IndexPage = ({ data }) => (
     </Hero>
     <HeroNav>
       <Block>
-        <img
-          width="80px"
-          height="80px"
-          src={require("../images/icons/distributed-org.svg")}
-          alt=""
-        />
-        <p>Distributed organization</p>
-        <h2>adopted from Holacracy</h2>
+        <Link to="#org">
+          <img
+            width="80px"
+            height="80px"
+            src={require("../images/icons/distributed-org.svg")}
+            alt=""
+          />
+          <p>Distributed organization</p>
+          <h2>adopted from Holacracy</h2>
+        </Link>
       </Block>
       <Block>
-        <img
-          width="80px"
-          height="80px"
-          src={require("../images/icons/cooperative-dev.svg")}
-          alt=""
-        />
-        <p>Cooperative development</p>
-        <h2>with a need-filling attitude</h2>
+        <Link to="#galaxy">
+          <img
+            width="80px"
+            height="80px"
+            src={require("../images/icons/cooperative-dev.svg")}
+            alt=""
+          />
+
+          <p>Cooperative development</p>
+          <h2>with a need-filling attitude</h2>
+        </Link>
       </Block>
       <Block>
-        <img
-          width="80px"
-          height="80px"
-          src={require("../images/icons/blockchain.svg")}
-          alt=""
-        />
-        <p>Decentralized applications</p>
-        <h2>powered by Blockchain</h2>
+        <Link to="#dapp">
+          <img
+            width="80px"
+            height="80px"
+            src={require("../images/icons/blockchain.svg")}
+            alt=""
+          />
+          <p>Decentralized applications</p>
+          <h2>powered by Blockchain</h2>
+        </Link>
       </Block>
     </HeroNav>
-
-    <ContentB
-      headerdata={data.contentB.edges[0]}
-      data={data.contentBcards.edges}
-    />
+    <Container id="galaxy">
+      <ContentB
+        headerdata={data.contentB.edges[0]}
+        data={data.contentBcards.edges}
+      />
+    </Container>
     <Gradient1 id="dapp">
       <Container>
         <Headline1>Blockchain powered,</Headline1>
@@ -254,7 +262,7 @@ const IndexPage = ({ data }) => (
       </Container>
     </Gradient1>
     <Gradient2>
-      <Container>
+      <Container id="org">
         <Headline1>Our Community</Headline1>
         <Headline2>of digitally sovereign Unicorns</Headline2>
       </Container>
