@@ -8,7 +8,6 @@ module.exports = {
     keywords: "donation, ethereum, blockchain, crypto, dapp, donate, eth"
   },
   plugins: [
-    `gatsby-plugin-twitter`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
