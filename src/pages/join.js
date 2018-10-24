@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import ContentD from "../components/ContentD";
+import ContentJoin from "../components/ContentJoin";
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
@@ -14,7 +14,7 @@ const Gradient1 = styled.div`
 const JoinPage = ({ data }) => (
   <Layout id="join">
     <Gradient1>
-      <ContentD headerdata={data.contentJoin.edges[0]} />
+      <ContentJoin headerdata={data.contentJoin.edges[0]} />
     </Gradient1>
   </Layout>
 );
