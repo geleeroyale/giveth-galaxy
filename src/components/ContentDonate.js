@@ -10,9 +10,8 @@ const ContentContainer = styled.div`
 `;
 const ContentHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(3, minmax(320px 1fr));
-  grid-gap: 0rem 1rem;
   padding-bottom: 5rem;
 
   @media (max-width: 990px) {
@@ -62,8 +61,9 @@ const HeadlineFaq = styled.h1`
 `;
 
 const MainText1 = styled.div`
+  grid-column: span 2;
   max-width: 500px;
-  justify-self: end;
+  justify-self: start;
   margin: 0;
   p {
     margin: 0;
@@ -80,9 +80,25 @@ const ItemContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem 2rem;
   justify-items: center;
-  opacity: 0.6;
+
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+const DonationContainer = styled.div`
+  padding: 4rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem 2rem;
+
+  @media (max-width: 990px) {
+    padding: 2rem 0;
+    grid-template-columns: 1fr;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
@@ -107,9 +123,17 @@ const ContentItem = styled.div`
     grid-gap: 0;
   }
 
-  .Collapsible__trigger :hover {
-    cursor: pointer;
+  :hover {
     background-color: #ccb7c9;
+  }
+
+  .Collapsible__trigger {
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    :hover {
+      cursor: pointer;
+      background-color: #ccb7c9;
+    }
   }
 `;
 
@@ -126,6 +150,20 @@ const LongDescription = styled.div`
   }
 `;
 
+const AddressHeadline = styled.p``;
+
+const Wrap = styled.p`
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  color: #e01c6b;
+
+  @media (max-width: 650px) {
+    text-overflow: ellipsis;
+    max-width: 80vw;
+  }
+`;
+
 const ContentDonate = ({ headerdata, data }) => (
   <ContentContainer>
     <ContentHeader>
@@ -136,6 +174,26 @@ const ContentDonate = ({ headerdata, data }) => (
           __html: headerdata.node.contentText.childMarkdownRemark.html
         }}
       />
+      <DonationContainer>
+        <ContentItem>
+          <a href="https://www.mycrypto.com/?to=0x5ADF43DD006c6C36506e2b2DFA352E60002d22Dc&gaslimit=120000#send-transaction">
+            1 - Donate ETH via MyCrypto
+          </a>
+        </ContentItem>
+        <ContentItem>
+          <a href="https://leaderboard.giveth.io">
+            2 - Visit our Leaderboard and use MetaMask
+          </a>
+        </ContentItem>
+        <ContentItem>
+          <AddressHeadline>Send ETH directly to our address:</AddressHeadline>
+          <Wrap>3Q3eCqvwk2JPocfMBfC6oS5iA9S9wDXgYA</Wrap>
+        </ContentItem>
+        <ContentItem>
+          <AddressHeadline>Send BTC directly to our address:</AddressHeadline>
+          <Wrap>3Q3eCqvwk2JPocfMBfC6oS5iA9S9wDXgYA</Wrap>
+        </ContentItem>
+      </DonationContainer>
     </ContentHeader>
     <HeadlineFaq>FAQ</HeadlineFaq>
     <ItemContainer>
