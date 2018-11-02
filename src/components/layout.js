@@ -35,6 +35,12 @@ h2 {
   font-size: 2rem; 
   font-weight: 300;
 }
+
+@media (max-width: 640px) {
+  body {
+    padding: 0 1rem;
+  }  
+}
 `;
 
 const Layout = ({ children }) => (
