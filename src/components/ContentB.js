@@ -104,7 +104,7 @@ const ContentItem = styled.div`
     background-color: #2c0b3f;
 
     @media (max-width: 640px) {
-      background-color: #black;
+      background-color: black;
       transform: scale(1) translateY(0px);
     }
   }
