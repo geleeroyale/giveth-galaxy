@@ -205,7 +205,7 @@ const IndexPage = ({ data }) => (
         <p className="hero-item-2">a community of developers</p>
         <h1 className="hero-item-3">building the future of giving</h1>
         <Button primary className="hero-item-4">
-          <a href="#join">Join our chat</a>
+          <a href="/join">Join our chat</a>
         </Button>
       </HeroGroup>
     </Hero>
