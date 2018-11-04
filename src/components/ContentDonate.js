@@ -187,7 +187,7 @@ const ContentDonate = ({ headerdata, data }) => (
         </ContentItem>
         <ContentItem>
           <AddressHeadline>Send ETH directly to our address:</AddressHeadline>
-          <Wrap>3Q3eCqvwk2JPocfMBfC6oS5iA9S9wDXgYA</Wrap>
+          <Wrap>0x5adf43dd006c6c36506e2b2dfa352e60002d22dc</Wrap>
         </ContentItem>
         <ContentItem>
           <AddressHeadline>Send BTC directly to our address:</AddressHeadline>
