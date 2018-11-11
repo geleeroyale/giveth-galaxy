@@ -127,7 +127,6 @@ const ContentImage = styled.img`
   grid-row: 1;
   justify-self: center;
   align-self: center;
-  border-radius: 3rem;
 `
 
 const ProjectTitle = styled.a`
