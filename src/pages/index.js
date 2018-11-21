@@ -202,8 +202,8 @@ const IndexPage = ({ data }) => (
           alt="giveth.io"
           className="hero-item-1"
         />
-        <p className="hero-item-2">a community of developers</p>
-        <h1 className="hero-item-3">building the future of giving</h1>
+        <p className="hero-item-2">A Community of Makers</p>
+        <h1 className="hero-item-3">Building the Future of Giving</h1>
         <Button primary className="hero-item-4">
           <a href="/join">Join our chat</a>
         </Button>
