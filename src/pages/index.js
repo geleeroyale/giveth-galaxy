@@ -30,6 +30,7 @@ const Hero = styled.div`
   background-size: cover;
   background-position: center;
   height: 100vh;
+  width: 100%;
   align-content: start;
   justify-content: center;
   display: grid;
@@ -138,6 +139,9 @@ const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
+  @media (max-width: 640px) {
+    padding: 0 2rem;
+  }
 `
 
 const Headline1 = styled.h1`
@@ -180,6 +184,9 @@ const Black = styled.div`
   background: black;
   height: 120%;
   z-index: 0;
+  @media (max-width: 640px) {
+    padding: 2rem;
+  }
 `
 
 const IndexPage = ({ data }) => (
@@ -266,8 +273,10 @@ const IndexPage = ({ data }) => (
         <Headline1>Our Community</Headline1>
         <Headline2>of digitally sovereign Unicorns</Headline2>
       </Container>
-      <ContentA data={data.contentA.edges[0]} />
-      <ContentA data={data.contentA.edges[1]} />
+      <Container>
+        <ContentA data={data.contentA.edges[0]} />
+        <ContentA data={data.contentA.edges[1]} />
+      </Container>
     </Gradient2>
     <Black>
       <ContentD headerdata={data.contentTools.edges[0]} />

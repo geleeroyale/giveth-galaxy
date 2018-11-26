@@ -1,27 +1,38 @@
-import React from "react";
-import styled from "styled-components";
-import { graphql } from "gatsby";
+import React from 'react'
+import styled from 'styled-components'
+import { graphql } from 'gatsby'
 
-import Layout from "../components/layout";
-import ContentDonate from "../components/ContentDonate";
+import Layout from '../components/layout'
+import ContentDonate from '../components/ContentDonate'
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
-`;
+`
+
+const Container = styled.div`
+  max-width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  @media (max-width: 640px) {
+    padding: 0 2rem;
+  }
+`
 
 const DonationPage = ({ data }) => (
   <Layout>
     <Gradient1>
-      <ContentDonate
-        headerdata={data.contentDonate.edges[0]}
-        data={data.contentDonateFaq.edges}
-      />
+      <Container>
+        <ContentDonate
+          headerdata={data.contentDonate.edges[0]}
+          data={data.contentDonateFaq.edges}
+        />
+      </Container>
     </Gradient1>
   </Layout>
-);
+)
 
-export default DonationPage;
+export default DonationPage
 
 export const query = graphql`
   query DonateQuery {
@@ -54,4 +65,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
