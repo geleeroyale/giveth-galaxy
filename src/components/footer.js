@@ -1,14 +1,17 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Social from "../components/social";
+import Social from '../components/social'
 
 const FooterContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
   padding-bottom: 2rem;
-`;
+  @media (max-width: 640px) {
+    padding: 0 2rem;
+  }
+`
 
 const LinkContainer = styled.div`
   display: grid;
@@ -19,14 +22,14 @@ const LinkContainer = styled.div`
   @media (max-width: 640px) {
     grid-template-rows: auto auto;
   }
-`;
+`
 
 const Description = styled.p`
   padding-top: 4rem;
   color: #333;
   text-align: center;
   font-size: 0.9rem;
-`;
+`
 
 const SiteLink = styled.a`
   justify-self: center;
@@ -36,14 +39,14 @@ const SiteLink = styled.a`
     transform: scale(1.2) translateY(-3px);
     color: white;
   }
-`;
+`
 
 const Copyleft = styled.div`
   padding-top: 2rem;
   text-align: center;
   font-size: 1rem;
   color: #333;
-`;
+`
 
 const Footer = () => (
   <StaticQuery
@@ -76,12 +79,12 @@ const Footer = () => (
           Support us with your Donation - <a href="/donate">revolution.eth</a>
         </Copyleft>
         <Copyleft>
-          MMXVIII - No Rights Reserved -{" "}
+          MMXVIII - No Rights Reserved -{' '}
           <a href="https://wiki.giveth.io/dac/Unicorn-DAC/">The Unicorn DAC</a>
         </Copyleft>
       </FooterContainer>
     )}
   />
-);
+)
 
-export default Footer;
+export default Footer

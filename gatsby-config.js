@@ -5,7 +5,8 @@ module.exports = {
     title: "Giveth",
     description:
       "A community of developers - Building the future of Giving - #blockchainforgood",
-    keywords: "donation, ethereum, blockchain, crypto, dapp, donate, eth"
+    keywords: "donation, ethereum, blockchain, crypto, dapp, donate, eth",
+    siteUrl: `https://www.giveth.io`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -59,6 +60,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify` // make sure to put last in the array
   ]
 };

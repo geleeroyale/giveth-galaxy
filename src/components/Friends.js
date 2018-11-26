@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { FaHeart } from "react-icons/fa";
+import React from 'react'
+import styled from 'styled-components'
+import { FaHeart } from 'react-icons/fa'
 
 const OuterContainer = styled.div`
   margin: 0 auto;
@@ -10,18 +10,18 @@ const OuterContainer = styled.div`
   @media (max-width: 640px) {
     transform: skew(0deg, 0deg);
   }
-`;
+`
 
 const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
   color: #333;
-`;
+`
 
 const Gradient3 = styled.div`
   padding: 10vh 0;
   background: linear-gradient(180deg, #111 0%, black 100%);
-`;
+`
 
 const Description = styled.h2`
   font-size: 1rem;
@@ -32,7 +32,7 @@ const Description = styled.h2`
     font-size: 0.8rem;
     transform: skew(0deg, 0deg);
   }
-`;
+`
 
 const Icon = styled.p`
   font-size: 4rem;
@@ -46,7 +46,7 @@ const Icon = styled.p`
     transform: scale(1.2) translateY(-3px);
     color: #e01c6b;
   }
-`;
+`
 
 const InnerContainer = styled.div`
   display: grid;
@@ -59,19 +59,19 @@ const InnerContainer = styled.div`
   @media (max-width: 990px) {
     grid-template-columns: repeat(2, minmax(50px, 100px));
     justify-content: center;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
   }
-`;
+`
 
 const ProjectLink = styled.a`
   justify-self: center;
   font-size: 2rem;
-`;
+`
 
 const ContentItem = styled.div`
   justify-self: stretch;
   padding: 0.5rem;
-`;
+`
 
 const Logo = styled.img`
   max-width: 150px;
@@ -85,8 +85,9 @@ const Logo = styled.img`
 
   @media (max-width: 640px) {
     transform: skew(0deg, 0deg);
+    max-width: 100px;
   }
-`;
+`
 
 const Friendlogos = ({ data }) => (
   <OuterContainer>
@@ -98,7 +99,7 @@ const Friendlogos = ({ data }) => (
         </Icon>
       </Description>
       <Description>
-        {" "}
+        {' '}
         Our smart contracts are being used widely in the Ethereum community,
       </Description>
       <Description> Check out what our friends are doing</Description>
@@ -115,6 +116,6 @@ const Friendlogos = ({ data }) => (
       </Container>
     </Gradient3>
   </OuterContainer>
-);
+)
 
-export default Friendlogos;
+export default Friendlogos

@@ -1,50 +1,47 @@
-import React from "react";
-import styled from "styled-components";
-import Collapsible from "react-collapsible";
+import React from 'react'
+import styled from 'styled-components'
+import Collapsible from 'react-collapsible'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
-`;
+`
 const ContentHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, minmax(320px 1fr));
+  grid-template-columns: minmax(320px 1fr);
+  grid-template-rows: repeat(5, auto);
   padding-bottom: 5rem;
+  justify-self: center;
 
   @media (max-width: 990px) {
-    grid-template-rows: repeat(4, auto);
-    grid-template-columns: 1fr;
     grid-gap: 0.5rem;
     justify-items: center;
   }
-`;
+`
 
 const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
   @media (max-width: 640px) {
     font-size: 1.5rem;
+    padding: 0 2rem;
+    grid-column: span 1;
   }
-`;
+`
 const Headline2 = styled.h2`
   grid-column: span 2;
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
   @media (max-width: 640px) {
     font-size: 1.5rem;
+    padding: 1rem 2rem;
+    grid-column: span 1;
   }
-`;
+`
 
 const HeadlineFaq = styled.h1`
   color: black;
@@ -53,12 +50,11 @@ const HeadlineFaq = styled.h1`
   border-radius: 20px;
   margin-bottom: 1rem;
   background-color: #e01c6b;
-  @media (max-width: 990px) {
-  }
   @media (max-width: 640px) {
     font-size: 1.5rem;
+    padding: 0 2rem;
   }
-`;
+`
 
 const MainText1 = styled.div`
   grid-column: span 2;
@@ -71,8 +67,10 @@ const MainText1 = styled.div`
   @media (max-width: 990px) {
     width: 1fr;
     justify-self: center;
+    padding: 0 2rem;
+    grid-column: span 1;
   }
-`;
+`
 
 const ItemContainer = styled.div`
   padding-top: 1rem;
@@ -83,27 +81,27 @@ const ItemContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
+    padding: 0 2rem;
   }
-`;
+`
 
 const DonationContainer = styled.div`
   padding: 4rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem 2rem;
+  justify-content: center;
 
   @media (max-width: 990px) {
-    padding: 2rem 0;
     grid-template-columns: 1fr;
   }
 
   p {
     margin: 0;
   }
-`;
+`
 
 const ContentItem = styled.div`
-  padding: 0.5rem;
   max-width: 500px;
   display: grid;
   grid-template-columns: 1fr;
@@ -117,10 +115,11 @@ const ContentItem = styled.div`
   background-attachment: fixed;
   color: black;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 0.5rem;
   @media (max-width: 990px) {
-    grid-template-columns: 1fr;
     justify-items: center;
     grid-gap: 0;
+    max-width: 320px;
   }
 
   :hover {
@@ -135,7 +134,7 @@ const ContentItem = styled.div`
       background-color: #ccb7c9;
     }
   }
-`;
+`
 
 const LongDescription = styled.div`
   max-width: 500px;
@@ -148,9 +147,9 @@ const LongDescription = styled.div`
   @media (max-width: 990px) {
     max-width: 1fr;
   }
-`;
+`
 
-const AddressHeadline = styled.p``;
+const AddressHeadline = styled.p``
 
 const Wrap = styled.p`
   padding-top: 0.5rem;
@@ -162,7 +161,7 @@ const Wrap = styled.p`
     text-overflow: ellipsis;
     max-width: 80vw;
   }
-`;
+`
 
 const ContentDonate = ({ headerdata, data }) => (
   <ContentContainer>
@@ -171,7 +170,7 @@ const ContentDonate = ({ headerdata, data }) => (
       <Headline2>{headerdata.node.headline2}</Headline2>
       <MainText1
         dangerouslySetInnerHTML={{
-          __html: headerdata.node.contentText.childMarkdownRemark.html
+          __html: headerdata.node.contentText.childMarkdownRemark.html,
         }}
       />
       <DonationContainer>
@@ -187,7 +186,7 @@ const ContentDonate = ({ headerdata, data }) => (
         </ContentItem>
         <ContentItem>
           <AddressHeadline>Send ETH directly to our address:</AddressHeadline>
-          <Wrap>3Q3eCqvwk2JPocfMBfC6oS5iA9S9wDXgYA</Wrap>
+          <Wrap>0x5adf43dd006c6c36506e2b2dfa352e60002d22dc</Wrap>
         </ContentItem>
         <ContentItem>
           <AddressHeadline>Send BTC directly to our address:</AddressHeadline>
@@ -202,7 +201,7 @@ const ContentDonate = ({ headerdata, data }) => (
           <Collapsible trigger={edges.node.headline}>
             <LongDescription
               dangerouslySetInnerHTML={{
-                __html: edges.node.contentText.childMarkdownRemark.html
+                __html: edges.node.contentText.childMarkdownRemark.html,
               }}
             />
           </Collapsible>
@@ -210,6 +209,6 @@ const ContentDonate = ({ headerdata, data }) => (
       ))}
     </ItemContainer>
   </ContentContainer>
-);
+)
 
-export default ContentDonate;
+export default ContentDonate

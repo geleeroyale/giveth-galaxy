@@ -1,12 +1,15 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
-`;
+  @media (max-width: 640px) {
+    padding: 1rem 0;
+  }
+`
 const ContentHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -19,8 +22,9 @@ const ContentHeader = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 0.5rem;
     justify-items: center;
+    padding-bottom: 1rem;
   }
-`;
+`
 
 const Headline1 = styled.h1`
   grid-column: span 2;
@@ -32,7 +36,7 @@ const Headline1 = styled.h1`
   @media (max-width: 640px) {
     font-size: 1.5rem;
   }
-`;
+`
 const Headline2 = styled.h2`
   grid-column: span 2;
   justify-self: start;
@@ -44,7 +48,7 @@ const Headline2 = styled.h2`
   @media (max-width: 640px) {
     font-size: 1.5rem;
   }
-`;
+`
 const MainText1 = styled.div`
   max-width: 500px;
   justify-self: end;
@@ -56,7 +60,7 @@ const MainText1 = styled.div`
     width: 1fr;
     justify-self: center;
   }
-`;
+`
 const MainText2 = styled.div`
   max-width: 500px;
   justify-self: start;
@@ -69,7 +73,7 @@ const MainText2 = styled.div`
     width: 1fr;
     justify-self: center;
   }
-`;
+`
 
 const ItemContainer = styled.div`
   display: grid;
@@ -77,7 +81,7 @@ const ItemContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: repeat(6, auto);
   justify-items: center;
-`;
+`
 
 const ContentItem = styled.div`
   padding: 0.5rem;
@@ -98,14 +102,23 @@ const ContentItem = styled.div`
   :hover {
     transform: scale(1.2) translateY(-3px);
     background-color: #2c0b3f;
+
+    @media (max-width: 640px) {
+      background-color: black;
+      transform: scale(1) translateY(0px);
+    }
   }
-`;
+
+  @media (max-width: 640px) {
+    border: 1px solid #e01c6b;
+  }
+`
 
 const UpperCard = styled.div`
   background-color: black;
   display: grid;
   color: white;
-`;
+`
 
 const ContentImage = styled.img`
   padding: 0.5rem;
@@ -114,8 +127,7 @@ const ContentImage = styled.img`
   grid-row: 1;
   justify-self: center;
   align-self: center;
-  border-radius: 3rem;
-`;
+`
 
 const ProjectTitle = styled.a`
   justify-self: center;
@@ -130,13 +142,13 @@ const ProjectTitle = styled.a`
   :hover {
     transform: scale(1.2) translateY(-3px);
   }
-`;
+`
 
 const ProjectDescription = styled.p`
   padding-top: 1rem;
   justify-self: center;
   grid-row: 3;
-`;
+`
 
 const ContentB = ({ headerdata, data }) => (
   <ContentContainer>
@@ -145,12 +157,12 @@ const ContentB = ({ headerdata, data }) => (
       <Headline2>{headerdata.node.headline2}</Headline2>
       <MainText1
         dangerouslySetInnerHTML={{
-          __html: headerdata.node.contentText.childMarkdownRemark.html
+          __html: headerdata.node.contentText.childMarkdownRemark.html,
         }}
       />
       <MainText2
         dangerouslySetInnerHTML={{
-          __html: headerdata.node.contentText2.childMarkdownRemark.html
+          __html: headerdata.node.contentText2.childMarkdownRemark.html,
         }}
       />
     </ContentHeader>
@@ -170,6 +182,6 @@ const ContentB = ({ headerdata, data }) => (
       ))}
     </ItemContainer>
   </ContentContainer>
-);
+)
 
-export default ContentB;
+export default ContentB

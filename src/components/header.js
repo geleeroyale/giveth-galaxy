@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 
-import Button from "./button";
+import Button from './button'
 
 const Navbar = styled.div`
   position: fixed;
@@ -37,7 +37,7 @@ const Navbar = styled.div`
       font-size: 24px;
     }
   }
-`;
+`
 
 const NavGroup = styled.div`
   max-width: 800px;
@@ -58,41 +58,45 @@ const NavGroup = styled.div`
 
   @media (max-width: 640px) {
     grid-template-columns: repeat(4, auto);
+    padding: 0 0.5rem;
+    justify-self: center;
+    width: 90%;
+    margin: 0;
   }
-`;
+`
 
 class Header extends React.Component {
   constructor(props) {
-    super(props);
-    this.handleScroll = this.handleScroll.bind(this);
+    super(props)
+    this.handleScroll = this.handleScroll.bind(this)
     this.state = {
-      hasScrolled: false
-    };
+      hasScrolled: false,
+    }
   }
 
   handleScroll = event => {
-    const scrollTop = window.pageYOffset;
+    const scrollTop = window.pageYOffset
 
     if (scrollTop > 50) {
-      this.setState({ hasScrolled: true });
+      this.setState({ hasScrolled: true })
     } else {
-      this.setState({ hasScrolled: false });
+      this.setState({ hasScrolled: false })
     }
-  };
+  }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   render() {
     return (
-      <Navbar className={this.state.hasScrolled ? "HeaderScrolled" : ""}>
+      <Navbar className={this.state.hasScrolled ? 'HeaderScrolled' : ''}>
         <NavGroup>
           <Link to="/">
             <img
               height="35px"
               width="35px"
-              src={require("../images/logo/giveth-symbol-logo-white.svg")}
+              src={require('../images/logo/giveth-symbol-logo-white.svg')}
               alt=""
               className="navlogo"
             />
@@ -105,8 +109,8 @@ class Header extends React.Component {
           </Link>
         </NavGroup>
       </Navbar>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header
