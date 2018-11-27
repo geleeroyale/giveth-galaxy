@@ -26,15 +26,14 @@ const Navbar = styled.div`
     padding: 15px 0;
 
     a:nth-child(5) {
-      display: none;
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 14px;
     }
 
     p {
-      font-size: 24px;
+      font-size: 14px;
     }
   }
 `
@@ -57,11 +56,17 @@ const NavGroup = styled.div`
   }
 
   @media (max-width: 640px) {
-    grid-template-columns: repeat(4, auto);
     padding: 0 0.5rem;
     justify-self: center;
-    width: 90%;
+
     margin: 0;
+  }
+`
+
+const HomeLogo = styled.img`
+  @media (max-width: 640px) {
+    width: 20px;
+    height: 20px;
   }
 `
 
@@ -93,7 +98,7 @@ class Header extends React.Component {
       <Navbar className={this.state.hasScrolled ? 'HeaderScrolled' : ''}>
         <NavGroup>
           <Link to="/">
-            <img
+            <HomeLogo
               height="35px"
               width="35px"
               src={require('../images/logo/giveth-symbol-logo-white.svg')}
@@ -102,8 +107,8 @@ class Header extends React.Component {
             />
           </Link>
           <Link to="/join">Join</Link>
-          <Link to="#dapp">DApps</Link>
-          <Link to="#dac">Community</Link>
+          <Link to="#galaxy">Galaxy</Link>
+          <Link to="#dapp">DApp</Link>
           <Link to="/donate">
             <Button light>Donate</Button>
           </Link>
