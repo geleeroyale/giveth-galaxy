@@ -4,7 +4,10 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import ContentA from '../components/ContentA'
+import ContentA2 from '../components/ContentA2'
 import ContentB from '../components/ContentB'
+import ContentTextblock from '../components/ContentTextblock'
+import ContentDApp from '../components/ContentDApp'
 import ContentC from '../components/ContentC'
 import ContentD from '../components/ContentD'
 import Friendlogos from '../components/Friends'
@@ -105,7 +108,7 @@ const HeroNav = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding-top: 3rem;
+  padding-bottom: 15vh;
 
   h2 {
     text-align: center;
@@ -136,6 +139,7 @@ const Block = styled.div`
 `
 
 const Container = styled.div`
+  padding-top: 4rem;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
@@ -216,6 +220,9 @@ const IndexPage = ({ data }) => (
         </Button>
       </HeroGroup>
     </Hero>
+    <Container>
+      <ContentTextblock headerdata={data.contentB.edges[1]} />
+    </Container>
     <HeroNav>
       <Block>
         <Link to="#dapp">
@@ -262,17 +269,23 @@ const IndexPage = ({ data }) => (
         </Link>
       </Block>
     </HeroNav>
-    <Container id="galaxy">
-      <ContentB
-        headerdata={data.contentB.edges[0]}
-        data={data.contentBcards.edges}
-      />
+    <Container id="dapp">
+      <Headline1>Giveth DApp (Beta)</Headline1>
+      <Headline2>The Donation Application</Headline2>
+      <ContentDApp data={data.contentDapps.edges[0]} />
     </Container>
-    <Gradient1 id="dapp">
-      <Container>
-        <Headline1>Blockchain powered,</Headline1>
-        <Headline2>decentralized applications</Headline2>
-        <ContentC data={data.contentDapps.edges} />
+    <Gradient1>
+      <Container id="socialcoding">
+        <ContentA data={data.contentA.edges[2]} />
+      </Container>
+      <Container id="org">
+        <ContentA2 data={data.contentA.edges[3]} />
+      </Container>
+      <Container id="galaxy">
+        <ContentB
+          headerdata={data.contentB.edges[0]}
+          data={data.contentBcards.edges}
+        />
       </Container>
     </Gradient1>
     <Gradient2>
@@ -296,7 +309,7 @@ export default IndexPage
 
 export const query = graphql`
   query NewQuery {
-    contentA: allContentfulContentA {
+    contentA: allContentfulContentA(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           id
@@ -321,7 +334,7 @@ export const query = graphql`
         }
       }
     }
-    contentB: allContentfulContentB {
+    contentB: allContentfulContentB(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           headline1

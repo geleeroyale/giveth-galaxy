@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ContentContainer = styled.div`
-  padding: 20vh 0;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
   @media (max-width: 640px) {
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
 `
 const ContentHeader = styled.div`
@@ -92,7 +91,7 @@ const ContentItem = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(228, 57, 126, 0.2) 100%
+    rgba(20, 20, 20, 0.5) 100%
   );
   background-size: contain;
   background-position: center;
@@ -115,16 +114,14 @@ const ContentItem = styled.div`
 `
 
 const UpperCard = styled.div`
-  padding: 3rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: black;
   display: grid;
   color: white;
-  border-radius: 10px;
 `
 
 const ContentImage = styled.img`
   padding: 0.5rem;
-  height: 100px;
+  height: 60px;
   width: auto;
   grid-row: 1;
   justify-self: center;
@@ -152,7 +149,7 @@ const ProjectDescription = styled.p`
   grid-row: 3;
 `
 
-const ContentB = ({ headerdata, data }) => (
+const ContentTextblock = ({ headerdata, data }) => (
   <ContentContainer>
     <ContentHeader>
       <Headline1>{headerdata.node.headline1}</Headline1>
@@ -168,22 +165,7 @@ const ContentB = ({ headerdata, data }) => (
         }}
       />
     </ContentHeader>
-    <ItemContainer>
-      {data.map(edges => (
-        <ContentItem key={edges.node.id}>
-          <UpperCard>
-            <ContentImage src={edges.node.logo.file.url} />
-          </UpperCard>
-          <ProjectTitle href={edges.node.projectUrl}>
-            {edges.node.projectTitle}
-          </ProjectTitle>
-          <ProjectDescription>
-            {edges.node.projectShortDescription}
-          </ProjectDescription>
-        </ContentItem>
-      ))}
-    </ItemContainer>
   </ContentContainer>
 )
 
-export default ContentB
+export default ContentTextblock
