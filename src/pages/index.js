@@ -100,7 +100,7 @@ const HeroGroup = styled.div`
 
 const HeroNav = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 0 4rem;
   justify-content: center;
   align-items: center;
@@ -218,6 +218,28 @@ const IndexPage = ({ data }) => (
     </Hero>
     <HeroNav>
       <Block>
+        <Link to="#dapp">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/logo/giveth-nav-logo.svg')}
+            alt=""
+          />
+          <p>Giveth Dapp</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="#socialcoding">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/blockchain.svg')}
+            alt=""
+          />
+          <p>Social Coding</p>
+        </Link>
+      </Block>
+      <Block>
         <Link to="#org">
           <img
             width="80px"
@@ -225,8 +247,7 @@ const IndexPage = ({ data }) => (
             src={require('../images/icons/distributed-org.svg')}
             alt=""
           />
-          <p>Distributed organization</p>
-          <h2>adopted from Holacracy</h2>
+          <p>Governance Lab</p>
         </Link>
       </Block>
       <Block>
@@ -237,21 +258,7 @@ const IndexPage = ({ data }) => (
             src={require('../images/icons/cooperative-dev.svg')}
             alt=""
           />
-
-          <p>Cooperative development</p>
-          <h2>with a need-filling attitude</h2>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#dapp">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/blockchain.svg')}
-            alt=""
-          />
-          <p>Decentralized applications</p>
-          <h2>powered by Blockchain</h2>
+          <p>Galaxy projects</p>
         </Link>
       </Block>
     </HeroNav>
