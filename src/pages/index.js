@@ -281,6 +281,8 @@ const IndexPage = ({ data }) => (
       <Container id="org">
         <ContentA2 data={data.contentA.edges[3]} />
       </Container>
+    </Gradient1>
+    <Gradient2>
       <Container id="galaxy">
         <ContentB
           headerdata={data.contentB.edges[0]}
@@ -288,13 +290,9 @@ const IndexPage = ({ data }) => (
           starsdata={data.contentBcardsStars.edges}
         />
       </Container>
-    </Gradient1>
-    <Gradient2>
-      <Container>
-        <ContentA data={data.contentA.edges[1]} />
-      </Container>
     </Gradient2>
     <Black>
+      <ContentA data={data.contentA.edges[1]} />
       <Friendlogos data={data.friends.edges} />
     </Black>
   </Layout>
