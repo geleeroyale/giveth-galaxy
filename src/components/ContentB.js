@@ -30,9 +30,6 @@ const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
   @media (max-width: 640px) {
     font-size: 1.5rem;
   }
@@ -42,9 +39,6 @@ const Headline2 = styled.h2`
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
   @media (max-width: 640px) {
     font-size: 1.5rem;
   }
@@ -174,6 +168,10 @@ const ContentImage = styled.img`
   grid-row: 1;
   justify-self: center;
   align-self: center;
+
+  @media (max-width: 640px) {
+    height: auto;
+  }
 `
 
 const ProjectTitle = styled.a`
@@ -193,7 +191,8 @@ const ProjectTitle = styled.a`
 
 const ProjectDescription = styled.p`
   padding-top: 1rem;
-  justify-self: center;
+  justify-self: stretch;
+  text-align: center;
   grid-row: 3;
 `
 
