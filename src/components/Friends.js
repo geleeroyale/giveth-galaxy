@@ -23,7 +23,7 @@ const Gradient3 = styled.div`
   background: linear-gradient(180deg, #111 0%, black 100%);
 `
 
-const Description = styled.h2`
+const Description = styled.p`
   font-size: 1rem;
   text-align: center;
   color: #c1439e;
@@ -74,7 +74,7 @@ const ContentItem = styled.div`
 `
 
 const Logo = styled.img`
-  max-width: 150px;
+  max-width: 100px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   filter: saturate(0.1);
 
@@ -100,9 +100,17 @@ const Friendlogos = ({ data }) => (
       </Description>
       <Description>
         {' '}
-        Our smart contracts are being used widely in the Ethereum community,
+        We have many partnerships in the Ethereum Community.
+        <br />
+        Many use our smart contracts,
+        <br />
+        some have been audited by us,
+        <br />
+        others are Givers,
+        <br />
+        all of them are our friends.
       </Description>
-      <Description> Check out what our friends are doing</Description>
+      <Description> Check out what they are doing</Description>
       <Container>
         <InnerContainer>
           {data.map(edges => (
