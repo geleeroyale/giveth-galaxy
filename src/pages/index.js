@@ -284,7 +284,8 @@ const IndexPage = ({ data }) => (
       <Container id="galaxy">
         <ContentB
           headerdata={data.contentB.edges[0]}
-          data={data.contentBcards.edges}
+          planetsdata={data.contentBcards.edges}
+          starsdata={data.contentBcardsStars.edges}
         />
       </Container>
     </Gradient1>
@@ -355,6 +356,24 @@ export const query = graphql`
       }
     }
     contentBcards: allContentfulContentBCards(
+      sort: { fields: [updatedAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          logo {
+            id
+            file {
+              url
+            }
+          }
+          projectTitle
+          projectUrl
+          projectShortDescription
+        }
+      }
+    }
+    contentBcardsStars: allContentfulContentBCardsStars(
       sort: { fields: [updatedAt], order: DESC }
     ) {
       edges {

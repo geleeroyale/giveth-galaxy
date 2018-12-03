@@ -27,6 +27,7 @@ const ContentImage = styled.img`
     justify-self: center;
     padding-bottom: 3rem;
     max-width: 280px;
+    grid-column: 1;
   }
 `
 const Headline1 = styled.h1`
