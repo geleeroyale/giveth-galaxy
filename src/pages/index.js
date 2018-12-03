@@ -290,17 +290,11 @@ const IndexPage = ({ data }) => (
       </Container>
     </Gradient1>
     <Gradient2>
-      <Container id="org">
-        <Headline1>Our Community</Headline1>
-        <Headline2>of digitally sovereign Unicorns</Headline2>
-      </Container>
       <Container>
-        <ContentA data={data.contentA.edges[0]} />
         <ContentA data={data.contentA.edges[1]} />
       </Container>
     </Gradient2>
     <Black>
-      <ContentD headerdata={data.contentTools.edges[0]} />
       <Friendlogos data={data.friends.edges} />
     </Black>
   </Layout>

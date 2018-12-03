@@ -30,6 +30,7 @@ const ContentImage = styled.img`
 `
 const Headline1 = styled.h1`
   align-self: end;
+  justify-self: start;
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
