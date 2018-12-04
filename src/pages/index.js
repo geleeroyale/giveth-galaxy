@@ -218,10 +218,10 @@ const IndexPage = ({ data }) => (
         </Button>
       </HeroGroup>
     </Hero>
-    <Container>
+    <Container id="heronav">
       <ContentTextblock headerdata={data.contentB.edges[1]} />
     </Container>
-    <HeroNav id="heronav">
+    <HeroNav>
       <Block>
         <Link to="#dapp">
           <img
@@ -289,8 +289,8 @@ const IndexPage = ({ data }) => (
         />
       </Container>
     </Gradient2>
-    <Black>
-      <ContentA id="dac" data={data.contentA.edges[1]} />
+    <Black id="dac">
+      <ContentA data={data.contentA.edges[1]} />
       <Friendlogos data={data.friends.edges} />
     </Black>
   </Layout>
