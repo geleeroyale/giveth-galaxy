@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ContentContainer = styled.div`
-  padding: 20vh 0;
+  padding: 5vh 0;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;

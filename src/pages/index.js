@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
+import ContentASocialCoding from '../components/ContentASocialCoding'
 import ContentB from '../components/ContentB'
 import ContentTextblock from '../components/ContentTextblock'
 import ContentDApp from '../components/ContentDApp'
@@ -173,18 +174,15 @@ const Headline2 = styled.h2`
 `
 
 const Gradient1 = styled.div`
-  padding: 10vh 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
   height: 100%;
 `
 
 const Gradient2 = styled.div`
-  padding: 10vh 0;
   background: linear-gradient(180deg, #2c0b3f 0%, #c2449f 100%);
   z-index: -1;
 `
 const Black = styled.div`
-  padding: 10vh 0;
   background: black;
   height: 120%;
   z-index: 0;
@@ -223,7 +221,7 @@ const IndexPage = ({ data }) => (
     <Container>
       <ContentTextblock headerdata={data.contentB.edges[1]} />
     </Container>
-    <HeroNav>
+    <HeroNav id="heronav">
       <Block>
         <Link to="#dapp">
           <img
@@ -254,7 +252,7 @@ const IndexPage = ({ data }) => (
             src={require('../images/icons/distributed-org.svg')}
             alt=""
           />
-          <p>Governance Lab</p>
+          <p>Governance</p>
         </Link>
       </Block>
       <Block>
@@ -265,7 +263,7 @@ const IndexPage = ({ data }) => (
             src={require('../images/icons/cooperative-dev.svg')}
             alt=""
           />
-          <p>Galaxy projects</p>
+          <p>Galaxy Projects</p>
         </Link>
       </Block>
     </HeroNav>
@@ -276,7 +274,7 @@ const IndexPage = ({ data }) => (
     </Container>
     <Gradient1>
       <Container id="socialcoding">
-        <ContentA data={data.contentA.edges[2]} />
+        <ContentASocialCoding data={data.contentA.edges[2]} />
       </Container>
       <Container id="org">
         <ContentA2 data={data.contentA.edges[3]} />
@@ -292,7 +290,7 @@ const IndexPage = ({ data }) => (
       </Container>
     </Gradient2>
     <Black>
-      <ContentA data={data.contentA.edges[1]} />
+      <ContentA id="dac" data={data.contentA.edges[1]} />
       <Friendlogos data={data.friends.edges} />
     </Black>
   </Layout>
