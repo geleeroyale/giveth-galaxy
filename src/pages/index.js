@@ -174,12 +174,12 @@ const Headline2 = styled.h2`
 `
 
 const Gradient1 = styled.div`
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #c2449f 100%);
   height: 100%;
 `
 
 const Gradient2 = styled.div`
-  background: linear-gradient(180deg, #2c0b3f 0%, #c2449f 100%);
+  background: linear-gradient(180deg, #c2449f 0%, #2c0b3f 49.72%, #000000 100%);
   z-index: -1;
 `
 const Black = styled.div`
