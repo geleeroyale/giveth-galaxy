@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 const Button = styled.button`
   font-size: 17px;
@@ -50,5 +50,10 @@ const Button = styled.button`
       border-color: white;
       color: white;
     `};
-`;
-export default Button;
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+    padding: 2px 5px;
+  }
+`
+export default Button

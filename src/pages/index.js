@@ -4,7 +4,11 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import ContentA from '../components/ContentA'
+import ContentA2 from '../components/ContentA2'
+import ContentASocialCoding from '../components/ContentASocialCoding'
 import ContentB from '../components/ContentB'
+import ContentTextblock from '../components/ContentTextblock'
+import ContentDApp from '../components/ContentDApp'
 import ContentC from '../components/ContentC'
 import ContentD from '../components/ContentD'
 import Friendlogos from '../components/Friends'
@@ -100,12 +104,12 @@ const HeroGroup = styled.div`
 
 const HeroNav = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 0 4rem;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding-top: 3rem;
+  padding-bottom: 15vh;
 
   h2 {
     text-align: center;
@@ -136,6 +140,7 @@ const Block = styled.div`
 `
 
 const Container = styled.div`
+  padding-top: 4rem;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
@@ -169,18 +174,15 @@ const Headline2 = styled.h2`
 `
 
 const Gradient1 = styled.div`
-  padding: 10vh 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #c2449f 100%);
   height: 100%;
 `
 
 const Gradient2 = styled.div`
-  padding: 10vh 0;
-  background: linear-gradient(180deg, #2c0b3f 0%, #c2449f 100%);
+  background: linear-gradient(180deg, #c2449f 0%, #2c0b3f 49.72%, #000000 100%);
   z-index: -1;
 `
 const Black = styled.div`
-  padding: 10vh 0;
   background: black;
   height: 120%;
   z-index: 0;
@@ -216,7 +218,32 @@ const IndexPage = ({ data }) => (
         </Button>
       </HeroGroup>
     </Hero>
-    <HeroNav>
+    <Container>
+      <ContentTextblock headerdata={data.contentB.edges[1]} />
+    </Container>
+    <HeroNav id="heronav">
+      <Block>
+        <Link to="#dapp">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/logo/giveth-nav-logo.svg')}
+            alt=""
+          />
+          <p>Giveth Dapp</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="#socialcoding">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/blockchain.svg')}
+            alt=""
+          />
+          <p>Social Coding</p>
+        </Link>
+      </Block>
       <Block>
         <Link to="#org">
           <img
@@ -225,8 +252,7 @@ const IndexPage = ({ data }) => (
             src={require('../images/icons/distributed-org.svg')}
             alt=""
           />
-          <p>Distributed organization</p>
-          <h2>adopted from Holacracy</h2>
+          <p>Governance</p>
         </Link>
       </Block>
       <Block>
@@ -237,49 +263,34 @@ const IndexPage = ({ data }) => (
             src={require('../images/icons/cooperative-dev.svg')}
             alt=""
           />
-
-          <p>Cooperative development</p>
-          <h2>with a need-filling attitude</h2>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#dapp">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/blockchain.svg')}
-            alt=""
-          />
-          <p>Decentralized applications</p>
-          <h2>powered by Blockchain</h2>
+          <p>Galaxy Projects</p>
         </Link>
       </Block>
     </HeroNav>
-    <Container id="galaxy">
-      <ContentB
-        headerdata={data.contentB.edges[0]}
-        data={data.contentBcards.edges}
-      />
+    <Container id="dapp">
+      <Headline1>Giveth DApp (Beta)</Headline1>
+      <Headline2>The Donation Application</Headline2>
+      <ContentDApp data={data.contentDapps.edges[0]} />
     </Container>
-    <Gradient1 id="dapp">
-      <Container>
-        <Headline1>Blockchain powered,</Headline1>
-        <Headline2>decentralized applications</Headline2>
-        <ContentC data={data.contentDapps.edges} />
+    <Gradient1>
+      <Container id="socialcoding">
+        <ContentASocialCoding data={data.contentA.edges[2]} />
+      </Container>
+      <Container id="org">
+        <ContentA2 data={data.contentA.edges[3]} />
       </Container>
     </Gradient1>
     <Gradient2>
-      <Container id="org">
-        <Headline1>Our Community</Headline1>
-        <Headline2>of digitally sovereign Unicorns</Headline2>
-      </Container>
-      <Container>
-        <ContentA data={data.contentA.edges[0]} />
-        <ContentA data={data.contentA.edges[1]} />
+      <Container id="galaxy">
+        <ContentB
+          headerdata={data.contentB.edges[0]}
+          planetsdata={data.contentBcards.edges}
+          starsdata={data.contentBcardsStars.edges}
+        />
       </Container>
     </Gradient2>
     <Black>
-      <ContentD headerdata={data.contentTools.edges[0]} />
+      <ContentA id="dac" data={data.contentA.edges[1]} />
       <Friendlogos data={data.friends.edges} />
     </Black>
   </Layout>
@@ -289,7 +300,7 @@ export default IndexPage
 
 export const query = graphql`
   query NewQuery {
-    contentA: allContentfulContentA {
+    contentA: allContentfulContentA(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           id
@@ -314,7 +325,7 @@ export const query = graphql`
         }
       }
     }
-    contentB: allContentfulContentB {
+    contentB: allContentfulContentB(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           headline1
@@ -335,6 +346,24 @@ export const query = graphql`
       }
     }
     contentBcards: allContentfulContentBCards(
+      sort: { fields: [updatedAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          logo {
+            id
+            file {
+              url
+            }
+          }
+          projectTitle
+          projectUrl
+          projectShortDescription
+        }
+      }
+    }
+    contentBcardsStars: allContentfulContentBCardsStars(
       sort: { fields: [updatedAt], order: DESC }
     ) {
       edges {

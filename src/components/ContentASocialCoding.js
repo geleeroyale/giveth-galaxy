@@ -60,7 +60,7 @@ const MainText = styled.div`
 `
 const DetailsLink = styled.a``
 
-const ContentA = ({ data }) => (
+const ContentASocialCoding = ({ data }) => (
   <ContentContainer>
     <ContentItem key={data.node.id}>
       <ContentImage src={data.node.image.file.url} />
@@ -71,9 +71,8 @@ const ContentA = ({ data }) => (
           __html: data.node.contentText.childMarkdownRemark.html,
         }}
       />
-      <DetailsLink href={data.node.readMoreLink}>... read more</DetailsLink>
     </ContentItem>
   </ContentContainer>
 )
 
-export default ContentA
+export default ContentASocialCoding

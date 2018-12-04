@@ -12,7 +12,7 @@ const FooterContainer = styled.div`
     padding: 0 2rem;
   }
 `
-
+/**
 const LinkContainer = styled.div`
   display: grid;
   padding-top: 1rem;
@@ -23,6 +23,7 @@ const LinkContainer = styled.div`
     grid-template-rows: auto auto;
   }
 `
+ */
 
 const Description = styled.p`
   padding-top: 4rem;
@@ -48,6 +49,19 @@ const Copyleft = styled.div`
   color: #333;
 `
 
+/**
+ * 
+ * <Description>Giveth Links</Description>
+        <LinkContainer>
+          {data.allContentfulLink.edges.map(edges => (
+            <SiteLink key={edges.node.id} href={edges.node.url}>
+              {edges.node.title}
+            </SiteLink>
+          ))}
+        </LinkContainer>
+ 
+        */
+
 const Footer = () => (
   <StaticQuery
     query={graphql`
@@ -67,20 +81,13 @@ const Footer = () => (
       <FooterContainer>
         <Description>Find us on social media</Description>
         <Social />
-        <Description>Giveth Links</Description>
-        <LinkContainer>
-          {data.allContentfulLink.edges.map(edges => (
-            <SiteLink key={edges.node.id} href={edges.node.url}>
-              {edges.node.title}
-            </SiteLink>
-          ))}
-        </LinkContainer>
+
         <Copyleft>
           Support us with your Donation - <a href="/donate">revolution.eth</a>
         </Copyleft>
         <Copyleft>
           MMXVIII - No Rights Reserved -{' '}
-          <a href="https://wiki.giveth.io/dac/Unicorn-DAC/">The Unicorn DAC</a>
+          <a href="https://wiki.giveth.io/dac/governance/">The Giveth DAC</a>
         </Copyleft>
       </FooterContainer>
     )}

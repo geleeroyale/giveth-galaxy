@@ -19,6 +19,7 @@ const ContentItem = styled.div`
 `
 const ContentImage = styled.img`
   max-width: 400px;
+  grid-column: 2;
   grid-row: span 4;
   justify-self: end;
   align-self: center;
@@ -26,11 +27,11 @@ const ContentImage = styled.img`
     justify-self: center;
     padding-bottom: 3rem;
     max-width: 280px;
+    grid-column: 1;
   }
 `
 const Headline1 = styled.h1`
   align-self: end;
-  justify-self: start;
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
@@ -60,7 +61,7 @@ const MainText = styled.div`
 `
 const DetailsLink = styled.a``
 
-const ContentA = ({ data }) => (
+const ContentA2 = ({ data }) => (
   <ContentContainer>
     <ContentItem key={data.node.id}>
       <ContentImage src={data.node.image.file.url} />
@@ -76,4 +77,4 @@ const ContentA = ({ data }) => (
   </ContentContainer>
 )
 
-export default ContentA
+export default ContentA2
