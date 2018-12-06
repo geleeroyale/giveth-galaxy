@@ -189,6 +189,8 @@ const ProjectTitle = styled.a`
   }
 `
 
+const UpperCardLink = styled.a``
+
 const ProjectDescription = styled.p`
   padding-top: 1rem;
   justify-self: stretch;
@@ -216,9 +218,11 @@ const ContentB = ({ headerdata, planetsdata, starsdata }) => (
     <ItemContainer>
       {planetsdata.map(edges => (
         <ContentItem key={edges.node.id}>
-          <UpperCard>
-            <ContentImage src={edges.node.logo.file.url} />
-          </UpperCard>
+          <UpperCardLink href={edges.node.projectUrl}>
+            <UpperCard>
+              <ContentImage src={edges.node.logo.file.url} />
+            </UpperCard>
+          </UpperCardLink>
           <ProjectTitle href={edges.node.projectUrl}>
             {edges.node.projectTitle}
           </ProjectTitle>
@@ -232,9 +236,11 @@ const ContentB = ({ headerdata, planetsdata, starsdata }) => (
     <ItemContainer>
       {starsdata.map(edges => (
         <ContentItem2 key={edges.node.id}>
-          <UpperCard>
-            <ContentImage src={edges.node.logo.file.url} />
-          </UpperCard>
+          <UpperCardLink href={edges.node.projectUrl}>
+            <UpperCard>
+              <ContentImage src={edges.node.logo.file.url} />
+            </UpperCard>
+          </UpperCardLink>
           <ProjectTitle href={edges.node.projectUrl}>
             {edges.node.projectTitle}
           </ProjectTitle>
