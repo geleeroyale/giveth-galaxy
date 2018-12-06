@@ -16,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
   margin: 0;
-  background-color: #000000;
   color: #DFDAE8;
+  background: #c2449f;
 }
   a {
     color: #E01C6B;

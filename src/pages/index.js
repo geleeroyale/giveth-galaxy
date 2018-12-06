@@ -174,7 +174,8 @@ const Headline2 = styled.h2`
 `
 
 const Gradient1 = styled.div`
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #c2449f 100%);
+  background-color: #c2449f;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 100%) 0%, #c2449f 100%);
   height: 100%;
 `
 
@@ -184,7 +185,6 @@ const Gradient2 = styled.div`
 `
 const Black = styled.div`
   background: black;
-  height: 120%;
   z-index: 0;
   @media (max-width: 640px) {
     padding: 2rem;
@@ -218,60 +218,64 @@ const IndexPage = ({ data }) => (
         </Button>
       </HeroGroup>
     </Hero>
-    <Container id="heronav">
-      <ContentTextblock headerdata={data.contentB.edges[1]} />
-    </Container>
-    <HeroNav>
-      <Block>
-        <Link to="#dapp">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/logo/giveth-nav-logo.svg')}
-            alt=""
-          />
-          <p>Giveth Dapp</p>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#socialcoding">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/blockchain.svg')}
-            alt=""
-          />
-          <p>Social Coding</p>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#org">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/distributed-org.svg')}
-            alt=""
-          />
-          <p>Governance</p>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#galaxy">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/cooperative-dev.svg')}
-            alt=""
-          />
-          <p>Galaxy Projects</p>
-        </Link>
-      </Block>
-    </HeroNav>
-    <Container id="dapp">
-      <Headline1>Giveth DApp (Beta)</Headline1>
-      <Headline2>The Donation Application</Headline2>
-      <ContentDApp data={data.contentDapps.edges[0]} />
-    </Container>
+    <Black>
+      <Container id="heronav">
+        <ContentTextblock headerdata={data.contentB.edges[1]} />
+      </Container>
+      <HeroNav>
+        <Block>
+          <Link to="#dapp">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/logo/giveth-nav-logo.svg')}
+              alt=""
+            />
+            <p>Giveth Dapp</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="#socialcoding">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/blockchain.svg')}
+              alt=""
+            />
+            <p>Social Coding</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="#org">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/distributed-org.svg')}
+              alt=""
+            />
+            <p>Governance</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="#galaxy">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/cooperative-dev.svg')}
+              alt=""
+            />
+            <p>Galaxy Projects</p>
+          </Link>
+        </Block>
+      </HeroNav>
+    </Black>
+    <Black>
+      <Container id="dapp">
+        <Headline1>Giveth DApp (Beta)</Headline1>
+        <Headline2>The Donation Application</Headline2>
+        <ContentDApp data={data.contentDapps.edges[0]} />
+      </Container>
+    </Black>
     <Gradient1>
       <Container id="socialcoding">
         <ContentASocialCoding data={data.contentA.edges[2]} />

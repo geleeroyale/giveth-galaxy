@@ -4,6 +4,10 @@ import styled from 'styled-components'
 
 import Social from '../components/social'
 
+const OuterContainer = styled.div`
+  background-color: black;
+`
+
 const FooterContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
@@ -78,18 +82,20 @@ const Footer = () => (
       }
     `}
     render={data => (
-      <FooterContainer>
-        <Description>Find us on social media</Description>
-        <Social />
+      <OuterContainer>
+        <FooterContainer>
+          <Description>Find us on social media</Description>
+          <Social />
 
-        <Copyleft>
-          Support us with your Donation - <a href="/donate">revolution.eth</a>
-        </Copyleft>
-        <Copyleft>
-          MMXVIII - No Rights Reserved -{' '}
-          <a href="https://wiki.giveth.io/dac/governance/">The Giveth DAC</a>
-        </Copyleft>
-      </FooterContainer>
+          <Copyleft>
+            Support us with your Donation - <a href="/donate">revolution.eth</a>
+          </Copyleft>
+          <Copyleft>
+            MMXVIII - No Rights Reserved -{' '}
+            <a href="https://wiki.giveth.io/dac/governance/">The Giveth DAC</a>
+          </Copyleft>
+        </FooterContainer>
+      </OuterContainer>
     )}
   />
 )
