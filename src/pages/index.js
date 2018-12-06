@@ -221,10 +221,10 @@ const IndexPage = ({ data }) => (
       </HeroGroup>
     </Hero>
     <Black>
+      <Container id="heronav">
+        <ContentTextblock headerdata={data.contentB.edges[1]} />
+      </Container>
       <Zoom>
-        <Container id="heronav">
-          <ContentTextblock headerdata={data.contentB.edges[1]} />
-        </Container>
         <HeroNav>
           <Block>
             <Link to="#dapp">
