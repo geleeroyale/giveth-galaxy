@@ -27,6 +27,7 @@
     "react-emojione": "^5.0.0",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.2.1",
+    "react-reveal": "^1.2.2",
     "react-scrollable-anchor": "^0.6.1",
     "react-typography": "^0.16.13",
     "styled-components": "^4.0.1",

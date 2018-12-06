@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Zoom from 'react-reveal/Zoom'
+import Slide from 'react-reveal/Slide'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
@@ -219,55 +221,57 @@ const IndexPage = ({ data }) => (
       </HeroGroup>
     </Hero>
     <Black>
-      <Container id="heronav">
-        <ContentTextblock headerdata={data.contentB.edges[1]} />
-      </Container>
-      <HeroNav>
-        <Block>
-          <Link to="#dapp">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/logo/giveth-nav-logo.svg')}
-              alt=""
-            />
-            <p>Giveth Dapp</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="#socialcoding">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/blockchain.svg')}
-              alt=""
-            />
-            <p>Social Coding</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="#org">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/distributed-org.svg')}
-              alt=""
-            />
-            <p>Governance</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="#galaxy">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/cooperative-dev.svg')}
-              alt=""
-            />
-            <p>Galaxy Projects</p>
-          </Link>
-        </Block>
-      </HeroNav>
+      <Zoom>
+        <Container id="heronav">
+          <ContentTextblock headerdata={data.contentB.edges[1]} />
+        </Container>
+        <HeroNav>
+          <Block>
+            <Link to="#dapp">
+              <img
+                width="80px"
+                height="80px"
+                src={require('../images/logo/giveth-nav-logo.svg')}
+                alt=""
+              />
+              <p>Giveth Dapp</p>
+            </Link>
+          </Block>
+          <Block>
+            <Link to="#socialcoding">
+              <img
+                width="80px"
+                height="80px"
+                src={require('../images/icons/blockchain.svg')}
+                alt=""
+              />
+              <p>Social Coding</p>
+            </Link>
+          </Block>
+          <Block>
+            <Link to="#org">
+              <img
+                width="80px"
+                height="80px"
+                src={require('../images/icons/distributed-org.svg')}
+                alt=""
+              />
+              <p>Governance</p>
+            </Link>
+          </Block>
+          <Block>
+            <Link to="#galaxy">
+              <img
+                width="80px"
+                height="80px"
+                src={require('../images/icons/cooperative-dev.svg')}
+                alt=""
+              />
+              <p>Galaxy Projects</p>
+            </Link>
+          </Block>
+        </HeroNav>
+      </Zoom>
     </Black>
     <Black>
       <Container id="dapp">
@@ -278,10 +282,14 @@ const IndexPage = ({ data }) => (
     </Black>
     <Gradient1>
       <Container id="socialcoding">
-        <ContentASocialCoding data={data.contentA.edges[2]} />
+        <Slide left>
+          <ContentASocialCoding data={data.contentA.edges[2]} />
+        </Slide>
       </Container>
       <Container id="org">
-        <ContentA2 data={data.contentA.edges[3]} />
+        <Slide right>
+          <ContentA2 data={data.contentA.edges[3]} />
+        </Slide>
       </Container>
     </Gradient1>
     <Gradient2>
@@ -294,7 +302,9 @@ const IndexPage = ({ data }) => (
       </Container>
     </Gradient2>
     <Black id="dac">
-      <ContentA data={data.contentA.edges[1]} />
+      <Slide left>
+        <ContentA data={data.contentA.edges[1]} />
+      </Slide>
       <Friendlogos data={data.friends.edges} />
     </Black>
   </Layout>
