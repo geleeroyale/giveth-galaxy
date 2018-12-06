@@ -23,8 +23,9 @@ const Gradient3 = styled.div`
   background: linear-gradient(180deg, #111 0%, black 100%);
 `
 
-const Description = styled.p`
+const Description = styled.h2`
   font-size: 1rem;
+  line-height: 1.5;
   text-align: center;
   color: #c1439e;
   transform: skew(0deg, 5deg);
