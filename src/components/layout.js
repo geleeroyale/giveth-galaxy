@@ -100,13 +100,13 @@ const Layout = ({ children }) => (
               content: 'https://i.imgur.com/TiTbadA.png',
             },
           ]}
-        >
+        />
+        <GlobalStyle />
+        <Header siteTitle={data.site.siteMetadata.title}>
           <html lang="en" />
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
-        </Helmet>
-        <GlobalStyle />
-        <Header siteTitle={data.site.siteMetadata.title} />
+        </Header>
         <div
           style={{
             margin: '0 auto',
