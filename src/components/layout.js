@@ -63,6 +63,42 @@ const Layout = ({ children }) => (
               name: 'keywords',
               content: data.site.siteMetadata.keywords,
             },
+            {
+              name: 'application-name',
+              content: data.site.siteMetadata.title,
+            },
+            {
+              name: 'theme-color',
+              content: '#C2449F',
+            },
+            {
+              property: 'og:image:width',
+              content: '500',
+            },
+            {
+              property: 'og:image:height',
+              content: '500',
+            },
+            {
+              property: 'og:url',
+              content: 'https://giveth.io',
+            },
+            {
+              property: 'og:title',
+              content: data.site.siteMetadata.title,
+            },
+            {
+              property: 'og:description',
+              content: data.site.siteMetadata.description,
+            },
+            {
+              property: 'og:image',
+              content: 'https://i.imgur.com/TiTbadA.png',
+            },
+            {
+              property: 'og:image:url',
+              content: 'https://i.imgur.com/TiTbadA.png',
+            },
           ]}
         >
           <html lang="en" />
