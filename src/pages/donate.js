@@ -47,6 +47,12 @@ export const query = graphql`
               html
             }
           }
+          contentText2 {
+            id
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

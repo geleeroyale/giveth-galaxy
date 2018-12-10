@@ -10,7 +10,7 @@ const ContentContainer = styled.div`
 `
 const ContentHeader = styled.div`
   display: grid;
-  grid-template-columns: minmax(320px 1fr);
+  grid-template-columns: minmax(320px 1fr) minmax(320px 1fr);
   grid-template-rows: repeat(5, auto);
   padding-bottom: 5rem;
   justify-self: center;
@@ -18,6 +18,7 @@ const ContentHeader = styled.div`
   @media (max-width: 990px) {
     grid-gap: 0.5rem;
     justify-items: center;
+    grid-template-columns: minmax(320px 1fr);
   }
 `
 
@@ -57,10 +58,11 @@ const HeadlineFaq = styled.h1`
 `
 
 const MainText1 = styled.div`
-  grid-column: span 2;
+  grid-column: 1;
   max-width: 500px;
   justify-self: start;
   margin: 0;
+  padding-right: 1.5rem;
   p {
     margin: 0;
   }
@@ -69,6 +71,23 @@ const MainText1 = styled.div`
     justify-self: center;
     padding: 0 2rem;
     grid-column: span 1;
+  }
+`
+
+const MainText2 = styled.div`
+  grid-column: 2;
+  max-width: 500px;
+  justify-self: start;
+  margin: 0;
+  padding-left: 1.5rem;
+  p {
+    margin: 0;
+  }
+  @media (max-width: 990px) {
+    width: 1fr;
+    justify-self: center;
+    padding: 2rem 2rem;
+    grid-column: 1 / span 1;
   }
 `
 
@@ -86,6 +105,7 @@ const ItemContainer = styled.div`
 `
 
 const DonationContainer = styled.div`
+  grid-column: span 2;
   padding: 4rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -94,6 +114,7 @@ const DonationContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
+    grid-column: 1 / span 1;
   }
 
   p {
@@ -171,6 +192,11 @@ const ContentDonate = ({ headerdata, data }) => (
       <MainText1
         dangerouslySetInnerHTML={{
           __html: headerdata.node.contentText.childMarkdownRemark.html,
+        }}
+      />
+      <MainText2
+        dangerouslySetInnerHTML={{
+          __html: headerdata.node.contentText2.childMarkdownRemark.html,
         }}
       />
       <DonationContainer>

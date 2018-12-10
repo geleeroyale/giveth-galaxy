@@ -31,6 +31,12 @@ export const query = graphql`
         node {
           headline1
           headline2
+          introText {
+            id
+            childMarkdownRemark {
+              html
+            }
+          }
           contentText {
             id
             childMarkdownRemark {
