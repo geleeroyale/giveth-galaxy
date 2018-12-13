@@ -154,7 +154,6 @@ const ContentItem2 = styled.div`
 `
 
 const UpperCard = styled.div`
-  padding: 3rem;
   background-color: rgba(0, 0, 0, 0.5);
   display: grid;
   color: white;
@@ -162,16 +161,13 @@ const UpperCard = styled.div`
 `
 
 const ContentImage = styled.img`
-  padding: 0.5rem;
+  padding: 1rem;
+  margin: 0;
   height: 100px;
   width: auto;
   grid-row: 1;
   justify-self: center;
   align-self: center;
-
-  @media (max-width: 640px) {
-    height: auto;
-  }
 `
 
 const ProjectTitle = styled.a`

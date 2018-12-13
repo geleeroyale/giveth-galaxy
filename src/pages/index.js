@@ -188,9 +188,6 @@ const Gradient2 = styled.div`
 const Black = styled.div`
   background: black;
   z-index: 0;
-  @media (max-width: 640px) {
-    padding: 2rem;
-  }
 `
 
 const IndexPage = ({ data }) => (
