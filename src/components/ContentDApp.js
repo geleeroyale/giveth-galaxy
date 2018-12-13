@@ -37,9 +37,6 @@ const ContentItem = styled.div`
 
 const Screenshot = styled.img`
   margin: auto;
-  @media (max-width: 990px) {
-    grid-row: 1;
-  }
 `
 
 const LongDescription = styled.div`
@@ -62,6 +59,12 @@ const AdditionalInfo = styled.div`
   color: white;
 `
 
+const ProjectLink = styled.a`
+  @media (max-width: 990px) {
+    grid-row: 1;
+  }
+`
+
 const ContentDApp = ({ data }) => (
   <ContentContainer>
     <ItemContainer>
@@ -71,7 +74,10 @@ const ContentDApp = ({ data }) => (
             __html: data.node.contentText.childMarkdownRemark.html,
           }}
         />
-        <Screenshot src={data.node.screenshot.file.url} />
+        <ProjectLink href={data.node.projectUrl}>
+          <Screenshot src={data.node.screenshot.file.url} />
+        </ProjectLink>
+
         <AdditionalInfo />
       </ContentItem>
     </ItemContainer>
