@@ -38,6 +38,7 @@ const ContentItem = styled.div`
 const Screenshot = styled.img`
   margin: auto;
   @media (max-width: 990px) {
+    grid-row: 1;
   }
 `
 
@@ -70,9 +71,7 @@ const ContentDApp = ({ data }) => (
             __html: data.node.contentText.childMarkdownRemark.html,
           }}
         />
-        <AdditionalInfo>
-          <Screenshot src={data.node.screenshot.file.url} />
-        </AdditionalInfo>
+        <Screenshot src={data.node.screenshot.file.url} />
         <AdditionalInfo />
       </ContentItem>
     </ItemContainer>
