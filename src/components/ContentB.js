@@ -28,7 +28,6 @@ const ContentHeader = styled.div`
 
 const Headline1 = styled.h1`
   grid-column: span 2;
-  justify-self: start;
   align-self: end;
   @media (max-width: 640px) {
     font-size: 1.5rem;
@@ -36,7 +35,6 @@ const Headline1 = styled.h1`
 `
 const Headline2 = styled.h2`
   grid-column: span 2;
-  justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
   @media (max-width: 640px) {

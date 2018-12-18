@@ -44,15 +44,22 @@ const Hero = styled.div`
 
   @media (max-width: 960) {
     padding: 0;
+    min-height: 100vh;
   }
 `
 
 const HeroGroup = styled.div`
   margin: 0 15vw;
-  padding: 200px 50px;
+  padding: 20vh 50px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: repeat() (4, auto);
+
+  @media (max-width: 960) {
+    padding: 0;
+    min-height: 100vh;
+    padding: 10vh 50px;
+  }
 
   h1 {
     margin: 0;
