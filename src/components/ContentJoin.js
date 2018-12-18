@@ -124,10 +124,6 @@ const ChatIcon = styled.img`
   padding: 1rem;
 `
 
-const Spacer = styled.div`
-  height: 3rem;
-`
-
 const ContentJoin = ({ headerdata }) => (
   <ContentContainer>
     <ContentHeader>

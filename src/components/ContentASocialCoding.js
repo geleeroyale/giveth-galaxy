@@ -57,7 +57,6 @@ const MainText = styled.div`
     max-width: 1fr;
   }
 `
-const DetailsLink = styled.a``
 
 const ContentASocialCoding = ({ data }) => (
   <ContentContainer>

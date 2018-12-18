@@ -36,16 +36,6 @@ const Description = styled.p`
   font-size: 0.9rem;
 `
 
-const SiteLink = styled.a`
-  justify-self: center;
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-  :hover {
-    transform: scale(1.2) translateY(-3px);
-    color: white;
-  }
-`
-
 const Copyleft = styled.div`
   padding-top: 2rem;
   text-align: center;

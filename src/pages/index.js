@@ -11,8 +11,6 @@ import ContentASocialCoding from '../components/ContentASocialCoding'
 import ContentB from '../components/ContentB'
 import ContentTextblock from '../components/ContentTextblock'
 import ContentDApp from '../components/ContentDApp'
-import ContentC from '../components/ContentC'
-import ContentD from '../components/ContentD'
 import Friendlogos from '../components/Friends'
 
 import Button from '../components/button'
