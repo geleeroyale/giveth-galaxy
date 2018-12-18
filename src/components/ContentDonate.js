@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
+import Button from '../components/button'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
@@ -184,6 +185,12 @@ const Wrap = styled.p`
   }
 `
 
+const ButtonContainer = styled.div`
+  padding: 1rem;
+  grid-column: span 2;
+  text-align: center;
+`
+
 const ContentDonate = ({ headerdata, data }) => (
   <ContentContainer>
     <ContentHeader>
@@ -199,6 +206,13 @@ const ContentDonate = ({ headerdata, data }) => (
           __html: headerdata.node.contentText2.childMarkdownRemark.html,
         }}
       />
+      <ButtonContainer>
+        <Button>
+          <a href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da">
+            Donate with the Giveth DApp
+          </a>
+        </Button>
+      </ButtonContainer>
       <DonationContainer>
         <ContentItem>
           <a href="https://www.mycrypto.com/?to=0x5ADF43DD006c6C36506e2b2DFA352E60002d22Dc&gaslimit=120000#send-transaction">
