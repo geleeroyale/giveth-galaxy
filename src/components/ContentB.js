@@ -42,7 +42,7 @@ const Headline2 = styled.h2`
   }
 `
 const Headline3 = styled.h1`
-  color: #360c2e;
+  opacity: 0.3;
   text-align: center;
   padding-bottom: 2rem;
   @media (max-width: 990px) {
