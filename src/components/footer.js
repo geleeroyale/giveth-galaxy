@@ -82,7 +82,7 @@ const Footer = () => (
           </Copyleft>
           <Copyleft>
             MMXVIII - No Rights Reserved -{' '}
-            <a href="https://wiki.giveth.io/dac/governance/">The Giveth DAC</a>
+            <a href="https://wiki.giveth.io/dac/">The Giveth DAC</a>
           </Copyleft>
         </FooterContainer>
       </OuterContainer>
