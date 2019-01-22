@@ -7,7 +7,7 @@ import ContentJoin from '../components/ContentJoin'
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, #2c0b3f 100%);
   height: 100%;
   @media (max-width: 640px) {
     padding: 0 2rem;

@@ -7,13 +7,14 @@ import ContentDonate from '../components/ContentDonate'
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, #2c0b3f 100%);
 `
 
 const Container = styled.div`
   max-width: 100%;
   margin: 0 auto;
   justify-content: center;
+
   @media (max-width: 640px) {
     padding: 0 2rem;
   }
