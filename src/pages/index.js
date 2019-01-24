@@ -187,7 +187,7 @@ const Gradient1 = styled.div`
 `
 
 const Gradient2 = styled.div`
-  background: linear-gradient(180deg, #c2449f 0%, #2c0b3f 49.72%, #000000 100%);
+  background: linear-gradient(180deg, #000 0%, #2c0b3f 49.72%, #000000 100%);
   z-index: -1;
 `
 const Black = styled.div`

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
@@ -37,6 +37,11 @@ h2 {
 }
 `
 
+const Content = styled.div`
+  margin: 0 auto;
+  paddingtop: 0;
+`
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -51,7 +56,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <Content>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -107,18 +112,11 @@ const Layout = ({ children }) => (
           <TypographyStyle typography={typography} />
           <GoogleFont typography={typography} />
         </Header>
-        <div
-          style={{
-            margin: '0 auto',
-            // maxWidth: 960,
-            // padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
+        <Content>
           {children}
           <Footer />
-        </div>
-      </>
+        </Content>
+      </Content>
     )}
   />
 )

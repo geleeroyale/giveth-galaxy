@@ -16,3 +16,8 @@ yarn.lock
 
 #editors
 .vscode
+
+#bitsrc.io
+bit.json
+.bitmap
+/dist
