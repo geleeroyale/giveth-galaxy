@@ -107,11 +107,13 @@ const ItemContainer = styled.div`
 
 const DonationContainer = styled.div`
   grid-column: span 2;
-  padding: 4rem 0;
+  padding: 2rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem 2rem;
   justify-content: center;
+  text-align: center;
+  max-width: 80vw;
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
@@ -186,9 +188,13 @@ const Wrap = styled.p`
 `
 
 const ButtonContainer = styled.div`
-  padding: 1rem;
-  grid-column: span 2;
+  padding: 3rem 1rem 1rem 1rem;
+  grid-column: span 3;
   text-align: center;
+
+  @media (max-width: 990px) {
+    grid-column: span 1;
+  }
 `
 
 const ContentDonate = ({ headerdata, data }) => (
@@ -215,22 +221,20 @@ const ContentDonate = ({ headerdata, data }) => (
       </ButtonContainer>
       <DonationContainer>
         <ContentItem>
-          <a href="https://www.mycrypto.com/?to=0x5ADF43DD006c6C36506e2b2DFA352E60002d22Dc&gaslimit=120000#send-transaction">
-            1 - Donate ETH via MyCrypto
+          <a href="https://www.mycrypto.com/?to=0x8f951903c9360345b4e1b536c7f5ae8f88a64e79#send-transaction">
+            Donate ETH via MyCrypto
           </a>
         </ContentItem>
         <ContentItem>
           <a href="https://leaderboard.giveth.io">
-            2 - Visit our Leaderboard and use MetaMask
+            Visit our Leaderboard and use MetaMask
           </a>
         </ContentItem>
         <ContentItem>
-          <AddressHeadline>Send ETH directly to our address:</AddressHeadline>
-          <Wrap>0x5adf43dd006c6c36506e2b2dfa352e60002d22dc</Wrap>
-        </ContentItem>
-        <ContentItem>
-          <AddressHeadline>Send BTC directly to our address:</AddressHeadline>
-          <Wrap>3Q3eCqvwk2JPocfMBfC6oS5iA9S9wDXgYA</Wrap>
+          <AddressHeadline>
+            Send ETH directly to our multisig address:
+          </AddressHeadline>
+          <Wrap>0x8f951903c9360345b4e1b536c7f5ae8f88a64e79</Wrap>
         </ContentItem>
       </DonationContainer>
     </ContentHeader>
