@@ -217,9 +217,9 @@ const IndexPage = ({ data }) => (
         />
         <p className="hero-item-2">A Community of Makers</p>
         <h1 className="hero-item-3">Building the Future of Giving</h1>
-        <Button primary className="hero-item-4">
-          <a href="/join">Join our chat</a>
-        </Button>
+        <Link to="/join" className="hero-item-4">
+          <Button primary>Join our chat</Button>
+        </Link>
       </HeroGroup>
     </Hero>
     <Black>

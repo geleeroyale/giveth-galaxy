@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
+import { Link } from 'gatsby'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
@@ -213,11 +214,9 @@ const ContentDonate = ({ headerdata, data }) => (
         }}
       />
       <ButtonContainer>
-        <Button>
-          <a href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da">
-            Donate with the Giveth DApp
-          </a>
-        </Button>
+        <a href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da">
+          <Button>Donate with the Giveth DApp</Button>
+        </a>
       </ButtonContainer>
       <DonationContainer>
         <ContentItem>
