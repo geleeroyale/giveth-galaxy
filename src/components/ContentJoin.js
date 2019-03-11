@@ -142,6 +142,7 @@ const ContentJoin = ({ headerdata }) => (
         width="300px"
       />
       <MainText1
+        id="riot"
         dangerouslySetInnerHTML={{
           __html: headerdata.node.contentText.childMarkdownRemark.html,
         }}
@@ -149,6 +150,7 @@ const ContentJoin = ({ headerdata }) => (
       <FaSlackHash className="slackIcon" />
 
       <MainText2
+        id="slack"
         dangerouslySetInnerHTML={{
           __html: headerdata.node.contentText2.childMarkdownRemark.html,
         }}
