@@ -1,4 +1,4 @@
 # netlify config file
 
-/.well-known/matrix/server /.matrix-well-known.txt 200
+/.well-known/matrix/server /matrix-well-known.txt 200
 
