@@ -37,6 +37,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '1',
+        matomoUrl: 'https://giveth.matomo.cloud',
+        siteUrl: 'https://giveth.io',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `img`,
