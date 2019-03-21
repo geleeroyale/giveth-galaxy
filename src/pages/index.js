@@ -181,9 +181,18 @@ const Headline2 = styled.h2`
 `
 
 const Gradient1 = styled.div`
-  background-color: #c2449f;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 100%) 0%, #c2449f 100%);
-  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 100%) 0%,
+    #e01c6b 50%,
+    rgba(0, 0, 0, 100%) 100%
+  );
+
+  a {
+    color: #3f91e4;
+    text-decoration: none;
+    font-weight: 600;
+  }
 `
 
 const Gradient2 = styled.div`

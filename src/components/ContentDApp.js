@@ -23,7 +23,7 @@ const ContentItem = styled.div`
   align-self: center;
   background: #222;
   border-radius: 10px;
-  background-image: linear-gradient(white, #4c4153);
+  background-color: white;
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
