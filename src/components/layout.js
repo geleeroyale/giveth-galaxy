@@ -11,13 +11,10 @@ import Header from './header'
 import Footer from './footer'
 
 const GlobalStyle = createGlobalStyle`
-  html {
-    color: red;
-  }
   body {
   margin: 0;
   color: #DFDAE8;
-  background: #c2449f;
+  background: #000;
 }
   a {
     color: #E01C6B;
