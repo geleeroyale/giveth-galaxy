@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
-import { Link } from 'gatsby'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;

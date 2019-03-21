@@ -40,7 +40,6 @@ const Icon = styled.p`
   line-height: 0;
   margin: 1rem;
   color: #333;
-
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   :hover {
@@ -76,7 +75,7 @@ const ProjectLink = styled.a`
     .tooltip {
       display: block;
     }
-  
+  }
 `
 
 const ContentItem = styled.div`
@@ -113,7 +112,7 @@ const Tooltip = styled.p`
   transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
   font-size: 0.8rem;
   color: white;
-  background-color: #00000080;
+  background-color: #e01c6b;
   border-radius: 1rem;
   padding: 0.3rem;
 `
