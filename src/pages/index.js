@@ -472,6 +472,7 @@ export const query = graphql`
         node {
           id
           link
+          description
           logo {
             file {
               url

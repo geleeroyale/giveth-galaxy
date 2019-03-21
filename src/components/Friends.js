@@ -67,6 +67,16 @@ const InnerContainer = styled.div`
 const ProjectLink = styled.a`
   justify-self: center;
   font-size: 2rem;
+
+  .tooltip {
+    display: none;
+  }
+
+  :hover {
+    .tooltip {
+      display: block;
+    }
+  
 `
 
 const ContentItem = styled.div`
@@ -78,16 +88,34 @@ const Logo = styled.img`
   max-width: 100px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   filter: saturate(0.1);
+  .tooltip {
+    visibility: hidden;
+  }
 
   :hover {
     transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
     filter: saturate(1);
+
+    .tooltip {
+      visibility: visible;
+    }
   }
 
   @media (max-width: 640px) {
     transform: skew(0deg, 0deg);
     max-width: 100px;
   }
+`
+const Tooltip = styled.p`
+  position: absolute;
+  z-index: 1;
+  width: 200px;
+  transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
+  font-size: 0.8rem;
+  color: white;
+  background-color: #00000080;
+  border-radius: 1rem;
+  padding: 0.3rem;
 `
 
 const Friendlogos = ({ data }) => (
@@ -118,6 +146,7 @@ const Friendlogos = ({ data }) => (
             <ContentItem key={edges.node.id}>
               <ProjectLink href={edges.node.link}>
                 <Logo src={edges.node.logo.file.url} />
+                <Tooltip className="tooltip">{edges.node.description}</Tooltip>
               </ProjectLink>
             </ContentItem>
           ))}
