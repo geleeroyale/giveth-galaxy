@@ -107,8 +107,8 @@ class Header extends React.Component {
             />
           </Link>
           <Link to="/join">Join</Link>
-          <Link to="#heronav">Galaxy</Link>
-          <Link to="#dapp">DApp</Link>
+          <Link to="/#heronav">Galaxy</Link>
+          <Link to="/#dapp">DApp</Link>
           <Link to="/donate">
             <Button light>Donate</Button>
           </Link>
