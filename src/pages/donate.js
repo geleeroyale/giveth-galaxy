@@ -15,10 +15,6 @@ const Container = styled.div`
   max-width: 100%;
   margin: 0 auto;
   justify-content: center;
-
-  @media (max-width: 640px) {
-    padding: 0 2rem;
-  }
 `
 
 const DonationPage = ({ data }) => (

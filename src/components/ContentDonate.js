@@ -29,6 +29,7 @@ const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
+  padding: 0 2rem;
   @media (max-width: 640px) {
     font-size: 1.5rem;
     grid-column: span 1;
@@ -39,6 +40,7 @@ const Headline2 = styled.h2`
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
+  padding: 0 2rem 2rem 2rem;
   @media (max-width: 640px) {
     font-size: 1.5rem;
     grid-column: span 1;
@@ -68,9 +70,7 @@ const MainText1 = styled.div`
     margin: 0;
   }
   @media (max-width: 990px) {
-    width: 1fr;
     justify-self: center;
-    grid-column: span 1;
   }
 `
 
@@ -85,6 +85,7 @@ const MainText2 = styled.div`
     margin: 0;
   }
   @media (max-width: 990px) {
+    grid-row: 5;
     width: 1fr;
     justify-self: center;
     grid-column: 1 / span 1;
@@ -117,7 +118,8 @@ const DonationContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
-    grid-column: 1 / span 1;
+    grid-column: 1;
+    grid-row: 4;
     padding: 0;
   }
 
@@ -143,8 +145,9 @@ const ContentItem = styled.div`
   padding: 0.5rem;
   @media (max-width: 990px) {
     justify-items: center;
+    justify-self: center;
+    max-width: 80vw;
     grid-gap: 0;
-    max-width: 320px;
   }
 
   :hover {
@@ -182,9 +185,14 @@ const Wrap = styled.p`
   font-weight: 500;
   color: #e01c6b;
 
+  @media (max-width: 990px) {
+    text-overflow: ellipsis;
+    max-width: 30vw;
+  }
+
   @media (max-width: 650px) {
     text-overflow: ellipsis;
-    max-width: 80vw;
+    max-width: 220px;
   }
 `
 
