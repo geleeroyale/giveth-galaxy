@@ -36,7 +36,7 @@ h2 {
 
 const Content = styled.div`
   margin: 0 auto;
-  paddingtop: 0;
+  padding-top: 0;
 `
 
 const Layout = ({ children }) => (
