@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
+import Img from 'gatsby-image'
+import { FaAutoprefixer } from 'react-icons/fa'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
@@ -29,7 +31,6 @@ const Headline1 = styled.h1`
   align-self: end;
   @media (max-width: 640px) {
     font-size: 1.5rem;
-    padding: 0 2rem;
     grid-column: span 1;
   }
 `
@@ -40,7 +41,6 @@ const Headline2 = styled.h2`
   padding-bottom: 2rem;
   @media (max-width: 640px) {
     font-size: 1.5rem;
-    padding: 1rem 2rem;
     grid-column: span 1;
   }
 `
@@ -54,40 +54,39 @@ const HeadlineFaq = styled.h1`
   background-color: #e01c6b;
   @media (max-width: 640px) {
     font-size: 1.5rem;
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
   }
 `
 
 const MainText1 = styled.div`
   grid-column: 1;
-  max-width: 500px;
-  justify-self: start;
+  justify-self: center;
+  align-self: center;
   margin: 0;
-  padding-right: 1.5rem;
+  padding: 2rem;
   p {
     margin: 0;
   }
   @media (max-width: 990px) {
     width: 1fr;
     justify-self: center;
-    padding: 0 2rem;
     grid-column: span 1;
   }
 `
 
 const MainText2 = styled.div`
-  grid-column: 2;
+  grid-column: 1;
+  grid-row: 4;
   max-width: 500px;
   justify-self: start;
   margin: 0;
-  padding-left: 1.5rem;
+  padding: 2rem;
   p {
     margin: 0;
   }
   @media (max-width: 990px) {
     width: 1fr;
     justify-self: center;
-    padding: 2rem 2rem;
     grid-column: 1 / span 1;
   }
 `
@@ -101,15 +100,16 @@ const ItemContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
-    padding: 0 2rem;
+    padding: 0;
   }
 `
 
 const DonationContainer = styled.div`
-  grid-column: span 2;
+  grid-column: 2;
+  grid-row: 3;
   padding: 2rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
   grid-gap: 2rem 2rem;
   justify-content: center;
   text-align: center;
@@ -118,6 +118,7 @@ const DonationContainer = styled.div`
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
     grid-column: 1 / span 1;
+    padding: 0;
   }
 
   p {
@@ -130,7 +131,7 @@ const ContentItem = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  justify-self: center;
+  justify-self: left;
   align-self: center;
   background: #e4d1d9;
   border-radius: 10px;
@@ -189,7 +190,7 @@ const Wrap = styled.p`
 
 const ButtonContainer = styled.div`
   padding: 3rem 1rem 1rem 1rem;
-  grid-column: span 3;
+  grid-column: 2;
   text-align: center;
 
   @media (max-width: 990px) {
@@ -197,11 +198,22 @@ const ButtonContainer = styled.div`
   }
 `
 
-const ContentDonate = ({ headerdata, data }) => (
+const ContentDonate = ({ headerdata, data, backgroundimage }) => (
   <ContentContainer>
+    <Img
+      fluid={backgroundimage.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        left: 0,
+        top: '25vh',
+        width: '100%',
+        zIndex: '-2',
+      }}
+    />
     <ContentHeader>
       <Headline1>{headerdata.node.headline1}</Headline1>
       <Headline2>{headerdata.node.headline2}</Headline2>
+
       <MainText1
         dangerouslySetInnerHTML={{
           __html: headerdata.node.contentText.childMarkdownRemark.html,
@@ -213,24 +225,36 @@ const ContentDonate = ({ headerdata, data }) => (
         }}
       />
       <ButtonContainer>
-        <a href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da">
+        <a
+          href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button>Donate with the Giveth DApp</Button>
         </a>
       </ButtonContainer>
       <DonationContainer>
         <ContentItem>
-          <a href="https://www.mycrypto.com/?to=0x8f951903c9360345b4e1b536c7f5ae8f88a64e79#send-transaction">
-            Donate ETH via MyCrypto
+          <a
+            href="https://www.mycrypto.com/?to=0x8f951903c9360345b4e1b536c7f5ae8f88a64e79#send-transaction"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Donate ETH or DAI via MyCrypto
           </a>
         </ContentItem>
         <ContentItem>
-          <a href="https://leaderboard.giveth.io">
+          <a
+            href="https://leaderboard.giveth.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Visit our Leaderboard and use MetaMask
           </a>
         </ContentItem>
         <ContentItem>
           <AddressHeadline>
-            Send ETH directly to our multisig address:
+            Send directly to our multisig address:
           </AddressHeadline>
           <Wrap>0x8f951903c9360345b4e1b536c7f5ae8f88a64e79</Wrap>
         </ContentItem>
