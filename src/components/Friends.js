@@ -108,13 +108,13 @@ const Logo = styled.img`
 const Tooltip = styled.p`
   position: absolute;
   z-index: 1;
-  width: 200px;
+  max-width: 200px;
   transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
   font-size: 0.8rem;
-  color: white;
-  background-color: #e01c6b;
+  color: black;
+  background-color: #e01c6b95;
   border-radius: 1rem;
-  padding: 0.3rem;
+  padding: 1rem;
 `
 
 const Friendlogos = ({ data }) => (
@@ -143,7 +143,11 @@ const Friendlogos = ({ data }) => (
         <InnerContainer>
           {data.map(edges => (
             <ContentItem key={edges.node.id}>
-              <ProjectLink href={edges.node.link}>
+              <ProjectLink
+                href={edges.node.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Logo src={edges.node.logo.file.url} />
                 <Tooltip className="tooltip">{edges.node.description}</Tooltip>
               </ProjectLink>
