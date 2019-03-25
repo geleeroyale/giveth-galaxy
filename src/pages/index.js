@@ -19,8 +19,7 @@ import Layout from '../components/layout'
 //
 // SECTION1 - Styling
 //
-// Styling is done directly via styled components except a few global styles provided by layout.css
-// Order of styled elements follows the order of class IndexPage
+// Styling is done directly via styled components, some global css is injected via inject-global from ../components/layout.js
 //
 
 const Hero = styled.div`
@@ -204,6 +203,12 @@ const Black = styled.div`
   z-index: 0;
 `
 
+//
+// SECTION2 - Content
+//
+// Content is rendered here - most of it is passed down via graphql query in the next section
+//
+
 const IndexPage = ({ data }) => (
   <Layout>
     <Img
@@ -238,7 +243,7 @@ const IndexPage = ({ data }) => (
       <Zoom>
         <HeroNav>
           <Block>
-            <Link to="#dapp">
+            <Link to="/#dapp">
               <img
                 width="80px"
                 height="80px"
@@ -249,7 +254,7 @@ const IndexPage = ({ data }) => (
             </Link>
           </Block>
           <Block>
-            <Link to="#socialcoding">
+            <Link to="/#socialcoding">
               <img
                 width="80px"
                 height="80px"
@@ -260,7 +265,7 @@ const IndexPage = ({ data }) => (
             </Link>
           </Block>
           <Block>
-            <Link to="#org">
+            <Link to="/#org">
               <img
                 width="80px"
                 height="80px"
@@ -271,7 +276,7 @@ const IndexPage = ({ data }) => (
             </Link>
           </Block>
           <Block>
-            <Link to="#galaxy">
+            <Link to="/#galaxy">
               <img
                 width="80px"
                 height="80px"
@@ -322,6 +327,12 @@ const IndexPage = ({ data }) => (
 )
 
 export default IndexPage
+
+//
+// SECTION3 - Database query
+//
+// This is the query we send to our contentful database, the data is consumed in Section 2 and passed down to components who need it
+//
 
 export const query = graphql`
   query NewQuery {
