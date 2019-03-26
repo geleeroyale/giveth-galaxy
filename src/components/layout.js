@@ -6,6 +6,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
+import { colors } from '../utils/presets'
 
 import Header from './header'
 import Footer from './footer'

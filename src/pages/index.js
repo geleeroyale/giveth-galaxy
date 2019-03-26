@@ -15,6 +15,7 @@ import Friendlogos from '../components/Friends'
 
 import Button from '../components/button'
 import Layout from '../components/layout'
+import colors from '../utils/colors'
 
 //
 // SECTION1 - Styling
@@ -183,12 +184,12 @@ const Gradient1 = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 100%) 0%,
-    #e01c6b 50%,
+    ${colors.highlight} 50%,
     rgba(0, 0, 0, 100%) 100%
   );
 
   a {
-    color: #3f91e4;
+    color: ${colors.highligh2};
     text-decoration: none;
     font-weight: 600;
   }

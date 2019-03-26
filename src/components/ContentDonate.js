@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
 import Img from 'gatsby-image'
-import { FaAutoprefixer } from 'react-icons/fa'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;

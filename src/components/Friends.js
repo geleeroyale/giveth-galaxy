@@ -68,12 +68,12 @@ const ProjectLink = styled.a`
   font-size: 2rem;
 
   .tooltip {
-    display: none;
+    opacity: 0;
   }
 
   :hover {
     .tooltip {
-      display: block;
+      opacity: 1;
     }
   }
 `
@@ -115,6 +115,7 @@ const Tooltip = styled.p`
   background-color: #e01c6b95;
   border-radius: 1rem;
   padding: 1rem;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 `
 
 const Friendlogos = ({ data }) => (

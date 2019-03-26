@@ -34,6 +34,7 @@ const Headline1 = styled.h1`
   @media (max-width: 640px) {
     font-size: 1.5rem;
     word-wrap: break-word;
+    text-align: center;
   }
 `
 const Headline2 = styled.h2`
@@ -43,6 +44,7 @@ const Headline2 = styled.h2`
   @media (max-width: 640px) {
     font-size: 1.5rem;
     word-wrap: break-word;
+    text-align: center;
   }
 `
 const MainText = styled.div`
