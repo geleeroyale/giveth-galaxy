@@ -133,16 +133,15 @@ const ContentItem = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  justify-self: left;
   align-self: center;
   background: #e4d1d9;
   border-radius: 10px;
-  background-size: contain;
   background-position: center;
   background-attachment: fixed;
   color: black;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   padding: 0.5rem;
+  border: 2px solid #00000000;
   @media (max-width: 990px) {
     justify-items: center;
     justify-self: center;
@@ -151,7 +150,9 @@ const ContentItem = styled.div`
   }
 
   :hover {
-    background-color: #ccb7c9;
+    background-color: #00000000;
+    color: #e4d1d9;
+    border: 2px solid #e01c6b;
   }
 
   .Collapsible__trigger {
@@ -159,7 +160,7 @@ const ContentItem = styled.div`
 
     :hover {
       cursor: pointer;
-      background-color: #ccb7c9;
+      color: #e01c6b;
     }
   }
 `
