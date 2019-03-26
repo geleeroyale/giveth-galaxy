@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaHeart } from 'react-icons/fa'
 
+import colors from '../utils/colors'
+
 const OuterContainer = styled.div`
   margin: 0 auto;
-  color: #333;
+  color: ${colors.dark};
   width: 100%;
   transform: skew(0deg, -5deg);
   @media (max-width: 640px) {
@@ -15,12 +17,12 @@ const OuterContainer = styled.div`
 const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  color: #333;
+  color: ${colors.dark};
 `
 
 const Gradient3 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, #111 0%, black 100%);
+  background: linear-gradient(180deg, ${colors.dark} 0%, black 100%);
 `
 
 const Description = styled.h2`

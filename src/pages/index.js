@@ -184,19 +184,18 @@ const Gradient1 = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 100%) 0%,
-    ${colors.highlight} 50%,
-    rgba(0, 0, 0, 100%) 100%
+    ${colors.highlight2} 100%
   );
 
   a {
-    color: ${colors.highligh2};
+    color: ${colors.highlight2};
     text-decoration: none;
     font-weight: 600;
   }
 `
 
 const Gradient2 = styled.div`
-  background: linear-gradient(180deg, #000 0%, #2c0b3f 49.72%, #000000 100%);
+  background: linear-gradient(${colors.theme} 0%, #000000 100%);
   z-index: -1;
 `
 const Black = styled.div`
