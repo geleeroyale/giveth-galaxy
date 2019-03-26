@@ -52,13 +52,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
