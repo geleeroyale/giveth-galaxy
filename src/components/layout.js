@@ -14,7 +14,7 @@ import Footer from './footer'
 const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
-  color: #DFDAE8;
+  color: ${colors.light};
   background: #000;
 }
   a {

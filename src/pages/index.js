@@ -147,7 +147,6 @@ const Block = styled.div`
 `
 
 const Container = styled.div`
-  padding-top: 4rem;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
@@ -183,24 +182,32 @@ const Headline2 = styled.h2`
 const Gradient1 = styled.div`
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 100%) 0%,
+    rgba(0, 0, 0, 1) 0%,
     ${colors.highlight2} 100%
   );
-
-  a {
-    color: ${colors.highlight2};
-    text-decoration: none;
-    font-weight: 600;
-  }
+  z-index: -2;
 `
 
 const Gradient2 = styled.div`
-  background: linear-gradient(${colors.theme} 0%, #000000 100%);
-  z-index: -1;
+  opacity: 0.8;
+  background: linear-gradient(#000 0%, ${colors.theme} 100%);
+  z-index: -2;
 `
 const Black = styled.div`
   background: black;
   z-index: 0;
+`
+const Divider = styled.div`
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${colors.highlight};
+`
+
+const Divider2 = styled.div`
+  margin-bottom: 4rem;
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${colors.highlight};
 `
 
 //
@@ -236,78 +243,97 @@ const IndexPage = ({ data }) => (
         </Link>
       </HeroGroup>
     </Hero>
-    <Black>
-      <Container id="heronav">
-        <ContentTextblock headerdata={data.contentB.edges[1]} />
-      </Container>
-      <Zoom>
-        <HeroNav>
-          <Block>
-            <Link to="/#dapp">
-              <img
-                width="80px"
-                height="80px"
-                src={require('../images/logo/giveth-nav-logo.svg')}
-                alt=""
-              />
-              <p>Giveth Dapp</p>
-            </Link>
-          </Block>
-          <Block>
-            <Link to="/#socialcoding">
-              <img
-                width="80px"
-                height="80px"
-                src={require('../images/icons/blockchain.svg')}
-                alt=""
-              />
-              <p>Social Coding</p>
-            </Link>
-          </Block>
-          <Block>
-            <Link to="/#org">
-              <img
-                width="80px"
-                height="80px"
-                src={require('../images/icons/distributed-org.svg')}
-                alt=""
-              />
-              <p>Governance</p>
-            </Link>
-          </Block>
-          <Block>
-            <Link to="/#galaxy">
-              <img
-                width="80px"
-                height="80px"
-                src={require('../images/icons/cooperative-dev.svg')}
-                alt=""
-              />
-              <p>Galaxy Projects</p>
-            </Link>
-          </Block>
-        </HeroNav>
-      </Zoom>
-    </Black>
-    <Black>
-      <Container id="dapp">
-        <Headline1>Giveth DApp (Beta)</Headline1>
-        <Headline2>The Donation Application</Headline2>
-        <ContentDApp data={data.contentDapps.edges[0]} />
-      </Container>
-    </Black>
-    <Gradient1>
-      <Container id="socialcoding">
-        <Slide left>
-          <ContentASocialCoding data={data.contentA.edges[2]} />
-        </Slide>
-      </Container>
-      <Container id="org">
-        <Slide right>
-          <ContentA2 data={data.contentA.edges[3]} />
-        </Slide>
-      </Container>
-    </Gradient1>
+
+    <Container id="heronav">
+      <ContentTextblock headerdata={data.contentB.edges[1]} />
+    </Container>
+    <Zoom>
+      <HeroNav>
+        <Block>
+          <Link to="/#dapp">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/logo/giveth-nav-logo.svg')}
+              alt=""
+            />
+            <p>Giveth Dapp</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="/#socialcoding">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/blockchain.svg')}
+              alt=""
+            />
+            <p>Social Coding</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="/#org">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/distributed-org.svg')}
+              alt=""
+            />
+            <p>Governance</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="/#galaxy">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/cooperative-dev.svg')}
+              alt=""
+            />
+            <p>Galaxy Projects</p>
+          </Link>
+        </Block>
+      </HeroNav>
+    </Zoom>
+    <Divider2 />
+    <Container id="dapp">
+      <Headline1>Giveth DApp (Beta)</Headline1>
+      <Headline2>The Donation Application</Headline2>
+      <ContentDApp data={data.contentDapps.edges[0]} />
+    </Container>
+    <Divider />
+    <Img
+      fluid={data.imageKeyboard.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100vh',
+        zIndex: '0',
+        opacity: '0.1',
+      }}
+    />
+    <Container id="socialcoding">
+      <Slide left>
+        <ContentASocialCoding data={data.contentA.edges[2]} />
+      </Slide>
+    </Container>
+    <Divider />
+    <Img
+      fluid={data.imageEthereum.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100vh',
+        zIndex: '0',
+        opacity: '0.1',
+      }}
+    />
+    <Container id="org">
+      <Slide right>
+        <ContentA2 data={data.contentA.edges[3]} />
+      </Slide>
+    </Container>
+    <Divider />
     <Gradient2>
       <Container id="galaxy">
         <ContentB
@@ -317,6 +343,7 @@ const IndexPage = ({ data }) => (
         />
       </Container>
     </Gradient2>
+    <Divider />
     <Black id="dac">
       <Slide left>
         <ContentA data={data.contentA.edges[1]} />
@@ -471,13 +498,21 @@ export const query = graphql`
         }
       }
     }
-    imageEarth: file(relativePath: { eq: "earth.jpg" }) {
+    imageKeyboard: file(relativePath: { eq: "keyboard.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid
         }
       }
     }
+    imageEthereum: file(relativePath: { eq: "ethereum.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 75) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
     friends: allContentfulFriendslogos {
       edges {
         node {
