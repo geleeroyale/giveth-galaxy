@@ -179,15 +179,6 @@ const Headline2 = styled.h2`
   }
 `
 
-const Gradient1 = styled.div`
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    ${colors.highlight2} 100%
-  );
-  z-index: -2;
-`
-
 const Gradient2 = styled.div`
   opacity: 0.8;
   background: linear-gradient(#000 0%, ${colors.theme} 100%);
