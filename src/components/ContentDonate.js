@@ -29,7 +29,7 @@ const Headline1 = styled.h1`
   justify-self: start;
   align-self: end;
   padding: 0 2rem;
-  @media (max-width: 640px) {
+  @media (max-width: 990px) {
     font-size: 1.5rem;
     grid-column: span 1;
   }
@@ -40,7 +40,7 @@ const Headline2 = styled.h2`
   align-self: start;
   padding-bottom: 2rem;
   padding: 0 2rem 2rem 2rem;
-  @media (max-width: 640px) {
+  @media (max-width: 990px) {
     font-size: 1.5rem;
     grid-column: span 1;
   }
@@ -53,7 +53,9 @@ const HeadlineFaq = styled.h1`
   border-radius: 20px;
   margin-bottom: 1rem;
   background-color: #e01c6b;
-  @media (max-width: 640px) {
+  max-width: 80vw;
+  margin: 2rem auto;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
     padding: 0.5rem 2rem;
   }
@@ -62,7 +64,6 @@ const HeadlineFaq = styled.h1`
 const MainText1 = styled.div`
   grid-column: 1;
   justify-self: center;
-  align-self: center;
   margin: 0;
   padding: 2rem;
   p {
@@ -70,12 +71,12 @@ const MainText1 = styled.div`
   }
   @media (max-width: 990px) {
     justify-self: center;
+    grid-column: span 1;
   }
 `
 
 const MainText2 = styled.div`
-  grid-column: 1;
-  grid-row: 4;
+  grid-column: 2;
   max-width: 500px;
   justify-self: start;
   margin: 0;
@@ -84,7 +85,6 @@ const MainText2 = styled.div`
     margin: 0;
   }
   @media (max-width: 990px) {
-    grid-row: 5;
     width: 1fr;
     justify-self: center;
     grid-column: 1 / span 1;
@@ -105,11 +105,10 @@ const ItemContainer = styled.div`
 `
 
 const DonationContainer = styled.div`
-  grid-column: 2;
-  grid-row: 3;
+  grid-column: span 2;
   padding: 2rem 0;
   display: grid;
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem 2rem;
   justify-content: center;
   text-align: center;
@@ -117,8 +116,7 @@ const DonationContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
-    grid-column: 1;
-    grid-row: 4;
+    grid-column: 1 / span 1;
     padding: 0;
   }
 
@@ -198,7 +196,7 @@ const Wrap = styled.p`
 
 const ButtonContainer = styled.div`
   padding: 3rem 1rem 1rem 1rem;
-  grid-column: 2;
+  grid-column: span 3;
   text-align: center;
 
   @media (max-width: 990px) {
