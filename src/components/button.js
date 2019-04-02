@@ -4,7 +4,6 @@ const Button = styled.button`
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.13em;
-  max-width: 40vw;
 
   background: none;
   color: white;

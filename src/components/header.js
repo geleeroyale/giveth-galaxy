@@ -7,14 +7,14 @@ import Button from './button'
 const Navbar = styled.div`
   position: fixed;
   width: 100%;
-  padding: 50px 0;
+  padding: 4rem 0;
   z-index: 100;
 
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &.HeaderScrolled {
     background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
+    padding: 1rem 0;
     backdrop-filter: blur(20px);
 
     a {
@@ -23,7 +23,7 @@ const Navbar = styled.div`
   }
 
   @media (max-width: 640px) {
-    padding: 15px 0;
+    padding: 1rem 0;
 
     a:nth-child(5) {
     }
@@ -56,9 +56,8 @@ const NavGroup = styled.div`
   }
 
   @media (max-width: 640px) {
-    padding: 0 0.5rem;
+    padding: 1rem 0.5rem;
     justify-self: center;
-
     margin: 0;
   }
 `
@@ -93,6 +92,10 @@ class Header extends React.Component {
     window.addEventListener('scroll', this.handleScroll)
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
   render() {
     return (
       <Navbar className={this.state.hasScrolled ? 'HeaderScrolled' : ''}>
@@ -107,8 +110,8 @@ class Header extends React.Component {
             />
           </Link>
           <Link to="/join">Join</Link>
-          <Link to="#heronav">Galaxy</Link>
-          <Link to="#dapp">DApp</Link>
+          <Link to="/#heronav">Galaxy</Link>
+          <Link to="/#dapp">DApp</Link>
           <Link to="/donate">
             <Button light>Donate</Button>
           </Link>

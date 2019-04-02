@@ -28,6 +28,7 @@ const ContentItem = styled.div`
   background-position: center;
   background-attachment: fixed;
   color: black;
+  margin-bottom: 4rem;
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
     justify-items: center;

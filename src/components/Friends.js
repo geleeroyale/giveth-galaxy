@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaHeart } from 'react-icons/fa'
 
+import colors from '../utils/colors'
+
 const OuterContainer = styled.div`
   margin: 0 auto;
-  color: #333;
+  color: ${colors.dark};
   width: 100%;
   transform: skew(0deg, -5deg);
   @media (max-width: 640px) {
@@ -15,12 +17,12 @@ const OuterContainer = styled.div`
 const Container = styled.div`
   max-width: 960px;
   margin: 0 auto;
-  color: #333;
+  color: ${colors.dark};
 `
 
 const Gradient3 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, #111 0%, black 100%);
+  background: linear-gradient(180deg, ${colors.dark} 0%, black 100%);
 `
 
 const Description = styled.h2`
@@ -68,12 +70,12 @@ const ProjectLink = styled.a`
   font-size: 2rem;
 
   .tooltip {
-    display: none;
+    opacity: 0;
   }
 
   :hover {
     .tooltip {
-      display: block;
+      opacity: 1;
     }
   }
 `
@@ -108,13 +110,14 @@ const Logo = styled.img`
 const Tooltip = styled.p`
   position: absolute;
   z-index: 1;
-  width: 200px;
+  max-width: 200px;
   transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
   font-size: 0.8rem;
-  color: white;
-  background-color: #e01c6b;
+  color: black;
+  background-color: #e01c6b95;
   border-radius: 1rem;
-  padding: 0.3rem;
+  padding: 1rem;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 `
 
 const Friendlogos = ({ data }) => (
@@ -143,7 +146,11 @@ const Friendlogos = ({ data }) => (
         <InnerContainer>
           {data.map(edges => (
             <ContentItem key={edges.node.id}>
-              <ProjectLink href={edges.node.link}>
+              <ProjectLink
+                href={edges.node.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Logo src={edges.node.logo.file.url} />
                 <Tooltip className="tooltip">{edges.node.description}</Tooltip>
               </ProjectLink>

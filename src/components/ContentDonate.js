@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
+import Img from 'gatsby-image'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
@@ -27,9 +28,9 @@ const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  @media (max-width: 640px) {
+  padding: 0 2rem;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
-    padding: 0 2rem;
     grid-column: span 1;
   }
 `
@@ -38,9 +39,9 @@ const Headline2 = styled.h2`
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
-  @media (max-width: 640px) {
+  padding: 0 2rem 2rem 2rem;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
-    padding: 1rem 2rem;
     grid-column: span 1;
   }
 `
@@ -52,25 +53,24 @@ const HeadlineFaq = styled.h1`
   border-radius: 20px;
   margin-bottom: 1rem;
   background-color: #e01c6b;
-  @media (max-width: 640px) {
+  max-width: 80vw;
+  margin: 2rem auto;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
   }
 `
 
 const MainText1 = styled.div`
   grid-column: 1;
-  max-width: 500px;
-  justify-self: start;
+  justify-self: center;
   margin: 0;
-  padding-right: 1.5rem;
+  padding: 2rem;
   p {
     margin: 0;
   }
   @media (max-width: 990px) {
-    width: 1fr;
     justify-self: center;
-    padding: 0 2rem;
     grid-column: span 1;
   }
 `
@@ -80,14 +80,13 @@ const MainText2 = styled.div`
   max-width: 500px;
   justify-self: start;
   margin: 0;
-  padding-left: 1.5rem;
+  padding: 2rem;
   p {
     margin: 0;
   }
   @media (max-width: 990px) {
     width: 1fr;
     justify-self: center;
-    padding: 2rem 2rem;
     grid-column: 1 / span 1;
   }
 `
@@ -101,7 +100,7 @@ const ItemContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
-    padding: 0 2rem;
+    padding: 0;
   }
 `
 
@@ -118,6 +117,7 @@ const DonationContainer = styled.div`
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
     grid-column: 1 / span 1;
+    padding: 0;
   }
 
   p {
@@ -130,24 +130,26 @@ const ContentItem = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  justify-self: center;
   align-self: center;
   background: #e4d1d9;
   border-radius: 10px;
-  background-size: contain;
   background-position: center;
   background-attachment: fixed;
   color: black;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   padding: 0.5rem;
+  border: 2px solid #00000000;
   @media (max-width: 990px) {
     justify-items: center;
+    justify-self: center;
+    max-width: 80vw;
     grid-gap: 0;
-    max-width: 320px;
   }
 
   :hover {
-    background-color: #ccb7c9;
+    background-color: #00000000;
+    color: #e4d1d9;
+    border: 2px solid #e01c6b;
   }
 
   .Collapsible__trigger {
@@ -155,7 +157,7 @@ const ContentItem = styled.div`
 
     :hover {
       cursor: pointer;
-      background-color: #ccb7c9;
+      color: #e01c6b;
     }
   }
 `
@@ -181,9 +183,14 @@ const Wrap = styled.p`
   font-weight: 500;
   color: #e01c6b;
 
+  @media (max-width: 990px) {
+    text-overflow: ellipsis;
+    max-width: 30vw;
+  }
+
   @media (max-width: 650px) {
     text-overflow: ellipsis;
-    max-width: 80vw;
+    max-width: 220px;
   }
 `
 
@@ -197,11 +204,22 @@ const ButtonContainer = styled.div`
   }
 `
 
-const ContentDonate = ({ headerdata, data }) => (
+const ContentDonate = ({ headerdata, data, backgroundimage }) => (
   <ContentContainer>
+    <Img
+      fluid={backgroundimage.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        left: 0,
+        top: '25vh',
+        width: '100%',
+        zIndex: '-2',
+      }}
+    />
     <ContentHeader>
       <Headline1>{headerdata.node.headline1}</Headline1>
       <Headline2>{headerdata.node.headline2}</Headline2>
+
       <MainText1
         dangerouslySetInnerHTML={{
           __html: headerdata.node.contentText.childMarkdownRemark.html,
@@ -213,24 +231,36 @@ const ContentDonate = ({ headerdata, data }) => (
         }}
       />
       <ButtonContainer>
-        <a href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da">
+        <a
+          href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button>Donate with the Giveth DApp</Button>
         </a>
       </ButtonContainer>
       <DonationContainer>
         <ContentItem>
-          <a href="https://www.mycrypto.com/?to=0x8f951903c9360345b4e1b536c7f5ae8f88a64e79#send-transaction">
-            Donate ETH via MyCrypto
+          <a
+            href="https://www.mycrypto.com/?to=0x8f951903c9360345b4e1b536c7f5ae8f88a64e79#send-transaction"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Donate ETH or DAI via MyCrypto
           </a>
         </ContentItem>
         <ContentItem>
-          <a href="https://leaderboard.giveth.io">
+          <a
+            href="https://leaderboard.giveth.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Visit our Leaderboard and use MetaMask
           </a>
         </ContentItem>
         <ContentItem>
           <AddressHeadline>
-            Send ETH directly to our multisig address:
+            Send directly to our multisig address:
           </AddressHeadline>
           <Wrap>0x8f951903c9360345b4e1b536c7f5ae8f88a64e79</Wrap>
         </ContentItem>

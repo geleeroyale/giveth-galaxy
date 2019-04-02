@@ -6,6 +6,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import { TypographyStyle, GoogleFont } from 'react-typography'
 import typography from '../utils/typography'
+import { colors } from '../utils/presets'
 
 import Header from './header'
 import Footer from './footer'
@@ -13,7 +14,7 @@ import Footer from './footer'
 const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
-  color: #DFDAE8;
+  color: ${colors.light};
   background: #000;
 }
   a {
@@ -36,7 +37,7 @@ h2 {
 
 const Content = styled.div`
   margin: 0 auto;
-  paddingtop: 0;
+  padding-top: 0;
 `
 
 const Layout = ({ children }) => (
