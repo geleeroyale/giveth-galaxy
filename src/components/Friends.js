@@ -68,38 +68,28 @@ const InnerContainer = styled.div`
 const ProjectLink = styled.a`
   justify-self: center;
   font-size: 2rem;
-
-  .tooltip {
-    opacity: 0;
-  }
-
-  :hover {
-    .tooltip {
-      opacity: 1;
-    }
   }
 `
 
 const ContentItem = styled.div`
   justify-self: stretch;
   padding: 0.5rem;
+
+  :hover {
+    .tooltip {
+      display: block;
+    }
+  }
 `
 
 const Logo = styled.img`
   max-width: 100px;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   filter: saturate(0.1);
-  .tooltip {
-    visibility: hidden;
-  }
 
   :hover {
     transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
     filter: saturate(1);
-
-    .tooltip {
-      visibility: visible;
-    }
   }
 
   @media (max-width: 640px) {
@@ -108,13 +98,14 @@ const Logo = styled.img`
   }
 `
 const Tooltip = styled.p`
+  display: none;
   position: absolute;
   z-index: 1;
   max-width: 200px;
   transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
   font-size: 0.8rem;
   color: black;
-  background-color: #e01c6b95;
+  background-color: #e01c6bee;
   border-radius: 1rem;
   padding: 1rem;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
