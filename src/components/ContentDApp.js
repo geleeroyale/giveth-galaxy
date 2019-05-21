@@ -11,7 +11,6 @@ const ItemContainer = styled.div`
   display: grid;
   grid-gap: 2rem 2rem;
   justify-items: center;
-  opacity: 0.6;
 `
 
 const ContentItem = styled.div`
@@ -21,7 +20,6 @@ const ContentItem = styled.div`
   grid-template-rows: repeat(2, auto);
   justify-self: stretch;
   align-self: center;
-  background: #222;
   border-radius: 10px;
   background-color: white;
   background-size: contain;
