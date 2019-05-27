@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Zoom from 'react-reveal/Zoom'
 import Slide from 'react-reveal/Slide'
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
@@ -235,9 +236,11 @@ const IndexPage = ({ data }) => (
       </HeroGroup>
     </Hero>
 
-    <Container id="heronav">
-      <ContentTextblock headerdata={data.contentB.edges[1]} />
-    </Container>
+    <ScrollableAnchor id={'heronav'}>
+      <Container id="heronav">
+        <ContentTextblock headerdata={data.contentB.edges[1]} />
+      </Container>
+    </ScrollableAnchor>
     <Zoom>
       <HeroNav>
         <Block>
@@ -287,11 +290,13 @@ const IndexPage = ({ data }) => (
       </HeroNav>
     </Zoom>
     <Divider2 />
-    <Container id="dapp">
-      <Headline1>Giveth DApp (Beta)</Headline1>
-      <Headline2>The Donation Application</Headline2>
-      <ContentDApp data={data.contentDapps.edges[0]} />
-    </Container>
+    <ScrollableAnchor id={'dapp'}>
+      <Container id="dapp">
+        <Headline1>Giveth DApp (Beta)</Headline1>
+        <Headline2>The Donation Application</Headline2>
+        <ContentDApp data={data.contentDapps.edges[0]} />
+      </Container>
+    </ScrollableAnchor>
     <Divider />
     <Img
       fluid={data.imageKeyboard.childImageSharp.fluid}
@@ -303,11 +308,13 @@ const IndexPage = ({ data }) => (
         opacity: '0.1',
       }}
     />
-    <Container id="socialcoding">
-      <Slide left>
-        <ContentASocialCoding data={data.contentA.edges[2]} />
-      </Slide>
-    </Container>
+    <ScrollableAnchor id={'socialcoding'}>
+      <Container id="socialcoding">
+        <Slide left>
+          <ContentASocialCoding data={data.contentA.edges[2]} />
+        </Slide>
+      </Container>
+    </ScrollableAnchor>
     <Divider />
     <Img
       fluid={data.imageEthereum.childImageSharp.fluid}
@@ -319,28 +326,34 @@ const IndexPage = ({ data }) => (
         opacity: '0.1',
       }}
     />
-    <Container id="org">
-      <Slide right>
-        <ContentA2 data={data.contentA.edges[3]} />
-      </Slide>
-    </Container>
+    <ScrollableAnchor id={'org'}>
+      <Container id="org">
+        <Slide right>
+          <ContentA2 data={data.contentA.edges[3]} />
+        </Slide>
+      </Container>
+    </ScrollableAnchor>
     <Divider />
     <Gradient2>
-      <Container id="galaxy">
-        <ContentB
-          headerdata={data.contentB.edges[0]}
-          planetsdata={data.contentBcards.edges}
-          starsdata={data.contentBcardsStars.edges}
-        />
-      </Container>
+      <ScrollableAnchor id={'galaxy'}>
+        <Container id="galaxy">
+          <ContentB
+            headerdata={data.contentB.edges[0]}
+            planetsdata={data.contentBcards.edges}
+            starsdata={data.contentBcardsStars.edges}
+          />
+        </Container>
+      </ScrollableAnchor>
     </Gradient2>
     <Divider />
-    <Black id="dac">
-      <Slide left>
-        <ContentA data={data.contentA.edges[1]} />
-      </Slide>
-      <Friendlogos data={data.friends.edges} />
-    </Black>
+    <ScrollableAnchor id={'dac'}>
+      <Black id="dac">
+        <Slide left>
+          <ContentA data={data.contentA.edges[1]} />
+        </Slide>
+        <Friendlogos data={data.friends.edges} />
+      </Black>
+    </ScrollableAnchor>
   </Layout>
 )
 
