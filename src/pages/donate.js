@@ -7,16 +7,13 @@ import ContentDonate from '../components/ContentDonate'
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
+  background: linear-gradient(180deg, #000000ee 0%, #2c0b3fee 100%);
 `
 
 const Container = styled.div`
   max-width: 100%;
   margin: 0 auto;
   justify-content: center;
-  @media (max-width: 640px) {
-    padding: 0 2rem;
-  }
 `
 
 const DonationPage = ({ data }) => (
@@ -26,6 +23,7 @@ const DonationPage = ({ data }) => (
         <ContentDonate
           headerdata={data.contentDonate.edges[0]}
           data={data.contentDonateFaq.edges}
+          backgroundimage={data.imageEarth}
         />
       </Container>
     </Gradient1>
@@ -47,6 +45,12 @@ export const query = graphql`
               html
             }
           }
+          contentText2 {
+            id
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }
@@ -61,6 +65,13 @@ export const query = graphql`
               html
             }
           }
+        }
+      }
+    }
+    imageEarth: file(relativePath: { eq: "earth.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 75) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

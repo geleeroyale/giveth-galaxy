@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const ContentContainer = styled.div`
   padding: 10vh 0;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
 `
@@ -19,6 +20,7 @@ const ContentItem = styled.div`
 `
 const ContentImage = styled.img`
   max-width: 400px;
+  grid-column: 2;
   grid-row: span 4;
   justify-self: end;
   align-self: center;
@@ -26,6 +28,7 @@ const ContentImage = styled.img`
     justify-self: center;
     padding-bottom: 3rem;
     max-width: 280px;
+    grid-column: 1;
   }
 `
 const Headline1 = styled.h1`
@@ -61,7 +64,7 @@ const MainText = styled.div`
 `
 const DetailsLink = styled.a``
 
-const ContentA = ({ data }) => (
+const ContentA2 = ({ data }) => (
   <ContentContainer>
     <ContentItem key={data.node.id}>
       <ContentImage src={data.node.image.file.url} />
@@ -77,4 +80,4 @@ const ContentA = ({ data }) => (
   </ContentContainer>
 )
 
-export default ContentA
+export default ContentA2

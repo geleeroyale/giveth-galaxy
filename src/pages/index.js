@@ -2,21 +2,26 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Zoom from 'react-reveal/Zoom'
+import Slide from 'react-reveal/Slide'
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentA from '../components/ContentA'
+import ContentA2 from '../components/ContentA2'
+import ContentASocialCoding from '../components/ContentASocialCoding'
 import ContentB from '../components/ContentB'
-import ContentC from '../components/ContentC'
-import ContentD from '../components/ContentD'
+import ContentTextblock from '../components/ContentTextblock'
+import ContentDApp from '../components/ContentDApp'
 import Friendlogos from '../components/Friends'
 
 import Button from '../components/button'
 import Layout from '../components/layout'
+import colors from '../utils/colors'
 
 //
 // SECTION1 - Styling
 //
-// Styling is done directly via styled components except a few global styles provided by layout.css
-// Order of styled elements follows the order of class IndexPage
+// Styling is done directly via styled components, some global css is injected via inject-global from ../components/layout.js
 //
 
 const Hero = styled.div`
@@ -38,15 +43,22 @@ const Hero = styled.div`
 
   @media (max-width: 960) {
     padding: 0;
+    min-height: 100vh;
   }
 `
 
 const HeroGroup = styled.div`
   margin: 0 15vw;
-  padding: 200px 50px;
+  padding: 20vh 50px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: repeat() (4, auto);
+
+  @media (max-width: 960) {
+    padding: 0;
+    min-height: 100vh;
+    padding: 10vh 50px;
+  }
 
   h1 {
     margin: 0;
@@ -100,12 +112,12 @@ const HeroGroup = styled.div`
 
 const HeroNav = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 0 4rem;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding-top: 3rem;
+  padding-bottom: 15vh;
 
   h2 {
     text-align: center;
@@ -140,7 +152,7 @@ const Container = styled.div`
   margin: 0 auto;
   justify-content: center;
   @media (max-width: 640px) {
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 `
 
@@ -168,26 +180,33 @@ const Headline2 = styled.h2`
   }
 `
 
-const Gradient1 = styled.div`
-  padding: 10vh 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #2c0b3f 100%);
-  height: 100%;
-`
-
 const Gradient2 = styled.div`
-  padding: 10vh 0;
-  background: linear-gradient(180deg, #2c0b3f 0%, #c2449f 100%);
-  z-index: -1;
+  opacity: 0.8;
+  background: linear-gradient(#000 0%, ${colors.theme} 100%);
+  z-index: -2;
 `
 const Black = styled.div`
-  padding: 10vh 0;
   background: black;
-  height: 120%;
   z-index: 0;
-  @media (max-width: 640px) {
-    padding: 2rem;
-  }
 `
+const Divider = styled.div`
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${colors.highlight};
+`
+
+const Divider2 = styled.div`
+  margin-bottom: 4rem;
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${colors.highlight};
+`
+
+//
+// SECTION2 - Content
+//
+// Content is rendered here - most of it is passed down via graphql query in the next section
+//
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -211,85 +230,144 @@ const IndexPage = ({ data }) => (
         />
         <p className="hero-item-2">A Community of Makers</p>
         <h1 className="hero-item-3">Building the Future of Giving</h1>
-        <Button primary className="hero-item-4">
-          <a href="/join">Join our chat</a>
-        </Button>
+        <Link to="/join" className="hero-item-4">
+          <Button primary>Join our chat</Button>
+        </Link>
       </HeroGroup>
     </Hero>
-    <HeroNav>
-      <Block>
-        <Link to="#org">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/distributed-org.svg')}
-            alt=""
-          />
-          <p>Distributed organization</p>
-          <h2>adopted from Holacracy</h2>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#galaxy">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/cooperative-dev.svg')}
-            alt=""
-          />
 
-          <p>Cooperative development</p>
-          <h2>with a need-filling attitude</h2>
-        </Link>
-      </Block>
-      <Block>
-        <Link to="#dapp">
-          <img
-            width="80px"
-            height="80px"
-            src={require('../images/icons/blockchain.svg')}
-            alt=""
-          />
-          <p>Decentralized applications</p>
-          <h2>powered by Blockchain</h2>
-        </Link>
-      </Block>
-    </HeroNav>
-    <Container id="galaxy">
-      <ContentB
-        headerdata={data.contentB.edges[0]}
-        data={data.contentBcards.edges}
-      />
-    </Container>
-    <Gradient1 id="dapp">
-      <Container>
-        <Headline1>Blockchain powered,</Headline1>
-        <Headline2>decentralized applications</Headline2>
-        <ContentC data={data.contentDapps.edges} />
+    <ScrollableAnchor id={'heronav'}>
+      <Container id="heronav">
+        <ContentTextblock headerdata={data.contentB.edges[1]} />
       </Container>
-    </Gradient1>
-    <Gradient2>
+    </ScrollableAnchor>
+    <Zoom>
+      <HeroNav>
+        <Block>
+          <Link to="/#dapp">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/logo/giveth-nav-logo.svg')}
+              alt=""
+            />
+            <p>Giveth Dapp</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="/#socialcoding">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/blockchain.svg')}
+              alt=""
+            />
+            <p>Social Coding</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="/#org">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/distributed-org.svg')}
+              alt=""
+            />
+            <p>Governance</p>
+          </Link>
+        </Block>
+        <Block>
+          <Link to="/#galaxy">
+            <img
+              width="80px"
+              height="80px"
+              src={require('../images/icons/cooperative-dev.svg')}
+              alt=""
+            />
+            <p>Galaxy Projects</p>
+          </Link>
+        </Block>
+      </HeroNav>
+    </Zoom>
+    <Divider2 />
+    <ScrollableAnchor id={'dapp'}>
+      <Container id="dapp">
+        <Headline1>Giveth DApp (Beta)</Headline1>
+        <Headline2>The Donation Application</Headline2>
+        <ContentDApp data={data.contentDapps.edges[0]} />
+      </Container>
+    </ScrollableAnchor>
+    <Divider />
+    <Img
+      fluid={data.imageKeyboard.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100vh',
+        zIndex: '0',
+        opacity: '0.1',
+      }}
+    />
+    <ScrollableAnchor id={'socialcoding'}>
+      <Container id="socialcoding">
+        <Slide left>
+          <ContentASocialCoding data={data.contentA.edges[2]} />
+        </Slide>
+      </Container>
+    </ScrollableAnchor>
+    <Divider />
+    <Img
+      fluid={data.imageEthereum.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100vh',
+        zIndex: '0',
+        opacity: '0.1',
+      }}
+    />
+    <ScrollableAnchor id={'org'}>
       <Container id="org">
-        <Headline1>Our Community</Headline1>
-        <Headline2>of digitally sovereign Unicorns</Headline2>
+        <Slide right>
+          <ContentA2 data={data.contentA.edges[3]} />
+        </Slide>
       </Container>
-      <Container>
-        <ContentA data={data.contentA.edges[0]} />
-        <ContentA data={data.contentA.edges[1]} />
-      </Container>
+    </ScrollableAnchor>
+    <Divider />
+    <Gradient2>
+      <ScrollableAnchor id={'galaxy'}>
+        <Container id="galaxy">
+          <ContentB
+            headerdata={data.contentB.edges[0]}
+            planetsdata={data.contentBcards.edges}
+            starsdata={data.contentBcardsStars.edges}
+          />
+        </Container>
+      </ScrollableAnchor>
     </Gradient2>
-    <Black>
-      <ContentD headerdata={data.contentTools.edges[0]} />
-      <Friendlogos data={data.friends.edges} />
-    </Black>
+    <Divider />
+    <ScrollableAnchor id={'dac'}>
+      <Black id="dac">
+        <Slide left>
+          <ContentA data={data.contentA.edges[1]} />
+        </Slide>
+        <Friendlogos data={data.friends.edges} />
+      </Black>
+    </ScrollableAnchor>
   </Layout>
 )
 
 export default IndexPage
 
+//
+// SECTION3 - Database query
+//
+// This is the query we send to our contentful database, the data is consumed in Section 2 and passed down to components who need it
+//
+
 export const query = graphql`
   query NewQuery {
-    contentA: allContentfulContentA {
+    contentA: allContentfulContentA(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           id
@@ -314,7 +392,7 @@ export const query = graphql`
         }
       }
     }
-    contentB: allContentfulContentB {
+    contentB: allContentfulContentB(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           headline1
@@ -335,6 +413,24 @@ export const query = graphql`
       }
     }
     contentBcards: allContentfulContentBCards(
+      sort: { fields: [updatedAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          logo {
+            id
+            file {
+              url
+            }
+          }
+          projectTitle
+          projectUrl
+          projectShortDescription
+        }
+      }
+    }
+    contentBcardsStars: allContentfulContentBCardsStars(
       sort: { fields: [updatedAt], order: DESC }
     ) {
       edges {
@@ -406,18 +502,27 @@ export const query = graphql`
         }
       }
     }
-    imageEarth: file(relativePath: { eq: "earth.jpg" }) {
+    imageKeyboard: file(relativePath: { eq: "keyboard.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid
         }
       }
     }
+    imageEthereum: file(relativePath: { eq: "ethereum.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 75) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
     friends: allContentfulFriendslogos {
       edges {
         node {
           id
           link
+          description
           logo {
             file {
               url

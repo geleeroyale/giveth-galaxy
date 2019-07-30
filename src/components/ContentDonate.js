@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
+import Button from '../components/button'
+import Img from 'gatsby-image'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
@@ -10,7 +12,7 @@ const ContentContainer = styled.div`
 `
 const ContentHeader = styled.div`
   display: grid;
-  grid-template-columns: minmax(320px 1fr);
+  grid-template-columns: minmax(320px 1fr) minmax(320px 1fr);
   grid-template-rows: repeat(5, auto);
   padding-bottom: 5rem;
   justify-self: center;
@@ -18,6 +20,7 @@ const ContentHeader = styled.div`
   @media (max-width: 990px) {
     grid-gap: 0.5rem;
     justify-items: center;
+    grid-template-columns: minmax(320px 1fr);
   }
 `
 
@@ -25,9 +28,9 @@ const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  @media (max-width: 640px) {
+  padding: 0 2rem;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
-    padding: 0 2rem;
     grid-column: span 1;
   }
 `
@@ -36,9 +39,9 @@ const Headline2 = styled.h2`
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
-  @media (max-width: 640px) {
+  padding: 0 2rem 2rem 2rem;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
-    padding: 1rem 2rem;
     grid-column: span 1;
   }
 `
@@ -50,25 +53,41 @@ const HeadlineFaq = styled.h1`
   border-radius: 20px;
   margin-bottom: 1rem;
   background-color: #e01c6b;
-  @media (max-width: 640px) {
+  max-width: 80vw;
+  margin: 2rem auto;
+  @media (max-width: 990px) {
     font-size: 1.5rem;
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
   }
 `
 
 const MainText1 = styled.div`
-  grid-column: span 2;
+  grid-column: 1;
+  justify-self: center;
+  margin: 0;
+  padding: 2rem;
+  p {
+    margin: 0;
+  }
+  @media (max-width: 990px) {
+    justify-self: center;
+    grid-column: span 1;
+  }
+`
+
+const MainText2 = styled.div`
+  grid-column: 2;
   max-width: 500px;
   justify-self: start;
   margin: 0;
+  padding: 2rem;
   p {
     margin: 0;
   }
   @media (max-width: 990px) {
     width: 1fr;
     justify-self: center;
-    padding: 0 2rem;
-    grid-column: span 1;
+    grid-column: 1 / span 1;
   }
 `
 
@@ -81,19 +100,24 @@ const ItemContainer = styled.div`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
-    padding: 0 2rem;
+    padding: 0;
   }
 `
 
 const DonationContainer = styled.div`
-  padding: 4rem 0;
+  grid-column: span 2;
+  padding: 2rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem 2rem;
   justify-content: center;
+  text-align: center;
+  max-width: 80vw;
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
+    grid-column: 1 / span 1;
+    padding: 0;
   }
 
   p {
@@ -106,24 +130,26 @@ const ContentItem = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  justify-self: center;
   align-self: center;
   background: #e4d1d9;
   border-radius: 10px;
-  background-size: contain;
   background-position: center;
   background-attachment: fixed;
   color: black;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   padding: 0.5rem;
+  border: 2px solid #00000000;
   @media (max-width: 990px) {
     justify-items: center;
+    justify-self: center;
+    max-width: 80vw;
     grid-gap: 0;
-    max-width: 320px;
   }
 
   :hover {
-    background-color: #ccb7c9;
+    background-color: #00000000;
+    color: #e4d1d9;
+    border: 2px solid #e01c6b;
   }
 
   .Collapsible__trigger {
@@ -131,7 +157,7 @@ const ContentItem = styled.div`
 
     :hover {
       cursor: pointer;
-      background-color: #ccb7c9;
+      color: #e01c6b;
     }
   }
 `
@@ -157,40 +183,86 @@ const Wrap = styled.p`
   font-weight: 500;
   color: #e01c6b;
 
+  @media (max-width: 990px) {
+    text-overflow: ellipsis;
+    max-width: 30vw;
+  }
+
   @media (max-width: 650px) {
     text-overflow: ellipsis;
-    max-width: 80vw;
+    max-width: 220px;
   }
 `
 
-const ContentDonate = ({ headerdata, data }) => (
+const ButtonContainer = styled.div`
+  padding: 3rem 1rem 1rem 1rem;
+  grid-column: span 3;
+  text-align: center;
+
+  @media (max-width: 990px) {
+    grid-column: span 1;
+  }
+`
+
+const ContentDonate = ({ headerdata, data, backgroundimage }) => (
   <ContentContainer>
+    <Img
+      fluid={backgroundimage.childImageSharp.fluid}
+      style={{
+        position: 'absolute',
+        left: 0,
+        top: '25vh',
+        width: '100%',
+        zIndex: '-2',
+      }}
+    />
     <ContentHeader>
       <Headline1>{headerdata.node.headline1}</Headline1>
       <Headline2>{headerdata.node.headline2}</Headline2>
+
       <MainText1
         dangerouslySetInnerHTML={{
           __html: headerdata.node.contentText.childMarkdownRemark.html,
         }}
       />
+      <MainText2
+        dangerouslySetInnerHTML={{
+          __html: headerdata.node.contentText2.childMarkdownRemark.html,
+        }}
+      />
+      <ButtonContainer>
+        <a
+          href="https://beta.giveth.io/dacs/5b37da13a239ac21b383d4da"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button>Donate with the Giveth DApp</Button>
+        </a>
+      </ButtonContainer>
       <DonationContainer>
         <ContentItem>
-          <a href="https://www.mycrypto.com/?to=0x5ADF43DD006c6C36506e2b2DFA352E60002d22Dc&gaslimit=120000#send-transaction">
-            1 - Donate ETH via MyCrypto
+          <a
+            href="https://www.mycrypto.com/?to=0x8f951903c9360345b4e1b536c7f5ae8f88a64e79#send-transaction"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Donate ETH or DAI via MyCrypto
           </a>
         </ContentItem>
         <ContentItem>
-          <a href="https://leaderboard.giveth.io">
-            2 - Visit our Leaderboard and use MetaMask
+          <a
+            href="https://leaderboard.giveth.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit our Leaderboard and use MetaMask
           </a>
         </ContentItem>
         <ContentItem>
-          <AddressHeadline>Send ETH directly to our address:</AddressHeadline>
-          <Wrap>0x5adf43dd006c6c36506e2b2dfa352e60002d22dc</Wrap>
-        </ContentItem>
-        <ContentItem>
-          <AddressHeadline>Send BTC directly to our address:</AddressHeadline>
-          <Wrap>3Q3eCqvwk2JPocfMBfC6oS5iA9S9wDXgYA</Wrap>
+          <AddressHeadline>
+            Send directly to our multisig address:
+          </AddressHeadline>
+          <Wrap>0x8f951903c9360345b4e1b536c7f5ae8f88a64e79</Wrap>
         </ContentItem>
       </DonationContainer>
     </ContentHeader>
