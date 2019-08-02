@@ -5,9 +5,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import ContentDonate from '../components/ContentDonate'
 
+import { colors } from '../utils/presets'
+
 const Gradient1 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, #000000ee 0%, #2c0b3fee 100%);
+  background: linear-gradient(180deg, #000000ee 0%, ${colors.theme}ee 100%);
 `
 
 const Container = styled.div`

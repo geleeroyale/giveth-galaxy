@@ -14,11 +14,11 @@ import Footer from './footer'
 const GlobalStyle = createGlobalStyle`
   body {
   margin: 0;
-  color: ${colors.light};
-  background: #000;
+  color: ${colors.dark};
+  background: ${colors.background};
 }
   a {
-    color: #E01C6B;
+    color: ${colors.highlight2};
     text-decoration: none;
     font-weight: 600;
 }
@@ -26,12 +26,14 @@ h1 {
   margin: 0;
   font-size: 2.5rem;
   font-weight: 700;
+  color: ${colors.theme};
 }
 
 h2 {
   margin: 0;
   font-size: 2rem; 
   font-weight: 300;
+  color: ${colors.highlight2};
 }
 `
 
@@ -72,7 +74,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'theme-color',
-              content: '#C2449F',
+              content: '#2C0B3F',
             },
             {
               property: 'og:image:width',

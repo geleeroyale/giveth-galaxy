@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaSlackHash } from 'react-icons/fa'
 
+import { colors } from '../utils/presets'
+
 const ContentContainer = styled.div`
   padding: 20vh 0;
   max-width: 960px;
@@ -101,7 +103,7 @@ const MainText2 = styled.div`
     text-align: center;
     color: black;
     margin-bottom: 1rem;
-    background-color: #e01c6b;
+    background-color: ${colors.highlight};
   }
 
   h3 {

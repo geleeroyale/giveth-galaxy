@@ -4,6 +4,8 @@ import Collapsible from 'react-collapsible'
 import Button from '../components/button'
 import Img from 'gatsby-image'
 
+import { colors } from '../utils/presets'
+
 const ContentContainer = styled.div`
   padding: 20vh 0;
   max-width: 960px;
@@ -52,7 +54,7 @@ const HeadlineFaq = styled.h1`
   padding: 0.5rem 0;
   border-radius: 20px;
   margin-bottom: 1rem;
-  background-color: #e01c6b;
+  background-color: ${colors.highlight};
   max-width: 80vw;
   margin: 2rem auto;
   @media (max-width: 990px) {
@@ -149,7 +151,7 @@ const ContentItem = styled.div`
   :hover {
     background-color: #00000000;
     color: #e4d1d9;
-    border: 2px solid #e01c6b;
+    border: 2px solid ${colors.highlight};
   }
 
   .Collapsible__trigger {
@@ -157,7 +159,7 @@ const ContentItem = styled.div`
 
     :hover {
       cursor: pointer;
-      color: #e01c6b;
+      color: ${colors.highlight};
     }
   }
 `
@@ -181,7 +183,7 @@ const Wrap = styled.p`
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 500;
-  color: #e01c6b;
+  color: ${colors.highlight};
 
   @media (max-width: 990px) {
     text-overflow: ellipsis;

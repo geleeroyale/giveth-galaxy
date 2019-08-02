@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../utils/presets'
 
 const ContentContainer = styled.div`
   padding: 5vh 0;
@@ -88,8 +89,8 @@ const ItemContainer = styled.div`
 `
 
 const ContentItem = styled.div`
+  position: relative;
   padding: 0.5rem;
-  grid-column: span 2;
   display: grid;
   justify-self: stretch;
   align-self: center;
@@ -97,7 +98,7 @@ const ContentItem = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(228, 57, 126, 0.2) 100%
+    ${colors.nav_bg} 100%
   );
   background-size: contain;
   background-position: center;
@@ -106,7 +107,7 @@ const ContentItem = styled.div`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    background-color: #2c0b3f;
+    background-color: ${colors.theme};
 
     @media (max-width: 640px) {
       background-color: black;
@@ -115,7 +116,7 @@ const ContentItem = styled.div`
   }
 
   @media (max-width: 640px) {
-    border: 1px solid #e01c6b;
+    border: 1px solid ${colors.highlight};
     grid-column: span 1;
   }
 `
@@ -129,7 +130,7 @@ const ContentItem2 = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(228, 57, 126, 0.2) 100%
+    ${colors.nav_bg} 100%
   );
   background-size: contain;
   background-position: center;
@@ -138,7 +139,7 @@ const ContentItem2 = styled.div`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    background-color: #2c0b3f;
+    background-color: ${colors.theme};
 
     @media (max-width: 640px) {
       background-color: black;
@@ -147,21 +148,21 @@ const ContentItem2 = styled.div`
   }
 
   @media (max-width: 640px) {
-    border: 1px solid #e01c6b;
+    border: 1px solid ${colors.highlight};
   }
 `
 
 const UpperCard = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   display: grid;
-  color: white;
+  color: ${colors.white};
   border-radius: 10px;
 `
 
 const ContentImage = styled.img`
   padding: 1rem;
   margin: 0;
-  height: 100px;
+  height: 150px;
   width: auto;
   grid-row: 1;
   justify-self: center;
@@ -170,12 +171,10 @@ const ContentImage = styled.img`
 
 const ProjectTitle = styled.a`
   justify-self: center;
+  margin: 0 auto;
   font-size: 1.5rem;
   font-weight: 100;
   grid-row: 2;
-  margin: 1rem;
-  padding: 0 1rem;
-
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   :hover {
@@ -183,13 +182,16 @@ const ProjectTitle = styled.a`
   }
 `
 
-const UpperCardLink = styled.a``
+const UpperCardLink = styled.a`
+  display: grid;
+`
 
 const ProjectDescription = styled.p`
   padding-top: 1rem;
-  justify-self: stretch;
   text-align: center;
   grid-row: 3;
+  color: ${colors.theme};
+  font-weight: 300;
 `
 
 const ContentB = ({ headerdata, planetsdata, starsdata }) => (
@@ -213,16 +215,14 @@ const ContentB = ({ headerdata, planetsdata, starsdata }) => (
       {planetsdata.map(edges => (
         <ContentItem key={edges.node.id}>
           <UpperCardLink href={edges.node.projectUrl}>
-            <UpperCard>
-              <ContentImage src={edges.node.logo.file.url} />
-            </UpperCard>
+            <ProjectTitle>{edges.node.projectTitle}</ProjectTitle>
+            <UpperCard />
+            <ContentImage src={edges.node.logo.file.url} />
+
+            <ProjectDescription>
+              {edges.node.projectShortDescription}
+            </ProjectDescription>
           </UpperCardLink>
-          <ProjectTitle href={edges.node.projectUrl}>
-            {edges.node.projectTitle}
-          </ProjectTitle>
-          <ProjectDescription>
-            {edges.node.projectShortDescription}
-          </ProjectDescription>
         </ContentItem>
       ))}
     </ItemContainer>
@@ -234,13 +234,13 @@ const ContentB = ({ headerdata, planetsdata, starsdata }) => (
             <UpperCard>
               <ContentImage src={edges.node.logo.file.url} />
             </UpperCard>
+            <ProjectTitle href={edges.node.projectUrl}>
+              {edges.node.projectTitle}
+            </ProjectTitle>
+            <ProjectDescription>
+              {edges.node.projectShortDescription}
+            </ProjectDescription>
           </UpperCardLink>
-          <ProjectTitle href={edges.node.projectUrl}>
-            {edges.node.projectTitle}
-          </ProjectTitle>
-          <ProjectDescription>
-            {edges.node.projectShortDescription}
-          </ProjectDescription>
         </ContentItem2>
       ))}
     </ItemContainer>

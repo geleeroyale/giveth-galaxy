@@ -46,7 +46,7 @@ const Icon = styled.p`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    color: #e01c6b;
+    color: ${colors.highlight};
   }
 `
 
@@ -105,7 +105,7 @@ const Tooltip = styled.p`
   transform: scale(1.2) translateY(-3px) skew(0deg, 5deg);
   font-size: 0.8rem;
   color: black;
-  background-color: #e01c6bee;
+  background-color: ${colors.highlight}ee;
   border-radius: 1rem;
   padding: 1rem;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);

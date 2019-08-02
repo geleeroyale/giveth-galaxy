@@ -29,15 +29,15 @@ const Hero = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    #000000 100%,
-    #000000 100%
+    ${colors.background} 100%,
+    ${colors.background} 100%
   );
   background-size: cover;
   background-position: center;
   height: 100vh;
   width: 100%;
   align-content: start;
-  justify-content: center;
+  justify-content: right;
   display: grid;
   z-index: -1;
 
@@ -62,7 +62,7 @@ const HeroGroup = styled.div`
 
   h1 {
     margin: 0;
-    color: white;
+    color: ${colors.highlight2};
     font-size: 2rem;
     line-height: 1.2;
   }
@@ -70,7 +70,7 @@ const HeroGroup = styled.div`
   p {
     margin: 0px;
     font-size: 2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: ${colors.theme};
   }
 
   .hero-item-1 {
@@ -156,6 +156,15 @@ const Container = styled.div`
   }
 `
 
+const ContainerXL = styled.div`
+  max-width: 80vw;
+  margin: 0 auto;
+  justify-content: center;
+  @media (max-width: 640px) {
+    padding: 0 1rem;
+  }
+`
+
 const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
@@ -186,7 +195,7 @@ const Gradient2 = styled.div`
   z-index: -2;
 `
 const Black = styled.div`
-  background: black;
+  background: ${colors.black};
   z-index: 0;
 `
 const Divider = styled.div`
@@ -199,7 +208,7 @@ const Divider2 = styled.div`
   margin-bottom: 4rem;
   width: 100%;
   height: 0.2rem;
-  background-color: ${colors.highlight};
+  background-color: ${colors.highlight2};
 `
 
 //
@@ -216,7 +225,7 @@ const IndexPage = ({ data }) => (
         position: 'absolute',
         left: 0,
         top: 0,
-        width: '100%',
+        width: '50%',
         height: '100vh',
         zIndex: '-2',
       }}
@@ -224,7 +233,7 @@ const IndexPage = ({ data }) => (
     <Hero>
       <HeroGroup>
         <img
-          src={require('../images/logo/givethio-white.svg')}
+          src={require('../images/logo/givethio-purple.svg')}
           alt="giveth.io"
           className="hero-item-1"
         />
@@ -291,23 +300,14 @@ const IndexPage = ({ data }) => (
     </Zoom>
     <Divider2 />
     <ScrollableAnchor id={'dapp'}>
-      <Container id="dapp">
+      <ContainerXL id="dapp">
         <Headline1>Giveth DApp (Beta)</Headline1>
         <Headline2>The Donation Application</Headline2>
         <ContentDApp data={data.contentDapps.edges[0]} />
-      </Container>
+      </ContainerXL>
     </ScrollableAnchor>
     <Divider />
-    <Img
-      fluid={data.imageKeyboard.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        width: '100%',
-        height: '100vh',
-        zIndex: '0',
-        opacity: '0.1',
-      }}
-    />
+
     <ScrollableAnchor id={'socialcoding'}>
       <Container id="socialcoding">
         <Slide left>
@@ -316,16 +316,7 @@ const IndexPage = ({ data }) => (
       </Container>
     </ScrollableAnchor>
     <Divider />
-    <Img
-      fluid={data.imageEthereum.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        width: '100%',
-        height: '100vh',
-        zIndex: '0',
-        opacity: '0.1',
-      }}
-    />
+
     <ScrollableAnchor id={'org'}>
       <Container id="org">
         <Slide right>
@@ -334,17 +325,15 @@ const IndexPage = ({ data }) => (
       </Container>
     </ScrollableAnchor>
     <Divider />
-    <Gradient2>
-      <ScrollableAnchor id={'galaxy'}>
-        <Container id="galaxy">
-          <ContentB
-            headerdata={data.contentB.edges[0]}
-            planetsdata={data.contentBcards.edges}
-            starsdata={data.contentBcardsStars.edges}
-          />
-        </Container>
-      </ScrollableAnchor>
-    </Gradient2>
+    <ScrollableAnchor id={'galaxy'}>
+      <Container id="galaxy">
+        <ContentB
+          headerdata={data.contentB.edges[0]}
+          planetsdata={data.contentBcards.edges}
+          starsdata={data.contentBcardsStars.edges}
+        />
+      </Container>
+    </ScrollableAnchor>
     <Divider />
     <ScrollableAnchor id={'dac'}>
       <Black id="dac">
@@ -495,7 +484,7 @@ export const query = graphql`
         }
       }
     }
-    backgroundImage: file(relativePath: { eq: "m82.jpg" }) {
+    backgroundImage: file(relativePath: { eq: "dreamcatcher.png" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid

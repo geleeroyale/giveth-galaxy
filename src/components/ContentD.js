@@ -70,7 +70,7 @@ const MainText2 = styled.div`
     text-align: center;
     color: black;
     margin-bottom: 1rem;
-    background-color: #e01c6b;
+    background-color: ${colors.highlight};
   }
 
   h3 {
