@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Zoom from 'react-reveal/Zoom'
-import Slide from 'react-reveal/Slide'
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
@@ -245,104 +242,93 @@ const IndexPage = ({ data }) => (
       </HeroGroup>
     </Hero>
 
-    <ScrollableAnchor id={'heronav'}>
-      <Container id="heronav">
-        <ContentTextblock headerdata={data.contentB.edges[1]} />
-      </Container>
-    </ScrollableAnchor>
-    <Zoom>
-      <HeroNav>
-        <Block>
-          <Link to="/#dapp">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/logo/giveth-nav-logo.svg')}
-              alt=""
-            />
-            <p>Giveth Dapp</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="/#socialcoding">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/blockchain.svg')}
-              alt=""
-            />
-            <p>Social Coding</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="/#org">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/distributed-org.svg')}
-              alt=""
-            />
-            <p>Governance</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="/#galaxy">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/cooperative-dev.svg')}
-              alt=""
-            />
-            <p>Galaxy Projects</p>
-          </Link>
-        </Block>
-      </HeroNav>
-    </Zoom>
+    <Container id="heronav">
+      <ContentTextblock headerdata={data.contentB.edges[1]} />
+    </Container>
+
+    <HeroNav>
+      <Block>
+        <Link to="/#dapp">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/logo/giveth-nav-logo.svg')}
+            alt=""
+          />
+          <p>Giveth Dapp</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="/#socialcoding">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/blockchain.svg')}
+            alt=""
+          />
+          <p>Social Coding</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="/#org">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/distributed-org.svg')}
+            alt=""
+          />
+          <p>Governance</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="/#galaxy">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/cooperative-dev.svg')}
+            alt=""
+          />
+          <p>Galaxy Projects</p>
+        </Link>
+      </Block>
+    </HeroNav>
+
     <Divider2 />
-    <ScrollableAnchor id={'dapp'}>
-      <ContainerXL id="dapp">
-        <Headline1>Giveth DApp (Beta)</Headline1>
-        <Headline2>The Donation Application</Headline2>
-        <ContentDApp data={data.contentDapps.edges[0]} />
-      </ContainerXL>
-    </ScrollableAnchor>
+
+    <ContainerXL id="dapp">
+      <Headline1>Giveth DApp (Beta)</Headline1>
+      <Headline2>The Donation Application</Headline2>
+      <ContentDApp data={data.contentDapps.edges[0]} />
+    </ContainerXL>
+
     <Divider />
 
-    <ScrollableAnchor id={'socialcoding'}>
-      <Container id="socialcoding">
-        <Slide left>
-          <ContentASocialCoding data={data.contentA.edges[2]} />
-        </Slide>
-      </Container>
-    </ScrollableAnchor>
+    <Container id="socialcoding">
+      <ContentASocialCoding data={data.contentA.edges[2]} />
+    </Container>
+
     <Divider />
 
-    <ScrollableAnchor id={'org'}>
-      <Container id="org">
-        <Slide right>
-          <ContentA2 data={data.contentA.edges[3]} />
-        </Slide>
-      </Container>
-    </ScrollableAnchor>
+    <Container id="org">
+      <ContentA2 data={data.contentA.edges[3]} />
+    </Container>
+
     <Divider />
-    <ScrollableAnchor id={'galaxy'}>
-      <Container id="galaxy">
-        <ContentB
-          headerdata={data.contentB.edges[0]}
-          planetsdata={data.contentBcards.edges}
-          starsdata={data.contentBcardsStars.edges}
-        />
-      </Container>
-    </ScrollableAnchor>
+
+    <Container id="galaxy">
+      <ContentB
+        headerdata={data.contentB.edges[0]}
+        planetsdata={data.contentBcards.edges}
+        starsdata={data.contentBcardsStars.edges}
+      />
+    </Container>
+
     <Divider />
-    <ScrollableAnchor id={'dac'}>
-      <Black id="dac">
-        <Slide left>
-          <ContentA data={data.contentA.edges[1]} />
-        </Slide>
-        <Friendlogos data={data.friends.edges} />
-      </Black>
-    </ScrollableAnchor>
+
+    <Black id="dac">
+      <ContentA data={data.contentA.edges[1]} />
+      <Friendlogos data={data.friends.edges} />
+    </Black>
   </Layout>
 )
 
