@@ -163,35 +163,6 @@ const ContainerXL = styled.div`
   }
 `
 
-const Headline1 = styled.h1`
-  grid-column: span 2;
-  justify-self: start;
-  align-self: end;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
-  @media (max-width: 640px) {
-    font-size: 1.5rem;
-  }
-`
-const Headline2 = styled.h2`
-  grid-column: span 2;
-  justify-self: start;
-  align-self: start;
-  padding-bottom: 2rem;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
-  @media (max-width: 640px) {
-    font-size: 1.5rem;
-  }
-`
-
-const Gradient2 = styled.div`
-  opacity: 0.8;
-  background: linear-gradient(#000 0%, ${colors.theme} 100%);
-  z-index: -2;
-`
 const Black = styled.div`
   background: ${colors.black};
   z-index: 0;
