@@ -190,7 +190,7 @@ const ProjectDescription = styled.p`
   padding-top: 1rem;
   text-align: center;
   grid-row: 3;
-  color: ${colors.theme};
+  color: ${colors.light};
   font-weight: 300;
 `
 
