@@ -159,6 +159,7 @@ const ContainerXL = styled.div`
   justify-content: center;
   @media (max-width: 640px) {
     padding: 0 1rem;
+    max-width: 100vw;
   }
 `
 
@@ -296,8 +297,6 @@ const IndexPage = ({ data }) => (
     <Divider2 />
 
     <ContainerXL id="dapp">
-      <Headline1>Giveth DApp (Beta)</Headline1>
-      <Headline2>The Donation Application</Headline2>
       <ContentDApp data={data.contentDapps.edges[0]} />
     </ContainerXL>
 

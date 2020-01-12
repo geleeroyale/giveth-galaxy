@@ -21,48 +21,58 @@ const ContentItem = styled.div`
 const ContentImage = styled.img`
   max-width: 400px;
   grid-column: 2;
-  grid-row: span 4;
+  grid-row: 3;
   justify-self: end;
-  align-self: center;
+  align-self: start;
   @media (max-width: 800px) {
     justify-self: center;
-    padding-bottom: 3rem;
     max-width: 280px;
     grid-column: 1;
   }
 `
 const Headline1 = styled.h1`
+  grid-column: 1;
+  grid-row: 1;
   align-self: end;
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
     word-wrap: break-word;
-    text-align: center;
   }
 `
 const Headline2 = styled.h2`
+  grid-column: 1;
   align-self: start;
-  padding-bottom: 2rem;
+  grid-row: 2;
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
     word-wrap: break-word;
-    text-align: center;
+    padding-bottom: 1rem;
   }
 `
 const MainText = styled.div`
   max-width: 500px;
   margin: 0;
   padding-bottom: 2rem;
+  grid-column: 1;
+  grid-row: 3;
 
   p {
     margin: 0;
   }
   @media (max-width: 640px) {
     max-width: 1fr;
+    grid-row: 4;
   }
 `
-const DetailsLink = styled.a``
+const DetailsLink = styled.a`
+  grid-row: 4;
+  justify-self: end;
+  @media (max-width: 640px) {
+    grid-row: 5;
+  }
+`
 
 const ContentA2 = ({ data }) => (
   <ContentContainer>

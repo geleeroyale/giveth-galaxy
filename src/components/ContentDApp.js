@@ -7,6 +7,30 @@ const ContentContainer = styled.div`
   margin: 0 auto;
   justify-content: center;
 `
+const Headline1 = styled.h1`
+  grid-column: span 2;
+  justify-self: start;
+  align-self: end;
+  padding: 1rem 0 0 1rem;
+  @media (max-width: 990px) {
+    padding: 0;
+  }
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+  }
+`
+const Headline2 = styled.h2`
+  grid-column: span 2;
+  justify-self: start;
+  align-self: end;
+  padding: 0 0 1rem 1rem;
+  @media (max-width: 990px) {
+    padding: 0;
+  }
+  @media (max-width: 640px) {
+    font-size: 1.5rem;
+  }
+`
 
 const ContentItem = styled.div`
   padding: 0.5rem;
@@ -33,11 +57,15 @@ const ContentItem = styled.div`
 const Screenshot = styled.img`
   margin: auto;
   padding: 2rem;
+  @media (max-width: 990px) {
+    justify-self: center;
+    padding: 0;
+  }
 `
 
 const LongDescription = styled.div`
   justify-self: center;
-  align-self: center;
+  align-self: start;
   margin: 0;
   padding: 3rem;
   p {
@@ -66,6 +94,8 @@ const ProjectLink = styled.a`
 const ContentDApp = ({ data }) => (
   <ContentContainer>
     <ContentItem key={data.node.id}>
+      <Headline1>Giveth DApp (Beta)</Headline1>
+      <Headline2>The Donation Application</Headline2>
       <LongDescription
         dangerouslySetInnerHTML={{
           __html: data.node.contentText.childMarkdownRemark.html,
