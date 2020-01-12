@@ -350,9 +350,6 @@ export const query = graphql`
             file {
               url
             }
-            fluid {
-              sizes
-            }
           }
           headline1
           headline2
