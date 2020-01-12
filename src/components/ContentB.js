@@ -153,7 +153,6 @@ const ContentItem2 = styled.div`
 `
 
 const UpperCard = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
   display: grid;
   color: ${colors.white};
   border-radius: 10px;
@@ -162,7 +161,7 @@ const UpperCard = styled.div`
 const ContentImage = styled.img`
   padding: 1rem;
   margin: 0;
-  height: 150px;
+  max-height: 200px;
   width: auto;
   grid-row: 1;
   justify-self: center;
@@ -176,6 +175,7 @@ const ProjectTitle = styled.a`
   font-weight: 100;
   grid-row: 2;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  color: ${colors.theme};
 
   :hover {
     transform: scale(1.2) translateY(-3px);
