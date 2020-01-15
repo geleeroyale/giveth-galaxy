@@ -163,8 +163,8 @@ const ContainerXL = styled.div`
   }
 `
 
-const Black = styled.div`
-  background: ${colors.black};
+const Purple = styled.div`
+  background: ${colors.theme};
   z-index: 0;
 `
 const Divider = styled.div`
@@ -295,10 +295,10 @@ const IndexPage = ({ data }) => (
 
     <Divider />
 
-    <Black id="dac">
+    <Purple id="dac">
       <ContentA data={data.contentA.edges[1]} />
       <Friendlogos data={data.friends.edges} />
-    </Black>
+    </Purple>
   </Layout>
 )
 

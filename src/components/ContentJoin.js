@@ -18,11 +18,15 @@ const ContentContainer = styled.div`
     font-size: 220px;
     justify-self: center;
     align-self: center;
-    color: rgba(146, 128, 144, 0.5);
+    color: ${colors.light};
 
     @media (max-width: 650px) {
       padding-top: 3rem;
     }
+  }
+
+  a {
+    color: ${colors.highlight};
   }
 `
 const ContentHeader = styled.div`
@@ -71,6 +75,7 @@ const Headline2 = styled.h2`
   justify-self: start;
   align-self: start;
   padding-bottom: 2rem;
+  color: ${colors.highlight};
   @media (max-width: 990px) {
     justify-self: center;
   }
@@ -85,6 +90,9 @@ const MainText1 = styled.div`
   max-width: 500px;
   justify-self: end;
   margin: 0;
+  a {
+    color: ${colors.highlight2};
+  }
   p {
     margin: 0;
   }
@@ -97,7 +105,10 @@ const MainText2 = styled.div`
   max-width: 500px;
   justify-self: start;
   margin: 0;
-  color: rgba(146, 128, 144, 0.5);
+  color: ${colors.dark};
+  a {
+    color: ${colors.highlight2};
+  }
   h1 {
     padding: 0.2rem;
     text-align: center;
@@ -113,10 +124,6 @@ const MainText2 = styled.div`
     grid-row: 4;
     width: 1fr;
     justify-self: center;
-  }
-
-  a {
-    color: rgba(146, 128, 144, 0.5);
   }
 `
 

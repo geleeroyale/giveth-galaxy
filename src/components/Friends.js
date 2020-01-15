@@ -22,14 +22,14 @@ const Container = styled.div`
 
 const Gradient3 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, ${colors.dark} 0%, black 100%);
+  background: ${colors.white};
 `
 
 const Description = styled.h2`
   font-size: 1rem;
   line-height: 1.5;
   text-align: center;
-  color: #c1439e;
+  color: ${colors.dark};
   transform: skew(0deg, 5deg);
   @media (max-width: 640px) {
     font-size: 0.8rem;
@@ -41,12 +41,12 @@ const Icon = styled.p`
   font-size: 4rem;
   line-height: 0;
   margin: 1rem;
-  color: #333;
+  color: ${colors.highlight};
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    color: ${colors.highlight};
+    color: ${colors.theme};
   }
 `
 

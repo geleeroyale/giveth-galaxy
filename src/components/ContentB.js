@@ -93,7 +93,7 @@ const ContentItem = styled.div`
   padding: 0.5rem;
   display: grid;
   justify-self: stretch;
-  align-self: center;
+  align-self: stretch;
   border-radius: 10px;
   background: linear-gradient(
     180deg,
@@ -107,10 +107,8 @@ const ContentItem = styled.div`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    background-color: ${colors.theme};
 
     @media (max-width: 640px) {
-      background-color: black;
       transform: scale(1) translateY(0px);
     }
   }
@@ -125,7 +123,7 @@ const ContentItem2 = styled.div`
   padding: 0.5rem;
   display: grid;
   justify-self: stretch;
-  align-self: center;
+  align-self: stretch;
   border-radius: 10px;
   background: linear-gradient(
     180deg,
@@ -139,10 +137,7 @@ const ContentItem2 = styled.div`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    background-color: ${colors.theme};
-
     @media (max-width: 640px) {
-      background-color: black;
       transform: scale(1) translateY(0px);
     }
   }

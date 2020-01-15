@@ -11,6 +11,10 @@ const ContentContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
+
+  a {
+    color: ${colors.highlight};
+  }
 `
 const ContentHeader = styled.div`
   display: grid;
@@ -64,6 +68,7 @@ const HeadlineFaq = styled.h1`
 `
 
 const MainText1 = styled.div`
+  color: ${colors.dark};
   grid-column: 1;
   justify-self: center;
   margin: 0;
@@ -78,6 +83,7 @@ const MainText1 = styled.div`
 `
 
 const MainText2 = styled.div`
+  color: ${colors.dark};
   grid-column: 2;
   max-width: 500px;
   justify-self: start;
@@ -155,11 +161,8 @@ const ContentItem = styled.div`
   }
 
   .Collapsible__trigger {
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-
     :hover {
       cursor: pointer;
-      color: ${colors.highlight};
     }
   }
 `

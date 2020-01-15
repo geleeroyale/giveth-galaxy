@@ -2,16 +2,22 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import colors from '../utils/colors'
 import Social from '../components/social'
 
 const OuterContainer = styled.div`
-  background-color: black;
+  background-color: ${colors.theme};
+
+  .bg-black {
+    background-color: ${colors.black};
+  }
 `
 
 const FooterContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
   padding-bottom: 2rem;
+
   @media (max-width: 640px) {
     padding: 0 2rem;
   }
@@ -31,7 +37,7 @@ const LinkContainer = styled.div`
 
 const Description = styled.p`
   padding-top: 4rem;
-  color: #333;
+  color: ${colors.light};
   text-align: center;
   font-size: 0.9rem;
 `
@@ -40,7 +46,7 @@ const Copyleft = styled.div`
   padding-top: 2rem;
   text-align: center;
   font-size: 1rem;
-  color: #333;
+  color: ${colors.light};
 `
 
 /**
@@ -81,7 +87,7 @@ const Footer = () => (
             Support us with your Donation - <a href="/donate">revolution.eth</a>
           </Copyleft>
           <Copyleft>
-            MMXVIII - No Rights Reserved -{' '}
+            MMXX - No Rights Reserved -{' '}
             <a href="https://wiki.giveth.io/dac/">The Giveth DAC</a>
           </Copyleft>
         </FooterContainer>

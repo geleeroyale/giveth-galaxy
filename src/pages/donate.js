@@ -9,7 +9,7 @@ import { colors } from '../utils/presets'
 
 const Gradient1 = styled.div`
   padding: 10vh 0;
-  background: linear-gradient(180deg, #000000ee 0%, ${colors.theme}ee 100%);
+  background: linear-gradient(180deg, ${colors.white} 0%, ${colors.theme} 100%);
 `
 
 const Container = styled.div`
