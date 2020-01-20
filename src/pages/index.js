@@ -32,7 +32,7 @@ const Hero = styled.div`
   background-size: cover;
   background-position: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   align-content: start;
   justify-content: center;
   display: grid;
