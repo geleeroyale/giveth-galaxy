@@ -155,7 +155,6 @@ const ContentItem = styled.div`
 
   :hover {
     background-color: #00000000;
-    color: #e4d1d9;
     border: 2px solid ${colors.highlight};
   }
 
