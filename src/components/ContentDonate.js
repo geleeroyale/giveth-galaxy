@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
-import Img from 'gatsby-image'
 
 import { colors } from '../utils/presets'
 
@@ -211,16 +210,6 @@ const ButtonContainer = styled.div`
 
 const ContentDonate = ({ headerdata, data, backgroundimage }) => (
   <ContentContainer>
-    <Img
-      fluid={backgroundimage.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: '25vh',
-        width: '100%',
-        zIndex: '-2',
-      }}
-    />
     <ContentHeader>
       <Headline1>{headerdata.node.headline1}</Headline1>
       <Headline2>{headerdata.node.headline2}</Headline2>
@@ -241,7 +230,7 @@ const ContentDonate = ({ headerdata, data, backgroundimage }) => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button>Donate with the Giveth DApp</Button>
+          <Button primary>Donate with the Giveth DApp</Button>
         </a>
       </ButtonContainer>
       <DonationContainer>
