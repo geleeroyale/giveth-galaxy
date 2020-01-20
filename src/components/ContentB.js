@@ -163,7 +163,7 @@ const ContentImage = styled.img`
   align-self: center;
 `
 
-const ProjectTitle = styled.a`
+const ProjectTitle = styled.p`
   justify-self: center;
   margin: 0 auto;
   font-size: 1.5rem;
