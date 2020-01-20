@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Break from 'react-break'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
@@ -38,10 +37,12 @@ const Hero = styled.div`
   justify-content: center;
   display: grid;
   z-index: -1;
+`
 
-  @media (max-width: 960) {
-    padding: 0;
-    min-height: 100vh;
+const HeroImage = styled(Img)`
+  display: block;
+  @media (max-width: 960px) {
+    display: none;
   }
 `
 
@@ -52,10 +53,8 @@ const HeroGroup = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat() (4, auto);
 
-  @media (max-width: 960) {
-    padding: 0;
-    min-height: 100vh;
-    padding: 10vh 50px;
+  @media (max-width: 960px) {
+    justify-content: center;
   }
 
   h1 {
@@ -177,13 +176,6 @@ const Divider2 = styled.div`
   background-color: ${colors.highlight2};
 `
 
-const UIBreakpoints = {
-  mobile: 0,
-  phablet: 550,
-  tablet: 768,
-  desktop: 992,
-}
-
 //
 // SECTION2 - Page Component
 //
@@ -192,11 +184,8 @@ const UIBreakpoints = {
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Break
-      breakpoints={UIBreakpoints}
-      query={{ method: 'isAtLeast', breakpoint: 'desktop' }}
-    >
-      <Img
+    <Hero>
+      <HeroImage
         fluid={data.backgroundImage.childImageSharp.fluid}
         style={{
           position: 'absolute',
@@ -207,9 +196,8 @@ const IndexPage = ({ data }) => (
           zIndex: '-2',
           transform: 'scale(0.6)',
         }}
+        className={'heroImage'}
       />
-    </Break>
-    <Hero>
       <HeroGroup>
         <img
           src={require('../images/logo/givethio-purple.svg')}
