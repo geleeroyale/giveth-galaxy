@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Break from 'react-break'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
@@ -32,9 +33,9 @@ const Hero = styled.div`
   background-size: cover;
   background-position: center;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   align-content: start;
-  justify-content: right;
+  justify-content: center;
   display: grid;
   z-index: -1;
 
@@ -48,7 +49,7 @@ const HeroGroup = styled.div`
   margin: 0 15vw;
   padding: 20vh 50px;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: repeat() (4, auto);
 
   @media (max-width: 960) {
@@ -71,7 +72,6 @@ const HeroGroup = styled.div`
   }
 
   .hero-item-1 {
-    grid-column: 2;
     grid-row: 1;
     max-width: 500px;
     justify-self: center;
@@ -79,18 +79,15 @@ const HeroGroup = styled.div`
 
   .hero-item-2 {
     margin-top: 1rem;
-    grid-column: 2;
     grid-row: 2;
   }
 
   .hero-item-3 {
-    grid-column: 2;
     grid-row: 3;
   }
 
   .hero-item-4 {
     margin-top: 5vh;
-    grid-column: 2;
     grid-row: 4;
     justify-self: center;
   }
@@ -180,25 +177,38 @@ const Divider2 = styled.div`
   background-color: ${colors.highlight2};
 `
 
+const UIBreakpoints = {
+  mobile: 0,
+  phablet: 550,
+  tablet: 768,
+  desktop: 992,
+}
+
 //
-// SECTION2 - Content
+// SECTION2 - Page Component
 //
 // Content is rendered here - most of it is passed down via graphql query in the next section
 //
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Img
-      fluid={data.backgroundImage.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: '50%',
-        height: '100vh',
-        zIndex: '-2',
-      }}
-    />
+    <Break
+      breakpoints={UIBreakpoints}
+      query={{ method: 'isAtLeast', breakpoint: 'desktop' }}
+    >
+      <Img
+        fluid={data.backgroundImage.childImageSharp.fluid}
+        style={{
+          position: 'absolute',
+          left: '0px',
+          top: '0px',
+          width: '50%',
+          height: '100%',
+          zIndex: '-2',
+          transform: 'scale(0.6)',
+        }}
+      />
+    </Break>
     <Hero>
       <HeroGroup>
         <img
