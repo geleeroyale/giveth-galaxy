@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { colors } from '../utils/presets'
+
 const ContentContainer = styled.div`
   padding: 10vh 0;
   display: grid;
@@ -30,6 +32,7 @@ const ContentImage = styled.img`
 `
 const Headline1 = styled.h1`
   align-self: end;
+  color: ${colors.highlight2};
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
@@ -40,6 +43,7 @@ const Headline1 = styled.h1`
 const Headline2 = styled.h2`
   align-self: start;
   padding-bottom: 2rem;
+  color: ${colors.highlight};
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
@@ -51,6 +55,7 @@ const MainText = styled.div`
   max-width: 500px;
   margin: 0;
   padding-bottom: 2rem;
+  color: ${colors.light};
 
   p {
     margin: 0;

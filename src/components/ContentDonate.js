@@ -2,13 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import Collapsible from 'react-collapsible'
 import Button from '../components/button'
-import Img from 'gatsby-image'
+
+import { colors } from '../utils/presets'
 
 const ContentContainer = styled.div`
   padding: 20vh 0;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
+
+  a {
+    color: ${colors.highlight};
+  }
 `
 const ContentHeader = styled.div`
   display: grid;
@@ -52,7 +57,7 @@ const HeadlineFaq = styled.h1`
   padding: 0.5rem 0;
   border-radius: 20px;
   margin-bottom: 1rem;
-  background-color: #e01c6b;
+  background-color: ${colors.highlight};
   max-width: 80vw;
   margin: 2rem auto;
   @media (max-width: 990px) {
@@ -62,6 +67,7 @@ const HeadlineFaq = styled.h1`
 `
 
 const MainText1 = styled.div`
+  color: ${colors.dark};
   grid-column: 1;
   justify-self: center;
   margin: 0;
@@ -76,6 +82,7 @@ const MainText1 = styled.div`
 `
 
 const MainText2 = styled.div`
+  color: ${colors.dark};
   grid-column: 2;
   max-width: 500px;
   justify-self: start;
@@ -148,16 +155,12 @@ const ContentItem = styled.div`
 
   :hover {
     background-color: #00000000;
-    color: #e4d1d9;
-    border: 2px solid #e01c6b;
+    border: 2px solid ${colors.highlight};
   }
 
   .Collapsible__trigger {
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-
     :hover {
       cursor: pointer;
-      color: #e01c6b;
     }
   }
 `
@@ -181,7 +184,7 @@ const Wrap = styled.p`
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 500;
-  color: #e01c6b;
+  color: ${colors.highlight};
 
   @media (max-width: 990px) {
     text-overflow: ellipsis;
@@ -206,16 +209,6 @@ const ButtonContainer = styled.div`
 
 const ContentDonate = ({ headerdata, data, backgroundimage }) => (
   <ContentContainer>
-    <Img
-      fluid={backgroundimage.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: '25vh',
-        width: '100%',
-        zIndex: '-2',
-      }}
-    />
     <ContentHeader>
       <Headline1>{headerdata.node.headline1}</Headline1>
       <Headline2>{headerdata.node.headline2}</Headline2>
@@ -236,7 +229,7 @@ const ContentDonate = ({ headerdata, data, backgroundimage }) => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button>Donate with the Giveth DApp</Button>
+          <Button primary>Donate with the Giveth DApp</Button>
         </a>
       </ButtonContainer>
       <DonationContainer>

@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import Zoom from 'react-reveal/Zoom'
-import Slide from 'react-reveal/Slide'
-import ScrollableAnchor from 'react-scrollable-anchor'
 
 import ContentA from '../components/ContentA'
 import ContentA2 from '../components/ContentA2'
@@ -29,8 +26,8 @@ const Hero = styled.div`
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
-    #000000 100%,
-    #000000 100%
+    ${colors.background} 100%,
+    ${colors.background} 100%
   );
   background-size: cover;
   background-position: center;
@@ -40,10 +37,12 @@ const Hero = styled.div`
   justify-content: center;
   display: grid;
   z-index: -1;
+`
 
-  @media (max-width: 960) {
-    padding: 0;
-    min-height: 100vh;
+const HeroImage = styled(Img)`
+  display: block;
+  @media (max-width: 960px) {
+    display: none;
   }
 `
 
@@ -51,18 +50,16 @@ const HeroGroup = styled.div`
   margin: 0 15vw;
   padding: 20vh 50px;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: repeat() (4, auto);
 
-  @media (max-width: 960) {
-    padding: 0;
-    min-height: 100vh;
-    padding: 10vh 50px;
+  @media (max-width: 960px) {
+    justify-content: center;
   }
 
   h1 {
     margin: 0;
-    color: white;
+    color: ${colors.highlight2};
     font-size: 2rem;
     line-height: 1.2;
   }
@@ -70,11 +67,10 @@ const HeroGroup = styled.div`
   p {
     margin: 0px;
     font-size: 2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: ${colors.theme};
   }
 
   .hero-item-1 {
-    grid-column: 2;
     grid-row: 1;
     max-width: 500px;
     justify-self: center;
@@ -82,18 +78,15 @@ const HeroGroup = styled.div`
 
   .hero-item-2 {
     margin-top: 1rem;
-    grid-column: 2;
     grid-row: 2;
   }
 
   .hero-item-3 {
-    grid-column: 2;
     grid-row: 3;
   }
 
   .hero-item-4 {
     margin-top: 5vh;
-    grid-column: 2;
     grid-row: 4;
     justify-self: center;
   }
@@ -156,37 +149,18 @@ const Container = styled.div`
   }
 `
 
-const Headline1 = styled.h1`
-  grid-column: span 2;
-  justify-self: start;
-  align-self: end;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
+const ContainerXL = styled.div`
+  max-width: 80vw;
+  margin: 0 auto;
+  justify-content: center;
   @media (max-width: 640px) {
-    font-size: 1.5rem;
-  }
-`
-const Headline2 = styled.h2`
-  grid-column: span 2;
-  justify-self: start;
-  align-self: start;
-  padding-bottom: 2rem;
-  @media (max-width: 990px) {
-    justify-self: center;
-  }
-  @media (max-width: 640px) {
-    font-size: 1.5rem;
+    padding: 0 1rem;
+    max-width: 100vw;
   }
 `
 
-const Gradient2 = styled.div`
-  opacity: 0.8;
-  background: linear-gradient(#000 0%, ${colors.theme} 100%);
-  z-index: -2;
-`
-const Black = styled.div`
-  background: black;
+const Purple = styled.div`
+  background: ${colors.theme};
   z-index: 0;
 `
 const Divider = styled.div`
@@ -199,32 +173,34 @@ const Divider2 = styled.div`
   margin-bottom: 4rem;
   width: 100%;
   height: 0.2rem;
-  background-color: ${colors.highlight};
+  background-color: ${colors.highlight2};
 `
 
 //
-// SECTION2 - Content
+// SECTION2 - Page Component
 //
 // Content is rendered here - most of it is passed down via graphql query in the next section
 //
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Img
-      fluid={data.backgroundImage.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: '100%',
-        height: '100vh',
-        zIndex: '-2',
-      }}
-    />
     <Hero>
+      <HeroImage
+        fluid={data.backgroundImage.childImageSharp.fluid}
+        style={{
+          position: 'absolute',
+          left: '0px',
+          top: '0px',
+          width: '50%',
+          height: '100%',
+          zIndex: '-2',
+          transform: 'scale(0.6)',
+        }}
+        className={'heroImage'}
+      />
       <HeroGroup>
         <img
-          src={require('../images/logo/givethio-white.svg')}
+          src={require('../images/logo/givethio-purple.svg')}
           alt="giveth.io"
           className="hero-item-1"
         />
@@ -236,124 +212,91 @@ const IndexPage = ({ data }) => (
       </HeroGroup>
     </Hero>
 
-    <ScrollableAnchor id={'heronav'}>
-      <Container id="heronav">
-        <ContentTextblock headerdata={data.contentB.edges[1]} />
-      </Container>
-    </ScrollableAnchor>
-    <Zoom>
-      <HeroNav>
-        <Block>
-          <Link to="/#dapp">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/logo/giveth-nav-logo.svg')}
-              alt=""
-            />
-            <p>Giveth Dapp</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="/#socialcoding">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/blockchain.svg')}
-              alt=""
-            />
-            <p>Social Coding</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="/#org">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/distributed-org.svg')}
-              alt=""
-            />
-            <p>Governance</p>
-          </Link>
-        </Block>
-        <Block>
-          <Link to="/#galaxy">
-            <img
-              width="80px"
-              height="80px"
-              src={require('../images/icons/cooperative-dev.svg')}
-              alt=""
-            />
-            <p>Galaxy Projects</p>
-          </Link>
-        </Block>
-      </HeroNav>
-    </Zoom>
-    <Divider2 />
-    <ScrollableAnchor id={'dapp'}>
-      <Container id="dapp">
-        <Headline1>Giveth DApp (Beta)</Headline1>
-        <Headline2>The Donation Application</Headline2>
-        <ContentDApp data={data.contentDapps.edges[0]} />
-      </Container>
-    </ScrollableAnchor>
-    <Divider />
-    <Img
-      fluid={data.imageKeyboard.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        width: '100%',
-        height: '100vh',
-        zIndex: '0',
-        opacity: '0.1',
-      }}
-    />
-    <ScrollableAnchor id={'socialcoding'}>
-      <Container id="socialcoding">
-        <Slide left>
-          <ContentASocialCoding data={data.contentA.edges[2]} />
-        </Slide>
-      </Container>
-    </ScrollableAnchor>
-    <Divider />
-    <Img
-      fluid={data.imageEthereum.childImageSharp.fluid}
-      style={{
-        position: 'absolute',
-        width: '100%',
-        height: '100vh',
-        zIndex: '0',
-        opacity: '0.1',
-      }}
-    />
-    <ScrollableAnchor id={'org'}>
-      <Container id="org">
-        <Slide right>
-          <ContentA2 data={data.contentA.edges[3]} />
-        </Slide>
-      </Container>
-    </ScrollableAnchor>
-    <Divider />
-    <Gradient2>
-      <ScrollableAnchor id={'galaxy'}>
-        <Container id="galaxy">
-          <ContentB
-            headerdata={data.contentB.edges[0]}
-            planetsdata={data.contentBcards.edges}
-            starsdata={data.contentBcardsStars.edges}
+    <Container id="heronav">
+      <ContentTextblock headerdata={data.contentB.edges[1]} />
+    </Container>
+
+    <HeroNav>
+      <Block>
+        <Link to="/#dapp">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/logo/giveth-nav-logo.svg')}
+            alt=""
           />
-        </Container>
-      </ScrollableAnchor>
-    </Gradient2>
+          <p>Giveth Dapp</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="/#socialcoding">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/blockchain.svg')}
+            alt=""
+          />
+          <p>Social Coding</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="/#org">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/distributed-org.svg')}
+            alt=""
+          />
+          <p>Governance</p>
+        </Link>
+      </Block>
+      <Block>
+        <Link to="/#galaxy">
+          <img
+            width="80px"
+            height="80px"
+            src={require('../images/icons/cooperative-dev.svg')}
+            alt=""
+          />
+          <p>Galaxy Projects</p>
+        </Link>
+      </Block>
+    </HeroNav>
+
+    <Divider2 />
+
+    <ContainerXL id="dapp">
+      <ContentDApp data={data.contentDapps.edges[0]} />
+    </ContainerXL>
+
     <Divider />
-    <ScrollableAnchor id={'dac'}>
-      <Black id="dac">
-        <Slide left>
-          <ContentA data={data.contentA.edges[1]} />
-        </Slide>
-        <Friendlogos data={data.friends.edges} />
-      </Black>
-    </ScrollableAnchor>
+
+    <Container id="socialcoding">
+      <ContentASocialCoding data={data.contentA.edges[2]} />
+    </Container>
+
+    <Divider />
+
+    <Container id="org">
+      <ContentA2 data={data.contentA.edges[3]} />
+    </Container>
+
+    <Divider />
+
+    <Container id="galaxy">
+      <ContentB
+        headerdata={data.contentB.edges[0]}
+        planetsdata={data.contentBcards.edges}
+        starsdata={data.contentBcardsStars.edges}
+      />
+    </Container>
+
+    <Divider />
+
+    <Purple id="dac">
+      <ContentA data={data.contentA.edges[1]} />
+      <Friendlogos data={data.friends.edges} />
+    </Purple>
   </Layout>
 )
 
@@ -374,9 +317,6 @@ export const query = graphql`
           image {
             file {
               url
-            }
-            fluid {
-              sizes
             }
           }
           headline1
@@ -495,7 +435,7 @@ export const query = graphql`
         }
       }
     }
-    backgroundImage: file(relativePath: { eq: "m82.jpg" }) {
+    backgroundImage: file(relativePath: { eq: "dreamcatcher.png" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 75) {
           ...GatsbyImageSharpFluid

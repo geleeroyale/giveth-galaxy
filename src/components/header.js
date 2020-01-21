@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import Button from './button'
+import colors from '../utils/colors'
 
 const Navbar = styled.div`
   position: fixed;
@@ -13,12 +14,12 @@ const Navbar = styled.div`
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &.HeaderScrolled {
-    background: rgba(0, 0, 0, 0.8);
+    background: ${colors.nav_bg};
     padding: 1rem 0;
     backdrop-filter: blur(20px);
 
     a {
-      color: #777777;
+      color: ${colors.light};
     }
   }
 
@@ -48,7 +49,7 @@ const NavGroup = styled.div`
   justify-items: center;
 
   a {
-    color: white;
+    color: ${colors.theme};
   }
 
   img {
@@ -68,6 +69,7 @@ const HomeLogo = styled.img`
     height: 20px;
   }
 `
+let $logocolor = 'purple'
 
 class Header extends React.Component {
   constructor(props) {
@@ -83,8 +85,10 @@ class Header extends React.Component {
 
     if (scrollTop > 50) {
       this.setState({ hasScrolled: true })
+      $logocolor = 'white'
     } else {
       this.setState({ hasScrolled: false })
+      $logocolor = 'purple'
     }
   }
 
@@ -104,7 +108,9 @@ class Header extends React.Component {
             <HomeLogo
               height="35px"
               width="35px"
-              src={require('../images/logo/giveth-symbol-logo-white.svg')}
+              src={require('../images/logo/giveth-symbol-logo-' +
+                $logocolor +
+                '.svg')}
               alt=""
               className="navlogo"
             />

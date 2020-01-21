@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 import {
   FaMedium,
   FaComments,
@@ -8,20 +8,22 @@ import {
   FaReddit,
   FaFacebook,
   FaYoutube,
-  FaWikipediaW
-} from "react-icons/fa";
+  FaWikipediaW,
+} from 'react-icons/fa'
+
+import colors from '../utils/colors'
 
 const SocialContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
-`;
+`
 
 const LinkContainer = styled.div`
   display: grid;
   padding-top: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   justify-content: space-evenly;
-`;
+`
 
 const SocialLink = styled.a`
   justify-self: center;
@@ -30,9 +32,9 @@ const SocialLink = styled.a`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    color: white;
+    color: ${colors.white};
   }
-`;
+`
 
 const Social = () => (
   <SocialContainer>
@@ -63,6 +65,6 @@ const Social = () => (
       </SocialLink>
     </LinkContainer>
   </SocialContainer>
-);
+)
 
-export default Social;
+export default Social

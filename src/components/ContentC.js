@@ -1,18 +1,18 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 const ContentContainer = styled.div`
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
-`;
+`
 
 const ItemContainer = styled.div`
   display: grid;
   grid-gap: 2rem 2rem;
   justify-items: center;
   opacity: 0.6;
-`;
+`
 
 const ContentItem = styled.div`
   padding: 0.5rem;
@@ -23,7 +23,7 @@ const ContentItem = styled.div`
   align-self: center;
   background: #222;
   border-radius: 10px;
-  background-image: linear-gradient(white, #4c4153);
+  background-image: linear-gradient(${colors.white}, #4c4153);
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
@@ -33,7 +33,7 @@ const ContentItem = styled.div`
     justify-items: center;
     grid-gap: 0;
   }
-`;
+`
 
 const ContentImage = styled.img`
   padding: 2rem;
@@ -47,7 +47,7 @@ const ContentImage = styled.img`
     margin: 0 auto;
     grid-row: 1;
   }
-`;
+`
 
 const ProjectTitle = styled.a`
   justify-self: center;
@@ -62,7 +62,7 @@ const ProjectTitle = styled.a`
 
   :hover {
     transform: scale(1.2) translateY(-3px);
-    color: #e01c6b;
+    color: ${colors.highlight};
   }
 
   @media (max-width: 990px) {
@@ -70,7 +70,7 @@ const ProjectTitle = styled.a`
     grid-column: 1;
     font-size: 1.5rem;
   }
-`;
+`
 
 const ProjectDescription = styled.p`
   justify-self: center;
@@ -79,7 +79,7 @@ const ProjectDescription = styled.p`
     grid-row: 3;
     grid-column: 1;
   }
-`;
+`
 
 const Screenshot = styled.img`
   max-width: 300px;
@@ -87,7 +87,7 @@ const Screenshot = styled.img`
   @media (max-width: 990px) {
     display: none;
   }
-`;
+`
 
 const LongDescription = styled.div`
   max-width: 500px;
@@ -100,13 +100,13 @@ const LongDescription = styled.div`
   @media (max-width: 990px) {
     max-width: 1fr;
   }
-`;
+`
 
 const AdditionalInfo = styled.div`
   background-color: #111;
   display: grid;
-  color: white;
-`;
+  color: ${colors.white};
+`
 
 const ContentC = ({ data }) => (
   <ContentContainer>
@@ -126,7 +126,7 @@ const ContentC = ({ data }) => (
           <AdditionalInfo>
             <LongDescription
               dangerouslySetInnerHTML={{
-                __html: edges.node.contentText.childMarkdownRemark.html
+                __html: edges.node.contentText.childMarkdownRemark.html,
               }}
             />
           </AdditionalInfo>
@@ -134,6 +134,6 @@ const ContentC = ({ data }) => (
       ))}
     </ItemContainer>
   </ContentContainer>
-);
+)
 
-export default ContentC;
+export default ContentC
