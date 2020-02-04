@@ -5,14 +5,11 @@ import { FaSlackHash } from 'react-icons/fa'
 import { colors } from '../utils/presets'
 
 const ContentContainer = styled.div`
-  padding: 20vh 0;
+  padding-top: 20vh;
+  padding: 20vh 2rem 0 2rem;
   max-width: 960px;
   margin: 0 auto;
   justify-content: center;
-
-  @media (max-width: 650px) {
-    padding: 3rem 0;
-  }
 
   .slackIcon {
     font-size: 220px;

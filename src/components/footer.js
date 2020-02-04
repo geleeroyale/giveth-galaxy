@@ -7,6 +7,7 @@ import Social from '../components/social'
 
 const OuterContainer = styled.div`
   background-color: ${colors.theme};
+  padding-bottom: 2rem;
 
   .bg-black {
     background-color: ${colors.black};
