@@ -9,6 +9,7 @@ const ContentContainer = styled.div`
 `
 const Headline1 = styled.h1`
   grid-column: span 2;
+  grid-row: 1;
   justify-self: start;
   align-self: end;
   padding: 1rem 0 0 1rem;
@@ -17,10 +18,12 @@ const Headline1 = styled.h1`
   }
   @media (max-width: 640px) {
     font-size: 1.5rem;
+    grid-row: 2;
   }
 `
 const Headline2 = styled.h2`
   grid-column: span 2;
+  grid-row: 2;
   justify-self: start;
   align-self: end;
   padding: 0 0 1rem 1rem;
@@ -29,6 +32,7 @@ const Headline2 = styled.h2`
   }
   @media (max-width: 640px) {
     font-size: 1.5rem;
+    grid-row: 3;
   }
 `
 
@@ -55,9 +59,12 @@ const ContentItem = styled.div`
 `
 
 const Screenshot = styled.img`
-  margin: auto;
+  margin: 0;
   padding: 2rem;
+  grid-column: 1;
+  align-self: center;
   @media (max-width: 990px) {
+    grid-row: 1;
     justify-self: center;
     padding: 0;
   }
@@ -68,11 +75,15 @@ const LongDescription = styled.div`
   align-self: start;
   margin: 0;
   padding: 3rem;
+  grid-row: 3;
+  grid-column: 2;
   p {
     margin: 0;
     color: ${colors.text};
   }
   @media (max-width: 990px) {
+    grid-row: 4;
+    grid-column: 1;
     max-width: 1fr;
     padding: 0.3rem;
     padding-bottom: 2rem;
@@ -91,7 +102,7 @@ const ProjectLink = styled.a`
   }
 `
 
-const ContentDApp = ({ data }) => (
+const ContentDAppCS = ({ data }) => (
   <ContentContainer>
     <ContentItem key={data.node.id}>
       <Headline1>{data.node.projectTitle}</Headline1>
@@ -110,4 +121,4 @@ const ContentDApp = ({ data }) => (
   </ContentContainer>
 )
 
-export default ContentDApp
+export default ContentDAppCS

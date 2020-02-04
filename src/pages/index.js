@@ -9,6 +9,7 @@ import ContentASocialCoding from '../components/ContentASocialCoding'
 import ContentB from '../components/ContentB'
 import ContentTextblock from '../components/ContentTextblock'
 import ContentDApp from '../components/ContentDApp'
+import ContentDAppCS from '../components/ContentDAppCS'
 import Friendlogos from '../components/Friends'
 
 import Button from '../components/button'
@@ -229,14 +230,14 @@ const IndexPage = ({ data }) => (
         </Link>
       </Block>
       <Block>
-        <Link to="/#socialcoding">
+        <Link to="/#commonsstack">
           <img
             width="80px"
             height="80px"
-            src={require('../images/icons/blockchain.svg')}
+            src={require('../images/icons/commonsstack.svg')}
             alt=""
           />
-          <p>Social Coding</p>
+          <p>The Commons Stack</p>
         </Link>
       </Block>
       <Block>
@@ -269,16 +270,22 @@ const IndexPage = ({ data }) => (
       <ContentDApp data={data.contentDapps.edges[0]} />
     </ContainerXL>
 
-    <Divider />
+    <Divider2 />
 
-    <Container id="socialcoding">
-      <ContentASocialCoding data={data.contentA.edges[2]} />
-    </Container>
+    <ContainerXL id="commonsstack">
+      <ContentDAppCS data={data.contentDapps.edges[1]} />
+    </ContainerXL>
 
     <Divider />
 
     <Container id="org">
       <ContentA2 data={data.contentA.edges[3]} />
+    </Container>
+
+    <Divider />
+
+    <Container id="socialcoding">
+      <ContentASocialCoding data={data.contentA.edges[2]} />
     </Container>
 
     <Divider />
