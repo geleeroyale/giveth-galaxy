@@ -13,7 +13,7 @@ const ContentHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, minmax(320px 1fr));
-  grid-gap: 0rem 1rem;
+  grid-gap: 0rem 3rem;
   padding-bottom: 5rem;
 
   @media (max-width: 990px) {

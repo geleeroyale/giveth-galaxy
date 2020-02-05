@@ -11,9 +11,9 @@ const Headline1 = styled.h1`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  padding: 1rem 0 0 1rem;
+  padding: 1rem 0 0 3rem;
   @media (max-width: 990px) {
-    padding: 0;
+    padding: 0.3rem;
   }
   @media (max-width: 640px) {
     font-size: 1.5rem;
@@ -23,9 +23,9 @@ const Headline2 = styled.h2`
   grid-column: span 2;
   justify-self: start;
   align-self: end;
-  padding: 0 0 1rem 1rem;
+  padding: 0 0 1rem 3rem;
   @media (max-width: 990px) {
-    padding: 0;
+    padding: 0.3rem;
   }
   @media (max-width: 640px) {
     font-size: 1.5rem;
@@ -57,6 +57,7 @@ const ContentItem = styled.div`
 const Screenshot = styled.img`
   margin: auto;
   padding: 2rem;
+  width: 100%;
   @media (max-width: 990px) {
     justify-self: center;
     padding: 0;
@@ -74,8 +75,7 @@ const LongDescription = styled.div`
   }
   @media (max-width: 990px) {
     max-width: 1fr;
-    padding: 0.3rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0.3rem;
   }
 `
 
