@@ -48,14 +48,17 @@ const HeroImage = styled(Img)`
 `
 
 const HeroGroup = styled.div`
+  position: absolute;
+  left: 28vw;
   margin: 0 15vw;
   padding: 20vh 50px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat() (4, auto);
+  grid-template-rows: repeat(4, auto);
 
   @media (max-width: 960px) {
     justify-content: center;
+    position: static;
   }
 
   h1 {

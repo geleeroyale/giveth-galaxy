@@ -22,16 +22,17 @@ const ContentItem = styled.div`
 const Headline1 = styled.h1`
   align-self: start;
   justify-self: start;
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 1;
 
   @media (max-width: 640px) {
     font-size: 1.5rem;
     word-wrap: break-word;
+    grid-column: 1;
   }
 `
 const Headline2 = styled.h2`
-  grid-column: 1;
+  grid-column: 2;
   align-self: center;
   grid-row: 2;
   padding-bottom: 2rem;
@@ -39,6 +40,7 @@ const Headline2 = styled.h2`
   @media (max-width: 640px) {
     font-size: 1.5rem;
     word-wrap: break-word;
+    grid-column: 1;
   }
 `
 const ContentImage = styled.img`
