@@ -102,11 +102,27 @@ const Layout = ({ children }) => (
             },
             {
               property: 'og:image:url',
-              content: '/giveth-og.png',
+              content: 'https://giveth.io/giveth-og.png',
+            },
+            {
+              property: 'twitter:card',
+              content: 'summary_large_image',
+            },
+            {
+              property: 'twitter:url',
+              content: 'https://giveth.io',
+            },
+            {
+              property: 'twitter:title',
+              content: data.site.siteMetadata.title,
+            },
+            {
+              property: 'twitter:description',
+              content: data.site.siteMetadata.description,
             },
             {
               property: 'twitter:image',
-              content: '/giveth-og.png',
+              content: 'https://giveth.io/giveth-og.png',
             },
           ]}
         />
